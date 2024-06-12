@@ -43,7 +43,7 @@
 		(allow_soldermask_bridges_in_footprints no)
 		(aux_axis_origin 76.835 139.7)
 		(pcbplotparams
-			(layerselection 0x00010fc_ffffffff)
+			(layerselection 0x0001000_7fffffff)
 			(plot_on_all_layers_selection 0x0000000_00000000)
 			(disableapertmacros no)
 			(usegerberextensions no)
