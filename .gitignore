@@ -1,2 +1,3 @@
 ~*
-*backups
+/.idea
+/src/schematics/multi-channel-preamp/multi-channel-preamp-backups/

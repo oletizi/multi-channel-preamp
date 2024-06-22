@@ -2167,7 +2167,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Power 6.6V Heater"
+		(property "Value" "Power 6.3V Heater"
 			(at 223.52 20.9549 90)
 			(effects
 				(font
@@ -3122,7 +3122,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Valve:Valve_ECC-83-1"
+		(property "Footprint" "OL Library:BELTON_VT9-PT Fat Pad"
 			(at 214.122 38.1 0)
 			(effects
 				(font
@@ -3213,7 +3213,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Valve:Valve_ECC-83-1"
+		(property "Footprint" "OL Library:BELTON_VT9-PT Fat Pad"
 			(at 128.778 63.5 0)
 			(effects
 				(font
@@ -3650,7 +3650,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Valve:Valve_ECC-83-1"
+		(property "Footprint" "OL Library:BELTON_VT9-PT Fat Pad"
 			(at 126.238 137.16 0)
 			(effects
 				(font

@@ -1,4 +1,4 @@
-23636846857718955
+23640283380936618
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -66996,6 +66996,20 @@ net tie
 0
 4
 4
+OL Library
+BELTON_VT9-PT
+
+
+0
+9
+9
+OL Library
+BELTON_VT9-PT Fat Pad
+
+
+0
+9
+9
 OL Library
 DIP-6_W7.62mm_Socket
 6-lead though-hole mounted DIP package, row spacing 7.62 mm (300 mils), Socket
