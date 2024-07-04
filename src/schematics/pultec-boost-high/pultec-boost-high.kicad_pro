@@ -127,7 +127,7 @@
         "min_silk_clearance": 0.0,
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 1.3,
+        "min_through_hole_diameter": 0.3,
         "min_track_width": 2.0,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
@@ -444,7 +444,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "tapeop-output.kicad_pro",
+    "filename": "pultec-boost-high.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -483,7 +483,7 @@
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
-      "svg": "../build/tapeop-output/",
+      "svg": "../build/pultec-boost-high/",
       "vrml": ""
     },
     "page_layout_descr_file": ""
@@ -589,7 +589,7 @@
   },
   "sheets": [
     [
-      "e0aac032-323d-47bd-8c35-05393bbdfa41",
+      "717bd0ef-aa3d-4bb1-a086-82f3b33d2a44",
       "Root"
     ]
   ],

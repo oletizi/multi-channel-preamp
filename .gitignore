@@ -1,3 +1,9 @@
 ~*
 /.idea
 /src/schematics/multi-channel-preamp/multi-channel-preamp-backups/
+/src/schematics/pultec-boost-high/pultec-boost-high-backups/
+/src/schematics/pultec-boost-high/fp-info-cache
+/src/schematics/tapeop-output/tapeop-output-backups/
+/src/schematics/gyraf-output/gyraf-output-backups/
+/src/schematics/gyraf-output/fp-info-cache
+/src/schematics/build/

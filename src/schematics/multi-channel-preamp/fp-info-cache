@@ -1,4 +1,4 @@
-23640283380936618
+23645439252122685
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -67011,6 +67011,20 @@ BELTON_VT9-PT Fat Pad
 9
 9
 OL Library
+CP_Axial_L37.0mm_D13.0mm_P43.00mm_Horizontal_Fat_Pad
+CP, Axial series, Axial, Horizontal, pin pitch=43mm, , length*diameter=37*13mm^2, Electrolytic Capacitor, , http://www.kemet.com/Lists/ProductCatalog/Attachments/424/KEM_AC102.pdf
+CP Axial series Axial Horizontal pin pitch 43mm  length 37mm diameter 13mm Electrolytic Capacitor
+0
+2
+2
+OL Library
+C_Axial_L12.0mm_D8.5mm_P15.00mm_Horizontal Fat Pad
+C, Axial series, Axial, Horizontal, pin pitch=15mm, , length*diameter=12*8.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B300/STYROFLEX.pdf
+C Axial series Axial Horizontal pin pitch 15mm  length 12mm diameter 8.5mm
+0
+2
+2
+OL Library
 DIP-6_W7.62mm_Socket
 6-lead though-hole mounted DIP package, row spacing 7.62 mm (300 mils), Socket
 THT DIP DIL PDIP 2.54mm 7.62mm 300mil Socket
@@ -67049,6 +67063,13 @@ OL Library
 R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal
 Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=7.62mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf
 Resistor Axial_DIN0207 series Axial Horizontal pin pitch 7.62mm 0.25W = 1/4W length 6.3mm diameter 2.5mm
+0
+2
+2
+OL Library
+R_Axial_DIN0411_L9.9mm_D3.6mm_P12.70mm_Horizontal Fat Pad
+Resistor, Axial_DIN0411 series, Axial, Horizontal, pin pitch=12.7mm, 1W, length*diameter=9.9*3.6mm^2
+Resistor Axial_DIN0411 series Axial Horizontal pin pitch 12.7mm 1W length 9.9mm diameter 3.6mm
 0
 2
 2
