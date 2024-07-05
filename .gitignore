@@ -9,3 +9,5 @@
 /src/schematics/build/
 /src/schematics/pultec-cut-low/fp-info-cache
 /src/schematics/pultec-cut-low/pultec-cut-low-backups/
+/src/schematics/pultec-cut-high/fp-info-cache
+/src/schematics/pultec-cut-high/pultec-cut-high-backups/

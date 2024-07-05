@@ -121,7 +121,7 @@
         "min_silk_clearance": 0.0,
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 1.2,
+        "min_through_hole_diameter": 1.3,
         "min_track_width": 2.0,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
@@ -431,7 +431,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "pultec-cut-low.kicad_pro",
+    "filename": "pultec-cut-high.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -576,7 +576,7 @@
   },
   "sheets": [
     [
-      "3fd8444c-a560-4c43-bf24-1420389d14ca",
+      "4691b239-fa13-45a5-b259-f3593cfecf25",
       "Root"
     ]
   ],
