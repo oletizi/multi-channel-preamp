@@ -11,3 +11,7 @@
 /src/schematics/pultec-cut-low/pultec-cut-low-backups/
 /src/schematics/pultec-cut-high/fp-info-cache
 /src/schematics/pultec-cut-high/pultec-cut-high-backups/
+/src/schematics/pultec-three-band-eq/fp-info-cache
+/src/schematics/pultec-three-band-eq/pultec-cut-high-boost-low-backups/
+/src/schematics/pultec-three-band-eq/pultec-three-band-eq-backups/
+/src/schematics/pultec-three-band-eq-fukd/
