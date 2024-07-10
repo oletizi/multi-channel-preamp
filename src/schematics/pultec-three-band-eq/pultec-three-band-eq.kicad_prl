@@ -65,7 +65,7 @@
       40
     ],
     "visible_layers": "fffffff_ffffffff",
-    "zone_display_mode": 0
+    "zone_display_mode": 1
   },
   "git": {
     "repo_password": "",
@@ -74,7 +74,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "pultec-cut-high-boost-low.kicad_prl",
+    "filename": "pultec-three-band-eq.kicad_prl",
     "version": 3
   },
   "project": {

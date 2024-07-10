@@ -2786,7 +2786,7 @@
 		)
 		(uuid "ffba5bea-5bbf-48ed-8ee0-23020154076c")
 	)
-	(text_box "High Cut"
+	(text_box "High Cut Level"
 		(exclude_from_sim no)
 		(at 177.292 91.694 0)
 		(size 103.124 66.04)
@@ -3597,7 +3597,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Hi Cut Select Return"
+		(property "Value" "Hi Cut Sel Ret"
 			(at 250.698 149.86 0)
 			(effects
 				(font
@@ -3678,7 +3678,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Low Cut Select Send"
+		(property "Value" "Lo Cut Sel Snd"
 			(at 146.05 72.644 0)
 			(effects
 				(font
@@ -3826,7 +3826,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Low Boost Select Send"
+		(property "Value" "Lo Boost Sel Snd"
 			(at 234.696 36.322 0)
 			(effects
 				(font
@@ -3964,7 +3964,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "Boost High"
+		(property "Value" "Hi Boost Lvl"
 			(at 64.77 134.6201 90)
 			(effects
 				(font
@@ -4036,7 +4036,7 @@
 				)
 			)
 		)
-		(property "Value" "Low Boost Level"
+		(property "Value" "Lo Boost Lvl"
 			(at 201.93 26.67 0)
 			(effects
 				(font
@@ -5047,7 +5047,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "5e2c8dc0-158b-423b-8c46-b953e0fdc5ae")
 		(property "Reference" "J4"
 			(at 271.78 96.5199 0)
@@ -5058,8 +5057,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "HI CUT"
-			(at 271.78 99.0599 0)
+		(property "Value" "Hi Cut Lvl"
+			(at 266.192 103.378 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5539,7 +5538,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Low Cut Select Return"
+		(property "Value" "Low Cut Sel Ret"
 			(at 162.56 41.402 0)
 			(effects
 				(font
@@ -5678,7 +5677,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Hi Cut Select Send"
+		(property "Value" "Hi Cut Sel Snd"
 			(at 256.032 118.618 0)
 			(effects
 				(font
@@ -5747,7 +5746,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Frequency Selector Send"
+		(property "Value" "Hi Boost Sel Snd"
 			(at 24.638 144.018 0)
 			(effects
 				(font
@@ -6087,7 +6086,7 @@
 				)
 			)
 		)
-		(property "Value" "High Boost Selector Return"
+		(property "Value" "Hi Boost Sel Rtn"
 			(at 153.416 150.114 0)
 			(effects
 				(font
@@ -6167,7 +6166,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Low Cut Level"
+		(property "Value" "Low Cut Lvl"
 			(at 110.49 34.2899 0)
 			(effects
 				(font
@@ -6441,7 +6440,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Low Boost Select Return"
+		(property "Value" "Lo Boost Sel Ret"
 			(at 230.124 72.136 0)
 			(effects
 				(font
@@ -6590,7 +6589,7 @@
 				)
 			)
 		)
-		(property "Value" "Inductor Return"
+		(property "Value" "Hi Boost Sel Ret"
 			(at 36.83 118.11 0)
 			(effects
 				(font
@@ -6793,7 +6792,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "Boost High Q"
+		(property "Value" "Hi  Boost Q"
 			(at 62.23 118.1099 90)
 			(effects
 				(font
@@ -7116,6 +7115,44 @@
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37"
 					(reference "C17")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet
+		(at 19.304 165.862)
+		(size 34.29 19.558)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "54f39523-689b-4197-aaca-853b2261678b")
+		(property "Sheetname" "pultec-mid-band"
+			(at 19.304 165.1504 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "pultec-mid-band.kicad_sch"
+			(at 19.304 186.0046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "pultec-three-band-eq"
+				(path "/70789860-d793-449c-9aa5-cfb021a8ba37"
+					(page "2")
 				)
 			)
 		)
