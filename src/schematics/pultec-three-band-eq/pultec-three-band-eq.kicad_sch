@@ -1323,6 +1323,12 @@
 		(uuid "716ae25f-8419-4431-b11e-4ee6616597da")
 	)
 	(junction
+		(at 102.87 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "719dee5b-28dd-4156-8bd5-21addafa3d61")
+	)
+	(junction
 		(at 189.23 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1658,16 +1664,6 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 127) (xy 62.23 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2547ae1e-eb51-4950-85ef-628646e3e1c2")
-	)
-	(wire
-		(pts
 			(xy 224.79 130.81) (xy 232.41 130.81)
 		)
 		(stroke
@@ -1705,6 +1701,16 @@
 			(type default)
 		)
 		(uuid "290c5fc1-dd31-4b9a-9b19-dacd5862975e")
+	)
+	(wire
+		(pts
+			(xy 15.24 90.17) (xy 102.87 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2aa9c8d4-fcba-4ec6-93e9-7988cf269383")
 	)
 	(wire
 		(pts
@@ -1795,16 +1801,6 @@
 			(type default)
 		)
 		(uuid "3955927d-5e85-416c-ad36-faa5d116b625")
-	)
-	(wire
-		(pts
-			(xy 102.87 66.04) (xy 102.87 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3f54b5d3-c351-4b2e-bcdd-bdf342bdbfbe")
 	)
 	(wire
 		(pts
@@ -1928,6 +1924,16 @@
 	)
 	(wire
 		(pts
+			(xy 102.87 66.04) (xy 102.87 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "524cfab5-5f11-47f2-b848-cfb007d6ac64")
+	)
+	(wire
+		(pts
 			(xy 179.07 146.05) (xy 179.07 154.94)
 		)
 		(stroke
@@ -2048,6 +2054,16 @@
 	)
 	(wire
 		(pts
+			(xy 15.24 90.17) (xy 15.24 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73c5112a-832f-4503-82f7-3283f7854a8f")
+	)
+	(wire
+		(pts
 			(xy 200.66 55.88) (xy 200.66 58.42)
 		)
 		(stroke
@@ -2098,6 +2114,16 @@
 	)
 	(wire
 		(pts
+			(xy 15.24 177.8) (xy 19.304 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "790d13b8-5298-4e0a-9252-1aebb2c61033")
+	)
+	(wire
+		(pts
 			(xy 189.23 130.81) (xy 207.01 130.81)
 		)
 		(stroke
@@ -2105,6 +2131,16 @@
 			(type default)
 		)
 		(uuid "7bb35589-1a5f-40d8-b9bc-defef5308607")
+	)
+	(wire
+		(pts
+			(xy 62.23 127) (xy 62.23 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c3b0f8d-65f5-4131-998a-f7c07452d9ee")
 	)
 	(wire
 		(pts
@@ -2135,6 +2171,16 @@
 			(type default)
 		)
 		(uuid "879ac0b9-b881-433a-8f74-5de3eeecbded")
+	)
+	(wire
+		(pts
+			(xy 102.87 68.58) (xy 102.87 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8bf188ca-edd7-4da3-8b6e-43f98ec24bf8")
 	)
 	(wire
 		(pts
@@ -7148,6 +7194,16 @@
 				)
 				(justify left top)
 			)
+		)
+		(pin "HI BOOST OUT H" input
+			(at 19.304 177.8 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "791b3786-d716-4740-bfb6-6ee0846df97c")
 		)
 		(instances
 			(project "pultec-three-band-eq"

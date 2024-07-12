@@ -1539,6 +1539,12 @@
 		(uuid "1dbc84aa-6fe7-4a04-9df0-4be4d3d78a2a")
 	)
 	(junction
+		(at 69.85 50.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "22810206-7f5c-448e-89bf-e42893729707")
+	)
+	(junction
 		(at 143.51 113.03)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1852,6 +1858,16 @@
 	)
 	(wire
 		(pts
+			(xy 67.31 43.18) (xy 69.85 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "38b4f072-0792-4ec9-98ea-b61a0dcb6f5f")
+	)
+	(wire
+		(pts
 			(xy 48.26 173.99) (xy 48.26 180.34)
 		)
 		(stroke
@@ -2139,6 +2155,16 @@
 			(type default)
 		)
 		(uuid "9251fe3c-588a-44d0-8a05-3b03adb8202d")
+	)
+	(wire
+		(pts
+			(xy 69.85 43.18) (xy 69.85 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "973ddb36-72ba-4c39-8cd2-ec70602fa053")
 	)
 	(wire
 		(pts
@@ -2431,6 +2457,18 @@
 			(justify left bottom)
 		)
 		(uuid "db5dca41-7f85-45da-add8-b6491264b100")
+	)
+	(hierarchical_label "HI BOOST OUT H"
+		(shape output)
+		(at 67.31 43.18 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7186cb11-3cd5-40e4-8aaa-a79b26b030fd")
 	)
 	(symbol
 		(lib_id "Device:C")
