@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Pultec 3-Band EQ Mid Boost/Cut")
-		(date "2024-07-06")
-		(rev "1")
+		(date "2024-07-15")
+		(rev "4")
 	)
 	(lib_symbols
 		(symbol "Connector:Screw_Terminal_01x02"
@@ -428,6 +428,405 @@
 						)
 					)
 					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Connector:Screw_Terminal_01x06"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Screw_Terminal_01x06"
+				(at 0 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic screw terminal, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "screw terminal"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "TerminalBlock*:*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Screw_Terminal_01x06_1_1"
+				(rectangle
+					(start -1.27 6.35)
+					(end 1.27 -8.89)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(circle
+					(center 0 -7.62)
+					(radius 0.635)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 -5.08)
+					(radius 0.635)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 -2.54)
+					(radius 0.635)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.5334 -7.2898) (xy 0.3302 -8.128)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.5334 -4.7498) (xy 0.3302 -5.588)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.5334 -2.2098) (xy 0.3302 -3.048)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.5334 0.3302) (xy 0.3302 -0.508)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.5334 2.8702) (xy 0.3302 2.032)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.5334 5.4102) (xy 0.3302 4.572)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.3556 -7.112) (xy 0.508 -7.9502)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.3556 -4.572) (xy 0.508 -5.4102)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.3556 -2.032) (xy 0.508 -2.8702)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.3556 0.508) (xy 0.508 -0.3302)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.3556 3.048) (xy 0.508 2.2098)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.3556 5.588) (xy 0.508 4.7498)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 0.635)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 2.54)
+					(radius 0.635)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 5.08)
+					(radius 0.635)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 5.08 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1290,127 +1689,6 @@
 				)
 			)
 		)
-		(symbol "Device:R"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 2.032 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "R"
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at -1.778 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "R res resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "R_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers hide)
@@ -1509,958 +1787,799 @@
 		)
 	)
 	(junction
-		(at 74.93 123.19)
+		(at 156.21 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0be9c5b1-d432-4f7c-80cb-aa399c66383a")
+		(uuid "054a6683-3717-48c4-a01a-a9e808a9577f")
 	)
 	(junction
-		(at 82.55 93.98)
+		(at 168.91 127)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0de93ade-018a-4f13-9ee1-02a63d30a7c0")
+		(uuid "0f9ac1f1-9dd7-4e8d-b020-2bdb4dfbe331")
 	)
 	(junction
-		(at 68.58 156.21)
+		(at 148.59 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "10f501ef-86c2-4bf8-b95f-6646b167ee87")
+		(uuid "238bd7e3-8e03-49ed-9fbf-874c39fdbc1f")
 	)
 	(junction
-		(at 118.11 93.98)
+		(at 152.4 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "15922ff5-e61d-48d9-9b11-efc1debacd2c")
+		(uuid "2f2cc1bb-71aa-48f3-970b-6765e333f543")
 	)
 	(junction
-		(at 165.1 110.49)
+		(at 172.72 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "1dbc84aa-6fe7-4a04-9df0-4be4d3d78a2a")
+		(uuid "4b5410aa-d516-4cb1-b04b-3a12aefce0a0")
 	)
 	(junction
-		(at 69.85 50.8)
+		(at 138.43 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "22810206-7f5c-448e-89bf-e42893729707")
+		(uuid "526318bc-5f74-496e-b629-2bd1bb9f2a14")
 	)
 	(junction
-		(at 143.51 113.03)
+		(at 116.84 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "361b38d3-753c-4c96-946a-eba605939f79")
+		(uuid "63cde6d9-b828-4b31-b590-d43731186c02")
 	)
 	(junction
-		(at 158.75 115.57)
+		(at 134.62 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "3d4bb096-c92e-46ff-8381-2307d3dacc26")
+		(uuid "691dee34-b682-416c-b2ce-8506b28f836f")
 	)
 	(junction
-		(at 129.54 120.65)
+		(at 102.87 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "40e79946-d9e5-4111-9e9f-81ff5f162bd6")
+		(uuid "77fc57d3-f59f-4c9e-98e7-ff744408e866")
 	)
 	(junction
-		(at 46.99 128.27)
+		(at 168.91 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "452542a2-4de0-43b2-9152-247eab76492a")
+		(uuid "7af743e9-48e8-4d9b-80ca-32cb91a3b1e1")
 	)
 	(junction
-		(at 191.77 93.98)
+		(at 186.69 124.46)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "4ca09b3c-776c-4606-a1c0-0b090aad699e")
+		(uuid "7e3e1521-d233-4603-b3ba-2b0de416777f")
 	)
 	(junction
-		(at 184.15 93.98)
+		(at 120.65 127)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "64178eea-15d1-4379-b089-448d0fe59327")
+		(uuid "7f79a0a2-c8cd-4eab-a68d-b08f624f86f7")
 	)
 	(junction
-		(at 74.93 93.98)
+		(at 172.72 33.02)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "7dea7c96-580e-44dd-bb25-fccb50f961df")
+		(uuid "80babd0e-1e68-4702-a06f-7b047c204e4e")
 	)
 	(junction
-		(at 96.52 120.65)
+		(at 124.46 33.02)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "8015d527-f61e-4046-813a-d037080cbf72")
+		(uuid "84cd44f1-7e9b-4202-b880-426aad71e099")
 	)
 	(junction
-		(at 114.3 93.98)
+		(at 120.65 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "8750dc84-d85b-40f9-9236-93e02d567276")
+		(uuid "858613a4-6e79-462f-b2ed-f937520b9f18")
 	)
 	(junction
-		(at 199.39 93.98)
+		(at 102.87 124.46)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "983e2adb-7b28-42f6-83a2-41cb928f30a9")
+		(uuid "94d6681d-7691-47bb-b71f-00d26798ea7b")
 	)
 	(junction
-		(at 74.93 50.8)
+		(at 158.75 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "996be1c3-ae4c-4ce6-b345-19f94bea0838")
+		(uuid "ba69261c-8cc0-4ed0-974a-c6b9cc680d24")
 	)
 	(junction
-		(at 111.76 123.19)
+		(at 161.29 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "9e1fb2ca-5414-42fb-b90a-d4c89122f1c6")
+		(uuid "c1e167a1-5ab2-4174-9bf9-9dc19f55878c")
 	)
 	(junction
-		(at 114.3 118.11)
+		(at 163.83 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a17964e1-4f37-49a9-a6d8-f3729d5c8523")
+		(uuid "c4db45fb-617a-4d61-844c-e0780e142517")
 	)
 	(junction
-		(at 149.86 93.98)
+		(at 186.69 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a31ce06d-2b23-4d02-bff8-22c3c64714e5")
+		(uuid "d5f12e30-05e7-496b-b2c6-4e4c7b3ee782")
 	)
 	(junction
-		(at 90.17 125.73)
+		(at 152.4 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a7e329e4-784c-4556-9e23-25ad58823d54")
+		(uuid "e0058f08-5037-43d0-9bab-f710de9ab7f3")
 	)
 	(junction
-		(at 46.99 96.52)
+		(at 138.43 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "b3d448c5-af6a-45d4-ae91-8ec510c0012c")
+		(uuid "f085b0ee-fcd6-473e-83e2-18bc6a70e9f4")
 	)
 	(junction
-		(at 62.23 130.81)
+		(at 130.81 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "b49d9b35-ef61-4674-97ee-85c5437ea0cc")
+		(uuid "f9e2882d-99c9-4476-b799-7842b8ca200a")
 	)
-	(junction
-		(at 149.86 96.52)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "bc118ff6-341c-4ab8-ae02-a00ceb81756d")
-	)
-	(junction
-		(at 180.34 113.03)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "dde90300-3a0f-4de4-a7dc-3e63ba566405")
-	)
-	(junction
-		(at 219.71 93.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e8f0d807-8115-4392-ac20-bd2e7c5b3dcf")
-	)
-	(junction
-		(at 48.26 162.56)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "eec21151-e2ad-435b-be54-88fcfa772bd5")
-	)
-	(junction
-		(at 96.52 50.8)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f2dd5ccd-f2ff-447c-ae10-bfe4a1e5db15")
-	)
-	(wire
-		(pts
-			(xy 62.23 130.81) (xy 219.71 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0037bd45-a5d1-4aa3-b51d-021821394f9f")
-	)
-	(wire
-		(pts
-			(xy 46.99 93.98) (xy 46.99 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "075e7e82-11f2-42cb-8675-de5aebbe4c56")
-	)
-	(wire
-		(pts
-			(xy 111.76 120.65) (xy 111.76 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0baa03cf-f242-4d25-a1cc-e2dcf9283583")
-	)
-	(wire
-		(pts
-			(xy 158.75 115.57) (xy 219.71 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0da1c11e-9d74-4797-bacf-a236459b7db7")
-	)
-	(wire
-		(pts
-			(xy 143.51 118.11) (xy 219.71 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1066d850-2296-4854-a458-f49cfb3d6cc2")
-	)
-	(wire
-		(pts
-			(xy 191.77 93.98) (xy 191.77 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "108b6734-da93-4a53-a47a-4d411fd4fc28")
-	)
-	(wire
-		(pts
-			(xy 191.77 93.98) (xy 199.39 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "155cf128-a959-42fa-a342-7b2036a2ac3f")
-	)
-	(wire
-		(pts
-			(xy 82.55 93.98) (xy 82.55 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "17de404a-146f-4d52-8543-5d89cc61631d")
-	)
-	(wire
-		(pts
-			(xy 46.99 96.52) (xy 46.99 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1ba1fbee-9f14-4a8e-a271-45c20b80c52e")
-	)
-	(wire
-		(pts
-			(xy 48.26 153.67) (xy 48.26 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "215af0b9-a735-4757-8dbe-7a0d8c9b68dd")
-	)
-	(wire
-		(pts
-			(xy 158.75 113.03) (xy 158.75 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "22e19729-970e-4c99-b3d0-5b888b4cea11")
-	)
-	(wire
-		(pts
-			(xy 96.52 93.98) (xy 96.52 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "253a078d-a4e3-4347-9a0b-87d3216d0c28")
-	)
-	(wire
-		(pts
-			(xy 60.96 162.56) (xy 66.04 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2afa0307-e2e8-493b-9932-7dd151fa9ac7")
-	)
-	(wire
-		(pts
-			(xy 67.31 93.98) (xy 67.31 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2c4a9f61-d8e3-4c12-98b6-676569e3ed66")
-	)
 	(wire
 		(pts
-			(xy 121.92 118.11) (xy 129.54 118.11)
+			(xy 168.91 134.62) (xy 168.91 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2d8c9392-2f4d-468a-8523-36c1e70a9ea6")
+		(uuid "01a18092-1aac-4d1c-96af-01e5a54c5e10")
 	)
 	(wire
 		(pts
-			(xy 165.1 110.49) (xy 165.1 113.03)
+			(xy 148.59 129.54) (xy 152.4 129.54)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2f00b87f-8c64-4731-9442-8b48bca60c2c")
+		(uuid "101402f9-c982-4ac7-96e5-3852e4dffcac")
 	)
 	(wire
 		(pts
-			(xy 48.26 162.56) (xy 48.26 166.37)
+			(xy 175.26 77.47) (xy 175.26 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "312374f5-29a5-4ec0-b9b1-19bb1f3a1861")
+		(uuid "116480f9-4d15-4e7a-985f-7aa6e66667c5")
 	)
 	(wire
 		(pts
-			(xy 74.93 50.8) (xy 96.52 50.8)
+			(xy 148.59 33.02) (xy 148.59 39.37)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "31c9df86-cf6a-4c70-ab5c-858449d9b0c5")
+		(uuid "18a3831e-44ca-4945-99c2-646e4da23a7d")
 	)
 	(wire
 		(pts
-			(xy 67.31 43.18) (xy 69.85 43.18)
+			(xy 190.5 144.78) (xy 190.5 139.7)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "38b4f072-0792-4ec9-98ea-b61a0dcb6f5f")
+		(uuid "350d47df-d143-4b4b-968b-e6cd5fbb4e48")
 	)
 	(wire
 		(pts
-			(xy 48.26 173.99) (xy 48.26 180.34)
+			(xy 168.91 127) (xy 172.72 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3a57ed0a-2b69-4ba4-9a3a-20b3c96156fe")
+		(uuid "3afc0d3a-9702-4980-941a-c0b46d8d83a0")
 	)
 	(wire
 		(pts
-			(xy 149.86 96.52) (xy 143.51 96.52)
+			(xy 156.21 144.78) (xy 168.91 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3b19a4c6-4c94-44b1-8477-84367802745e")
+		(uuid "3b972026-324d-41e4-bb20-ea3ec409a014")
 	)
 	(wire
 		(pts
-			(xy 114.3 93.98) (xy 114.3 118.11)
+			(xy 120.65 127) (xy 143.51 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3b564b94-eb33-4208-899f-c7a2bbf6142d")
+		(uuid "3ca95aa8-de54-459a-9fba-dabf5ca7297e")
 	)
 	(wire
 		(pts
-			(xy 74.93 125.73) (xy 74.93 123.19)
+			(xy 148.59 152.4) (xy 148.59 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3e388212-ae47-4c10-a5d2-909bc7b1ccb3")
+		(uuid "3dc83f93-85c2-4762-bcd2-35f1f2ac3080")
 	)
 	(wire
 		(pts
-			(xy 165.1 93.98) (xy 165.1 110.49)
+			(xy 152.4 129.54) (xy 156.21 129.54)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3fa37d5c-63ad-4853-99a2-7ac45e4ccb78")
+		(uuid "3f0551f2-0013-4dae-9010-b89287067b74")
 	)
 	(wire
 		(pts
-			(xy 118.11 93.98) (xy 118.11 96.52)
+			(xy 151.13 124.46) (xy 151.13 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "41252c54-99fe-4ce9-b911-62df839e5b6c")
+		(uuid "3f3970d6-239d-4eb4-ad44-fd7b419fc8ae")
 	)
 	(wire
 		(pts
-			(xy 149.86 93.98) (xy 149.86 96.52)
+			(xy 168.91 144.78) (xy 172.72 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "457ed998-fa75-42d8-90a5-6169e98e14f4")
+		(uuid "43096452-e884-4f9d-884e-3342b26a4976")
 	)
 	(wire
 		(pts
-			(xy 48.26 162.56) (xy 53.34 162.56)
+			(xy 102.87 144.78) (xy 99.06 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4773287a-f8cd-4b1a-8c33-767b16cf7e4f")
+		(uuid "44c130ee-be52-497a-8618-eb42f8e319aa")
 	)
 	(wire
 		(pts
-			(xy 143.51 115.57) (xy 143.51 113.03)
+			(xy 99.06 132.08) (xy 99.06 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "49035860-70e6-462f-a419-12e5675be8f9")
+		(uuid "47d2028f-796f-4270-bf73-e9fe6c301941")
 	)
 	(wire
 		(pts
-			(xy 172.72 110.49) (xy 180.34 110.49)
+			(xy 172.72 127) (xy 172.72 134.62)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4995e387-a606-45a1-a833-dc62fda5010a")
+		(uuid "4c4c25cb-af42-4ae9-a090-230c74f1d67b")
 	)
 	(wire
 		(pts
-			(xy 74.93 93.98) (xy 74.93 123.19)
+			(xy 120.65 144.78) (xy 116.84 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "49cbab56-88f5-4980-964e-0cf482dfe165")
+		(uuid "4cedf5d2-c372-4d9e-a270-16892858372e")
 	)
 	(wire
 		(pts
-			(xy 191.77 110.49) (xy 219.71 110.49)
+			(xy 148.59 124.46) (xy 148.59 129.54)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "54cc1901-1e81-4a24-bd6d-61d5cb506e81")
+		(uuid "50768acc-89f8-4f90-830b-746cb6ca72e8")
 	)
 	(wire
 		(pts
-			(xy 71.12 162.56) (xy 76.2 162.56)
+			(xy 172.72 144.78) (xy 172.72 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "59d17b81-6ead-4efd-b9f5-432ca5cc077b")
+		(uuid "52765829-caa6-4bb4-8a75-9502cd22c77a")
 	)
 	(wire
 		(pts
-			(xy 151.13 113.03) (xy 158.75 113.03)
+			(xy 151.13 152.4) (xy 167.64 152.4)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5b329797-c713-4193-9231-ccf030d3c4d5")
+		(uuid "5698efe2-6e2e-436f-8aef-dab4e303331a")
 	)
 	(wire
 		(pts
-			(xy 151.13 115.57) (xy 143.51 115.57)
+			(xy 146.05 129.54) (xy 138.43 129.54)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5e465537-9f28-4b49-a712-c83a6edc072b")
+		(uuid "5cf26eb7-737d-47fd-a07b-b1c0ef50c1e4")
 	)
 	(wire
 		(pts
-			(xy 121.92 120.65) (xy 114.3 120.65)
+			(xy 163.83 73.66) (xy 161.29 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6555d7bf-5020-4736-9f58-0074bf6a02d3")
+		(uuid "60810634-d463-40ef-bcfa-4616532d2dfe")
 	)
 	(wire
 		(pts
-			(xy 199.39 93.98) (xy 199.39 105.41)
+			(xy 138.43 144.78) (xy 148.59 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "67eeefde-ae11-40f5-ab27-2e72bb20ea06")
+		(uuid "6127118f-a58a-42fe-9e0c-211dc4e90967")
 	)
 	(wire
 		(pts
-			(xy 129.54 120.65) (xy 219.71 120.65)
+			(xy 186.69 132.08) (xy 186.69 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7099055c-c5cc-411a-876c-a714f07d2c6f")
+		(uuid "635e17a5-a670-4b66-aeab-d0f0869c6588")
 	)
 	(wire
 		(pts
-			(xy 62.23 128.27) (xy 62.23 130.81)
+			(xy 134.62 129.54) (xy 138.43 129.54)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "716dbb75-282f-4647-ae18-2f8f6a052795")
+		(uuid "64cef655-113b-4514-98ec-eab3eae5af49")
 	)
 	(wire
 		(pts
-			(xy 143.51 96.52) (xy 143.51 113.03)
+			(xy 116.84 134.62) (xy 116.84 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "75d300b8-d5a8-4bea-b420-8eb079ba1a0e")
+		(uuid "68142c5a-bf1d-44fa-8525-f3f139597977")
 	)
 	(wire
 		(pts
-			(xy 165.1 93.98) (xy 184.15 93.98)
+			(xy 186.69 144.78) (xy 190.5 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7b52f303-ae04-4c05-b41b-5c0f13c21af0")
+		(uuid "68988aee-c42b-4df6-bead-f21636fe3463")
 	)
 	(wire
 		(pts
-			(xy 207.01 105.41) (xy 219.71 105.41)
+			(xy 128.27 152.4) (xy 130.81 152.4)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7b596744-1f9e-44db-b86d-29176004890a")
+		(uuid "6b96edde-2f51-4720-acc8-9c16d47f2949")
 	)
 	(wire
 		(pts
-			(xy 54.61 128.27) (xy 62.23 128.27)
+			(xy 134.62 137.16) (xy 134.62 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7f2c7f7e-6241-48b7-ac78-8a85f14f4448")
+		(uuid "6f292a30-1162-4bb5-83c7-faca316426e2")
 	)
 	(wire
 		(pts
-			(xy 74.93 128.27) (xy 219.71 128.27)
+			(xy 172.72 35.56) (xy 172.72 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "815aa103-54df-4c91-914e-812b159d1835")
+		(uuid "734b3fa1-e681-41d6-9e95-16d2b7427145")
 	)
 	(wire
 		(pts
-			(xy 96.52 123.19) (xy 96.52 120.65)
+			(xy 120.65 127) (xy 120.65 134.62)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8343847a-f55a-4081-bc22-dbbeff2792f0")
+		(uuid "737bbb5e-713e-43c2-9e6c-77b92e0af862")
 	)
 	(wire
 		(pts
-			(xy 104.14 123.19) (xy 96.52 123.19)
+			(xy 148.59 144.78) (xy 152.4 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "85ba2427-0882-4c9a-bc08-29fbd5018da2")
+		(uuid "7b64354a-d0de-4a20-bf07-3d710f2894d2")
 	)
 	(wire
 		(pts
-			(xy 82.55 125.73) (xy 74.93 125.73)
+			(xy 153.67 124.46) (xy 186.69 124.46)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "87586430-0ac7-41aa-b5bf-3facfb5d08c1")
+		(uuid "7f03f5e0-39b3-4a37-bebc-3ad5c4a3a7d4")
 	)
 	(wire
 		(pts
-			(xy 118.11 93.98) (xy 114.3 93.98)
+			(xy 152.4 137.16) (xy 152.4 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8e57b53c-dc80-41b7-8e53-e4b256567f86")
+		(uuid "808e2bfe-e8b9-4ec2-8f3e-73dd77328c92")
 	)
 	(wire
 		(pts
-			(xy 184.15 93.98) (xy 184.15 110.49)
+			(xy 151.13 127) (xy 168.91 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9251fe3c-588a-44d0-8a05-3b03adb8202d")
+		(uuid "8421712b-8f57-47ce-8944-a41f52a60d81")
 	)
 	(wire
 		(pts
-			(xy 69.85 43.18) (xy 69.85 50.8)
+			(xy 134.62 144.78) (xy 120.65 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "973ddb36-72ba-4c39-8cd2-ec70602fa053")
+		(uuid "88484ab9-3f06-49e7-829f-d08989247834")
 	)
 	(wire
 		(pts
-			(xy 72.39 50.8) (xy 74.93 50.8)
+			(xy 175.26 73.66) (xy 163.83 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "99506273-3205-4eed-bf02-f190ca417521")
+		(uuid "9b36a5e4-edc1-494b-882e-cb686261254c")
 	)
 	(wire
 		(pts
-			(xy 135.89 93.98) (xy 135.89 118.11)
+			(xy 120.65 144.78) (xy 120.65 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a14c08f0-3a1b-4cbd-8c98-51ea8662a0d3")
+		(uuid "9c2b8c5c-93cf-40a0-80fc-bed965c6e2e5")
 	)
 	(wire
 		(pts
-			(xy 199.39 107.95) (xy 219.71 107.95)
+			(xy 152.4 144.78) (xy 156.21 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a6e6e02d-85a2-46b3-86d4-9b74d890f4fa")
+		(uuid "a3a228c1-92de-4153-9149-c12de4aa49e5")
 	)
 	(wire
 		(pts
-			(xy 68.58 156.21) (xy 68.58 162.56)
+			(xy 114.3 152.4) (xy 114.3 156.21)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "aebfa498-1458-4717-b5e4-8451b7b7f2b7")
+		(uuid "a7834a4f-f82a-47f2-85c8-557064028fd3")
 	)
 	(wire
 		(pts
-			(xy 53.34 50.8) (xy 69.85 50.8)
+			(xy 138.43 129.54) (xy 138.43 137.16)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "af5dd41f-7460-49a0-9c67-81ce7535f9d8")
+		(uuid "ac593759-84c5-4daa-a390-53df171b0629")
 	)
 	(wire
 		(pts
-			(xy 90.17 125.73) (xy 219.71 125.73)
+			(xy 125.73 152.4) (xy 114.3 152.4)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b2452010-f0cd-4053-b267-5a5603955bf0")
+		(uuid "b1b9ef64-69dd-4632-ba94-faa0e451d536")
 	)
 	(wire
 		(pts
-			(xy 180.34 110.49) (xy 180.34 113.03)
+			(xy 172.72 33.02) (xy 191.77 33.02)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b2ee4ce6-a866-4efa-804c-c26b351c578c")
+		(uuid "b2d293db-eac9-4c1e-8865-d1758e22f60b")
 	)
 	(wire
 		(pts
-			(xy 114.3 120.65) (xy 114.3 118.11)
+			(xy 161.29 73.66) (xy 158.75 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c294f1c3-4b77-49d5-abe1-7292256a0a19")
+		(uuid "b8617950-58ba-41fc-b085-f3a869ae3891")
 	)
 	(wire
 		(pts
-			(xy 46.99 130.81) (xy 46.99 128.27)
+			(xy 143.51 127) (xy 143.51 124.46)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c314c119-153e-49b0-817c-1856612107eb")
+		(uuid "bedf1b87-080e-4f02-b148-342141d00e61")
 	)
 	(wire
 		(pts
-			(xy 83.82 162.56) (xy 83.82 180.34)
+			(xy 102.87 124.46) (xy 102.87 132.08)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c543da17-a002-4160-a2fb-a31b20761d7a")
+		(uuid "c182941f-3259-4d91-a296-19f28106b039")
 	)
 	(wire
 		(pts
-			(xy 219.71 93.98) (xy 219.71 96.52)
+			(xy 124.46 33.02) (xy 146.05 33.02)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "cb20a467-2fe9-45ff-9daf-24ef6a41ac7f")
+		(uuid "caa9a9ee-8c26-41c4-8318-13891644b09f")
 	)
 	(wire
 		(pts
-			(xy 74.93 93.98) (xy 67.31 93.98)
+			(xy 124.46 35.56) (xy 124.46 41.91)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "cd9965c2-efc1-4407-870e-b12c77f27e37")
+		(uuid "cf445b90-7a6e-4fa8-8664-f61e6b23af77")
 	)
 	(wire
 		(pts
-			(xy 165.1 113.03) (xy 172.72 113.03)
+			(xy 146.05 124.46) (xy 146.05 129.54)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ce934229-e7ff-4f49-a658-689da2d474e0")
+		(uuid "d670371d-f1f7-413b-bdca-00daefec6dbe")
 	)
 	(wire
 		(pts
-			(xy 82.55 123.19) (xy 90.17 123.19)
+			(xy 102.87 124.46) (xy 140.97 124.46)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d25ccef7-bc34-472f-a2ff-60ebeebbe29d")
+		(uuid "dd9f3192-46f7-436b-aeef-c9739004ed3e")
 	)
 	(wire
 		(pts
-			(xy 114.3 93.98) (xy 96.52 93.98)
+			(xy 102.87 144.78) (xy 102.87 139.7)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d300a0eb-9274-4679-98f6-2b89c6e3c93e")
+		(uuid "df256fe3-0c3e-425b-9309-91885a7da95f")
 	)
 	(wire
 		(pts
-			(xy 66.04 156.21) (xy 68.58 156.21)
+			(xy 172.72 144.78) (xy 186.69 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d5979935-6854-4771-9394-25702eabf3dd")
+		(uuid "e1b3677c-6f72-430d-b23c-5b2e10551c53")
 	)
 	(wire
 		(pts
-			(xy 96.52 50.8) (xy 99.06 50.8)
+			(xy 190.5 124.46) (xy 190.5 132.08)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d72e3408-7248-4f21-b98f-f9a3e4b65eb0")
+		(uuid "e48b4d08-bf41-440d-af83-858702702669")
 	)
 	(wire
 		(pts
-			(xy 184.15 93.98) (xy 191.77 93.98)
+			(xy 99.06 124.46) (xy 102.87 124.46)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dcc13efa-d5f3-4442-bee7-b4cb2416adba")
+		(uuid "e6f6b642-ef5b-4d48-adc5-9aca8f8163b7")
 	)
 	(wire
 		(pts
-			(xy 82.55 93.98) (xy 74.93 93.98)
+			(xy 130.81 152.4) (xy 146.05 152.4)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e01e986e-c6c4-4af1-a24c-ede4b94432c5")
+		(uuid "e8693119-eaa8-43a7-8232-efbabb520dcf")
 	)
 	(wire
 		(pts
-			(xy 180.34 113.03) (xy 219.71 113.03)
+			(xy 146.05 100.33) (xy 148.59 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e15cad72-7f2d-43e0-8c4d-9f5648b22239")
+		(uuid "eb8b5160-644f-49d9-b1d5-b19b30210068")
 	)
 	(wire
 		(pts
-			(xy 54.61 130.81) (xy 46.99 130.81)
+			(xy 116.84 127) (xy 120.65 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e17f1bba-fd3b-4e94-99a3-7c29a7e6a55f")
+		(uuid "ebf727dd-3d16-40e8-bbf9-6868af15ff1b")
 	)
 	(wire
 		(pts
-			(xy 90.17 123.19) (xy 90.17 125.73)
+			(xy 151.13 33.02) (xy 172.72 33.02)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e401a5ea-17dd-400a-8ff1-4a9bb9719a34")
+		(uuid "ec6b9e4c-d542-487f-8630-0b45ccaad057")
 	)
 	(wire
 		(pts
-			(xy 111.76 123.19) (xy 219.71 123.19)
+			(xy 110.49 33.02) (xy 124.46 33.02)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e55650d0-499b-4bf3-add5-950abfd520a1")
+		(uuid "eff05075-300f-4a76-b923-7fa94023cee3")
 	)
 	(wire
 		(pts
-			(xy 104.14 120.65) (xy 111.76 120.65)
+			(xy 116.84 144.78) (xy 102.87 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e8c02e33-06bf-4d6e-aea6-e42cea784508")
+		(uuid "fa564f59-e456-4fdf-bcd7-708108b5ea1c")
 	)
 	(wire
 		(pts
-			(xy 129.54 118.11) (xy 129.54 120.65)
+			(xy 186.69 124.46) (xy 190.5 124.46)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f431a356-613e-479f-ad20-5c0297c90215")
+		(uuid "fb04026e-20dd-4734-b9f5-2935420a8b65")
 	)
 	(wire
 		(pts
-			(xy 199.39 93.98) (xy 219.71 93.98)
+			(xy 134.62 144.78) (xy 138.43 144.78)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f775d134-1571-4f98-a996-d3f2337c3f21")
+		(uuid "fb538f9a-e203-487b-a93c-5f5d47dbd107")
 	)
 	(wire
 		(pts
-			(xy 149.86 93.98) (xy 135.89 93.98)
+			(xy 156.21 129.54) (xy 156.21 137.16)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fbf6f63c-a00f-41f9-9737-9e9affe337db")
+		(uuid "ff623944-70fd-4cdf-85f3-d729b051add9")
 	)
-	(label "IN"
-		(at 48.26 153.67 0)
+	(label "MID L SND"
+		(at 148.59 39.37 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "cd46a7bd-2e79-4dc2-951d-b924b7ec6ad6")
+		(uuid "5cc3ffb7-6c69-40ee-9858-3e02d53899fb")
 	)
-	(label "HI BOOST OUT"
-		(at 53.34 50.8 0)
+	(label "MID OUT"
+		(at 167.64 152.4 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "db5dca41-7f85-45da-add8-b6491264b100")
+		(uuid "b523c2d7-1996-41f6-a5d9-cc9ade9d7864")
 	)
-	(hierarchical_label "HI BOOST OUT H"
-		(shape output)
-		(at 67.31 43.18 180)
+	(label "MID OUT"
+		(at 191.77 33.02 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d3a60cab-cba0-489d-8785-fdde95f84b78")
+	)
+	(hierarchical_label "MID IN"
+		(shape input)
+		(at 110.49 33.02 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2472,152 +2591,16 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 71.12 128.27 90)
+		(at 186.69 128.27 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "03021c24-41bc-4c97-b7c6-369a4ec7c965")
-		(property "Reference" "C45"
-			(at 71.12 120.65 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "4n7"
-			(at 71.12 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 74.93 127.3048 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 71.12 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 71.12 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7f2cfa25-42ec-40ff-a74b-1ee75e75fc6b")
-		)
-		(pin "1"
-			(uuid "0b116cb9-0647-4b9f-a043-351ec8f003d0")
-		)
-		(instances
-			(project "pultec-three-band-eq"
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C45")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 58.42 130.81 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "09e99659-1b68-4566-bbe2-f2d9f5e7fa8f")
-		(property "Reference" "C46"
-			(at 58.42 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "2n2"
-			(at 58.42 125.73 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 62.23 129.8448 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 58.42 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 58.42 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "4c28c695-c9b4-4c57-ac62-cb32d172b906")
-		)
-		(pin "1"
-			(uuid "c2e97558-6060-46d6-a9d9-ebbd068ba01d")
-		)
-		(instances
-			(project "pultec-three-band-eq"
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C46")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 48.26 170.18 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0b4fcdb0-9376-40b5-9a47-599f48d9468f")
-		(property "Reference" "R4"
-			(at 50.8 168.9099 0)
+		(uuid "1dac6fc8-60c2-4428-85e0-9f689f4226c7")
+		(property "Reference" "C40"
+			(at 190.5 126.9999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2625,8 +2608,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100K"
-			(at 50.8 171.4499 0)
+		(property "Value" "Mid C6A"
+			(at 190.5 129.5399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2634,76 +2617,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OL Library:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
-			(at 46.482 170.18 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 48.26 170.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 48.26 170.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "c19910de-db6a-499c-b6ac-f701b3da914d")
-		)
-		(pin "1"
-			(uuid "ed8c6fbc-6cf4-422f-aff7-ed33d62defaf")
-		)
-		(instances
-			(project ""
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 168.91 110.49 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0e294d89-70e3-4e70-a9e2-78e5923e1e90")
-		(property "Reference" "C38"
-			(at 168.91 102.87 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "3n3"
-			(at 168.91 105.41 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 172.72 109.5248 0)
+			(at 187.6552 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2712,7 +2627,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 168.91 110.49 0)
+			(at 186.69 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2721,7 +2636,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 168.91 110.49 0)
+			(at 186.69 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2729,16 +2644,16 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "b85c1b7b-1435-429c-ada1-508d1a00e864")
-		)
 		(pin "1"
-			(uuid "31f2a02e-7173-4dfb-bd96-4b90bf90fe41")
+			(uuid "9654f1c1-1dc1-4f3d-b92d-f9921e2e594f")
+		)
+		(pin "2"
+			(uuid "7e4ec0e2-27e7-4675-b367-850857e10aca")
 		)
 		(instances
 			(project "pultec-three-band-eq"
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C38")
+					(reference "C40")
 					(unit 1)
 				)
 			)
@@ -2746,31 +2661,34 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 139.7 118.11 90)
+		(at 138.43 140.97 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1179d30f-b108-45ee-9755-59de5bf02378")
+		(fields_autoplaced yes)
+		(uuid "1fc41126-92ab-499c-be3b-5cc8dfceb697")
 		(property "Reference" "C13"
-			(at 139.7 110.49 90)
+			(at 142.24 139.6999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "12n"
-			(at 139.7 113.03 90)
+		(property "Value" "Mid C3B"
+			(at 142.24 142.2399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 143.51 117.1448 0)
+			(at 139.3952 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2779,7 +2697,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 139.7 118.11 0)
+			(at 138.43 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2788,7 +2706,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 139.7 118.11 0)
+			(at 138.43 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2796,11 +2714,11 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "13e1b91c-f6cb-4c79-bc86-85d83122ea1c")
-		)
 		(pin "1"
-			(uuid "a9c477a7-a15c-4dc6-8ed2-912e84d69b38")
+			(uuid "95dfc0d7-2bed-4cd5-9a77-dadd4120da83")
+		)
+		(pin "2"
+			(uuid "a73326c1-be0a-433f-bb2d-030320a348d0")
 		)
 		(instances
 			(project "pultec-three-band-eq"
@@ -2813,32 +2731,34 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 86.36 125.73 90)
+		(at 168.91 130.81 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "13d66596-33f8-47fa-bbcb-e2fc831a403b")
-		(property "Reference" "C43"
-			(at 86.36 118.11 90)
+		(uuid "235eb9a1-1ce3-48b0-ad3a-d9ce3052077e")
+		(property "Reference" "C38"
+			(at 172.72 129.5399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "4n7"
-			(at 86.36 120.65 90)
+		(property "Value" "Mid C5A"
+			(at 172.72 132.0799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 90.17 124.7648 0)
+			(at 169.8752 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2847,7 +2767,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 86.36 125.73 0)
+			(at 168.91 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2856,7 +2776,354 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 86.36 125.73 0)
+			(at 168.91 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "db099879-f583-4812-8626-1fda4dcf1e5a")
+		)
+		(pin "2"
+			(uuid "f5a85a53-5e35-4672-9385-96d490318b1b")
+		)
+		(instances
+			(project "pultec-three-band-eq"
+				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
+					(reference "C38")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 102.87 135.89 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2bb60ff8-167f-4d84-b5e6-6b8f5d8dd479")
+		(property "Reference" "C9"
+			(at 106.68 134.6199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Mid C1B"
+			(at 106.68 137.1599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
+			(at 103.8352 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 102.87 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 102.87 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "76d0517b-e835-4d9d-abbf-c5c245076907")
+		)
+		(pin "2"
+			(uuid "09809263-d33b-4f3b-b609-bed3d535fc5c")
+		)
+		(instances
+			(project "pultec-three-band-eq"
+				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 156.21 140.97 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "332f1e03-72cd-49c2-9b29-c877940e1d9f")
+		(property "Reference" "C37"
+			(at 160.02 139.6999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Mid C4B"
+			(at 160.02 142.2399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
+			(at 157.1752 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 156.21 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 156.21 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7524e5ff-5546-477c-973d-21babf028c97")
+		)
+		(pin "2"
+			(uuid "10a74ccc-9ba0-4068-848f-0f2f93788335")
+		)
+		(instances
+			(project "pultec-three-band-eq"
+				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
+					(reference "C37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Screw_Terminal_01x03")
+		(at 148.59 157.48 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3a8c0289-9d60-444e-8292-628e995fcbb2")
+		(property "Reference" "J38"
+			(at 153.67 156.2099 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Mid Cut/Bst Sw"
+			(at 140.208 161.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal Fat Pad"
+			(at 148.59 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 148.59 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 148.59 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "72832c53-7aac-49f3-9dfe-75233639e61b")
+		)
+		(pin "2"
+			(uuid "9349f1b4-0b49-43da-9120-7e651808bdf5")
+		)
+		(pin "3"
+			(uuid "b41a2e9d-0aff-48de-96ad-c06e58882136")
+		)
+		(instances
+			(project "pultec-three-band-eq"
+				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
+					(reference "J38")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Screw_Terminal_01x02")
+		(at 177.8 33.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5ed4b270-e687-4f4a-8bad-20a96a0b59b8")
+		(property "Reference" "J32"
+			(at 176.5299 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Mid Out"
+			(at 181.61 36.322 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal Fat Pad"
+			(at 177.8 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 177.8 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 177.8 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ee6f8b18-ca84-4e45-96c9-93243106f7d6")
+		)
+		(pin "2"
+			(uuid "5c356f40-d4aa-4159-82d9-c34112ee75e0")
+		)
+		(instances
+			(project "pultec-three-band-eq"
+				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
+					(reference "J32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Screw_Terminal_01x06")
+		(at 146.05 119.38 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9243897c-4d7a-4b63-ba87-a05074d7513e")
+		(property "Reference" "J36"
+			(at 147.32 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Mid C Sel Ret"
+			(at 147.32 115.57 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-6_1x06_P5.00mm_Horizontal_Fat_Pad"
+			(at 146.05 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 146.05 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic screw terminal, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 146.05 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2865,15 +3132,27 @@
 			)
 		)
 		(pin "2"
-			(uuid "1ae1221a-1faf-4acf-aa80-efb72341396f")
+			(uuid "5e72e56d-27bf-4667-a461-1e774b3afcf7")
+		)
+		(pin "6"
+			(uuid "92c85402-1738-415d-a11c-69ca5e7ed233")
+		)
+		(pin "5"
+			(uuid "c04b9f9d-4e53-42d2-b5e0-eedcc9e49cbd")
+		)
+		(pin "4"
+			(uuid "b5a40308-7dda-4d37-9f1c-7c14db55fc7e")
+		)
+		(pin "3"
+			(uuid "cef253ba-d77b-4b99-bfc8-b9b145e464c2")
 		)
 		(pin "1"
-			(uuid "3c394884-4d32-44ba-99a2-7fed1532ca0e")
+			(uuid "74bde94d-6208-4f3c-9733-ff8a8874e010")
 		)
 		(instances
-			(project "pultec-three-band-eq"
+			(project ""
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C43")
+					(reference "J36")
 					(unit 1)
 				)
 			)
@@ -2881,16 +3160,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 48.26 180.34 0)
+		(at 172.72 40.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "1d921c79-cf84-4979-9efe-f5ae0037218b")
-		(property "Reference" "#PWR03"
-			(at 48.26 186.69 0)
+		(uuid "954ea044-4126-4745-90f7-47b25af65e67")
+		(property "Reference" "#PWR05"
+			(at 172.72 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2899,7 +3178,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 48.26 185.42 0)
+			(at 172.72 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2907,7 +3186,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 48.26 180.34 0)
+			(at 172.72 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2916,7 +3195,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 48.26 180.34 0)
+			(at 172.72 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2925,7 +3204,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 48.26 180.34 0)
+			(at 172.72 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2934,29 +3213,28 @@
 			)
 		)
 		(pin "1"
-			(uuid "20bdec04-edf3-426f-bfd2-e6971ac9d920")
+			(uuid "3542b47e-67bc-4055-a563-ae4c1f6e3886")
 		)
 		(instances
-			(project ""
+			(project "pultec-three-band-eq"
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "#PWR03")
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 87.63 93.98 0)
+		(lib_id "Connector:Screw_Terminal_01x03")
+		(at 128.27 157.48 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2197af46-a278-4322-9083-1f30b0fd46a9")
-		(property "Reference" "J27"
-			(at 90.17 93.9799 0)
+		(uuid "a1b2534e-c1fb-4c6e-bff0-dd7d508d0798")
+		(property "Reference" "J39"
+			(at 133.35 156.2099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2964,8 +3242,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" ".22H"
-			(at 90.17 96.5199 0)
+		(property "Value" "Mid Cut Q"
+			(at 119.888 161.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2973,8 +3251,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal Fat Pad"
-			(at 87.63 93.98 0)
+		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal Fat Pad"
+			(at 128.27 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2983,7 +3261,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 87.63 93.98 0)
+			(at 128.27 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2991,8 +3269,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 87.63 93.98 0)
+		(property "Description" "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 128.27 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3001,15 +3279,18 @@
 			)
 		)
 		(pin "1"
-			(uuid "5921b6db-9285-45c7-b888-671e90ba30c1")
+			(uuid "b47db804-6be9-4e7b-820c-4afa31bb7d67")
 		)
 		(pin "2"
-			(uuid "5c69026d-9666-4681-9c59-97372fc86b48")
+			(uuid "36dcb376-716f-48e9-b1f1-0e019462b158")
+		)
+		(pin "3"
+			(uuid "fabbbf85-9b7c-4a88-b761-0d0d6affff8b")
 		)
 		(instances
 			(project "pultec-three-band-eq"
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "J27")
+					(reference "J39")
 					(unit 1)
 				)
 			)
@@ -3017,33 +3298,31 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x12")
-		(at 224.79 118.11 0)
+		(at 148.59 68.58 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "2f4d9a8b-2c7a-4d77-b4dd-b7f8da3f6acd")
-		(property "Reference" "J16"
-			(at 227.33 118.1099 0)
+		(uuid "a99947cf-17f8-4f91-b615-69494d764252")
+		(property "Reference" "J40"
+			(at 149.86 62.23 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "Mid Sel Ret"
-			(at 215.138 136.906 0)
+		(property "Value" "Mid L Ret"
+			(at 149.86 64.77 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-12_1x12_P5.00mm_Horizontal_Fat_Pad"
-			(at 224.79 118.11 0)
+			(at 148.59 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3052,7 +3331,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 224.79 118.11 0)
+			(at 148.59 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3061,7 +3340,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x12, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 224.79 118.11 0)
+			(at 148.59 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3069,46 +3348,46 @@
 				(hide yes)
 			)
 		)
-		(pin "4"
-			(uuid "5eacdffe-c06b-4ae8-acdc-b39ca949f560")
-		)
-		(pin "7"
-			(uuid "5f0fb238-df3d-4000-a548-b776ee88ba78")
-		)
-		(pin "5"
-			(uuid "cb340315-654c-4a87-8a8e-5a085c57a561")
-		)
-		(pin "3"
-			(uuid "3ded3ef1-c39f-43a4-973f-fe371daf2e87")
-		)
-		(pin "11"
-			(uuid "29df9272-8739-4115-988e-91949f18fe6d")
-		)
-		(pin "8"
-			(uuid "546cbf86-fa61-40ca-9a57-ccf76a8e574b")
-		)
-		(pin "9"
-			(uuid "03661daf-370f-49e5-b2c3-1abab5bba153")
-		)
-		(pin "12"
-			(uuid "dbd5d420-f24e-4f1d-b96c-ce57a597bcd0")
-		)
-		(pin "6"
-			(uuid "127f473c-8c0e-4e82-b485-422817b220e9")
+		(pin "1"
+			(uuid "33bac490-7de7-4372-9382-b6725707d6eb")
 		)
 		(pin "10"
-			(uuid "2e7dcb53-788c-4182-a1a4-d9520678279a")
+			(uuid "61bb13bd-cb3c-434f-afb7-2c5f9a54634c")
+		)
+		(pin "8"
+			(uuid "56e2d33f-9224-4324-abe0-3562d20eccd7")
+		)
+		(pin "9"
+			(uuid "f377079c-ad86-4164-b07d-4c8a9bd4fbb3")
+		)
+		(pin "5"
+			(uuid "ab089f62-c511-42c5-becb-5d592c914aad")
+		)
+		(pin "4"
+			(uuid "82afb3f9-1a26-48aa-a022-8af24b0f8d32")
+		)
+		(pin "3"
+			(uuid "6a884784-c057-41dc-af8d-c3163184eabf")
+		)
+		(pin "7"
+			(uuid "5a48a394-c956-43d9-b93e-f9027547ed58")
+		)
+		(pin "6"
+			(uuid "ecc7c71d-fafd-4667-aa99-61fdaa404943")
 		)
 		(pin "2"
-			(uuid "9e98b754-e362-44fb-b96a-8683603d15b2")
+			(uuid "772184ae-6904-488e-96c6-5a451669fc00")
 		)
-		(pin "1"
-			(uuid "2e2f0411-0145-45bc-9d28-839485e9b8e0")
+		(pin "12"
+			(uuid "56d71c13-2b76-4766-9220-cb26b2cfd23e")
+		)
+		(pin "11"
+			(uuid "56c530b3-1951-4d60-a0bf-792c06b0a6e3")
 		)
 		(instances
-			(project ""
+			(project "pultec-three-band-eq"
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "J16")
+					(reference "J40")
 					(unit 1)
 				)
 			)
@@ -3116,16 +3395,15 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 154.94 93.98 0)
+		(at 146.05 95.25 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "39e20964-bb87-4e4c-be21-5e6d4e98251a")
-		(property "Reference" "J18"
-			(at 157.48 93.9799 0)
+		(uuid "a9a9e9ca-04bd-478f-8776-71024dbeeeef")
+		(property "Reference" "J35"
+			(at 143.51 96.5201 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3133,8 +3411,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1H"
-			(at 157.48 96.5199 0)
+		(property "Value" "Mid L Sel Ret/C Sel Snd"
+			(at 159.512 91.44 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3143,7 +3421,7 @@
 			)
 		)
 		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal Fat Pad"
-			(at 154.94 93.98 0)
+			(at 146.05 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3152,7 +3430,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 154.94 93.98 0)
+			(at 146.05 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3161,7 +3439,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 154.94 93.98 0)
+			(at 146.05 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3170,15 +3448,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "23565173-876d-410a-9c95-8c59b929c731")
+			(uuid "e2637df6-6db1-41c3-9856-0182c25a2bf4")
 		)
 		(pin "2"
-			(uuid "9bf6b03f-d862-42fa-95a6-680ac8c702d6")
+			(uuid "cdfb87ee-d447-47f8-a246-34dad008be14")
 		)
 		(instances
 			(project "pultec-three-band-eq"
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "J18")
+					(reference "J35")
 					(unit 1)
 				)
 			)
@@ -3186,238 +3464,34 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 147.32 113.03 90)
+		(at 120.65 138.43 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "419d7f98-3be1-45fb-b6c3-281997b3e0ae")
-		(property "Reference" "C39"
-			(at 147.32 105.41 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "3n3"
-			(at 147.32 107.95 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 151.13 112.0648 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 147.32 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 147.32 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "bb46a693-4253-452c-b3d1-5f2e1b39acd0")
-		)
-		(pin "1"
-			(uuid "bb828d86-9687-48e2-9119-2c5aaca079f4")
-		)
-		(instances
-			(project "pultec-three-band-eq"
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C39")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 125.73 120.65 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "54532df0-5433-4a04-8e4c-a2f9471980dd")
-		(property "Reference" "C36"
-			(at 125.73 113.03 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "12n"
-			(at 125.73 115.57 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 129.54 119.6848 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 125.73 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 125.73 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "d65588c4-ac8d-4d45-99ed-dd0ccce4c480")
-		)
-		(pin "1"
-			(uuid "16e7c582-ae8b-4929-9ef3-e7c6401f6935")
-		)
-		(instances
-			(project "pultec-three-band-eq"
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C36")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 66.04 151.13 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "60ac643b-f594-4717-b5c6-77146d561017")
-		(property "Reference" "J15"
-			(at 71.12 149.8599 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Mid Sel Ret"
-			(at 71.12 152.3999 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal Fat Pad"
-			(at 66.04 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 66.04 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 66.04 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8dcb4ef0-2e47-4926-b940-5806fd5430b4")
-		)
-		(pin "2"
-			(uuid "f9ff8a90-b1fe-439d-904a-99880d4364b9")
-		)
-		(instances
-			(project ""
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "J15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 176.53 113.03 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "68aa7f47-830a-40b6-9acc-a5cfa31491cf")
+		(uuid "b8be5352-5ef2-4bde-af8e-6c743cfebfd3")
 		(property "Reference" "C11"
-			(at 176.53 105.41 90)
+			(at 124.46 137.1599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "22n"
-			(at 176.53 107.95 90)
+		(property "Value" "Mid C2B"
+			(at 124.46 139.6999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 180.34 112.0648 0)
+			(at 121.6152 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3426,7 +3500,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 176.53 113.03 0)
+			(at 120.65 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3435,7 +3509,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 176.53 113.03 0)
+			(at 120.65 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3443,11 +3517,11 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "2dbee9b4-af5a-4359-866b-bea171a950a8")
-		)
 		(pin "1"
-			(uuid "a2f20135-120b-485c-bb5f-f0a519022d59")
+			(uuid "52e370a8-40ad-4448-81f8-ff314ea50485")
+		)
+		(pin "2"
+			(uuid "ace518e3-94a8-4da1-a0fd-308fd50571eb")
 		)
 		(instances
 			(project "pultec-three-band-eq"
@@ -3460,16 +3534,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 219.71 133.35 270)
+		(at 124.46 41.91 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "69c59b0e-952e-4a6c-8070-101890c1ebfb")
-		(property "Reference" "#PWR05"
-			(at 213.36 133.35 0)
+		(uuid "b9bc954b-0441-4288-823a-e793e5b649c1")
+		(property "Reference" "#PWR02"
+			(at 124.46 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3478,16 +3552,15 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 215.9 133.3499 90)
+			(at 124.46 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 219.71 133.35 0)
+			(at 124.46 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3496,7 +3569,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 219.71 133.35 0)
+			(at 124.46 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3505,7 +3578,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 219.71 133.35 0)
+			(at 124.46 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3514,12 +3587,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "c90e6bee-f386-454d-adfb-d892b832fa62")
+			(uuid "8ef17585-346a-434e-87a4-67abb8c3550e")
 		)
 		(instances
 			(project ""
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "#PWR05")
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
@@ -3527,16 +3600,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 83.82 180.34 0)
+		(at 114.3 156.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "784beeb4-d423-4a2e-811f-1ff36a982d47")
-		(property "Reference" "#PWR04"
-			(at 83.82 186.69 0)
+		(uuid "ba301706-cea7-4f02-9895-e5e45d871ad5")
+		(property "Reference" "#PWR03"
+			(at 114.3 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3545,7 +3618,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 83.82 185.42 0)
+			(at 114.3 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3553,7 +3626,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 83.82 180.34 0)
+			(at 114.3 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3562,7 +3635,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 83.82 180.34 0)
+			(at 114.3 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3571,7 +3644,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 83.82 180.34 0)
+			(at 114.3 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3580,352 +3653,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "31fbe00f-978f-4b03-850e-f29a69f88e6a")
+			(uuid "cbaac6ea-4a11-4aea-962f-d5fb02a7be4d")
 		)
 		(instances
 			(project ""
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "#PWR04")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 57.15 162.56 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "919bccdf-9a3e-4c0d-8905-f35f18c75d7a")
-		(property "Reference" "R5"
-			(at 57.15 156.21 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "4K7"
-			(at 57.15 158.75 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
-			(at 57.15 164.338 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 57.15 162.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 57.15 162.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "b013ec16-32b0-49f9-910f-97ea5c17c001")
-		)
-		(pin "1"
-			(uuid "fec7b5ea-593f-4bae-a602-42cd2819d9e4")
-		)
-		(instances
-			(project ""
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 154.94 115.57 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9488a05a-789d-4499-bec0-c27fdfc2505d")
-		(property "Reference" "C12"
-			(at 154.94 107.95 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "22n"
-			(at 154.94 110.49 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 158.75 114.6048 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 154.94 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 154.94 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "51c44463-6de9-49d5-85a6-65cec62b65a4")
-		)
-		(pin "1"
-			(uuid "7eaa0e03-bb1e-4aa8-92a7-f75ca386b5d4")
-		)
-		(instances
-			(project "pultec-three-band-eq"
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 78.74 123.19 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "99e500be-4092-4fd8-a12d-7d7079bbc0e2")
-		(property "Reference" "C44"
-			(at 78.74 115.57 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "2n2"
-			(at 78.74 118.11 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 82.55 122.2248 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 78.74 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 78.74 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "5a8293fb-8a03-4448-b29e-72c3485325fa")
-		)
-		(pin "1"
-			(uuid "3cdb65e2-52b0-4042-815d-440a7cbb7a64")
-		)
-		(instances
-			(project "pultec-three-band-eq"
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C44")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 203.2 105.41 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9cd45d7e-cf17-4e88-b529-5b6de2132a95")
-		(property "Reference" "C8"
-			(at 203.2 97.79 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "33n"
-			(at 203.2 100.33 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 207.01 104.4448 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 203.2 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 203.2 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "1e3d7bcc-8043-412d-9722-349582ceb50e")
-		)
-		(pin "1"
-			(uuid "fda5738f-b8ac-490c-bec3-18d60f43c8a5")
-		)
-		(instances
-			(project ""
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 187.96 110.49 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a84ef401-7491-482f-ae99-71b348cc415d")
-		(property "Reference" "C10"
-			(at 187.96 102.87 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "47n"
-			(at 187.96 105.41 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 191.77 109.5248 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 187.96 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 187.96 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "fadfe0eb-75c6-4dcd-8296-c66b839f276e")
-		)
-		(pin "1"
-			(uuid "13e364b2-39a5-4a8b-a318-1df9d918403e")
-		)
-		(instances
-			(project "pultec-three-band-eq"
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C10")
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -3933,147 +3666,8 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x03")
-		(at 68.58 167.64 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b907b9ca-4f91-431d-adf8-b2ffb61f4635")
-		(property "Reference" "J14"
-			(at 73.66 166.3699 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Mid bst/cut switch"
-			(at 59.944 171.45 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal Fat Pad"
-			(at 68.58 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 68.58 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 68.58 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a4fcfe48-b50d-4a53-a197-6dcccaf2dce5")
-		)
-		(pin "2"
-			(uuid "f6af0ba6-5a2f-42ee-96a8-af963659ff16")
-		)
-		(pin "3"
-			(uuid "fbcf9dbe-e807-4e7a-bcdf-9c0661971342")
-		)
-		(instances
-			(project ""
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "J14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 100.33 120.65 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bb44a496-1069-4c7b-8ee2-c31f43336e83")
-		(property "Reference" "C42"
-			(at 100.33 113.03 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1n5"
-			(at 100.33 115.57 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 104.14 119.6848 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 100.33 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 100.33 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "5ccaaad9-9fc4-4ea0-989f-5f535169e26d")
-		)
-		(pin "1"
-			(uuid "f871aa7e-11c4-4410-8b60-60f024e48e86")
-		)
-		(instances
-			(project "pultec-three-band-eq"
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C42")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Screw_Terminal_01x03")
-		(at 72.39 55.88 270)
+		(at 148.59 27.94 270)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4081,7 +3675,7 @@
 		(dnp no)
 		(uuid "bc4d2d64-958f-4062-9ee6-e3a0a52b7e25")
 		(property "Reference" "J29"
-			(at 77.47 54.6099 90)
+			(at 153.67 29.2101 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4090,7 +3684,7 @@
 			)
 		)
 		(property "Value" "Mid Lvl (47 Log)"
-			(at 47.244 59.436 90)
+			(at 140.208 24.13 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4099,7 +3693,7 @@
 			)
 		)
 		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal Fat Pad"
-			(at 72.39 55.88 0)
+			(at 148.59 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4108,7 +3702,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 72.39 55.88 0)
+			(at 148.59 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4117,7 +3711,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 72.39 55.88 0)
+			(at 148.59 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4144,173 +3738,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 52.07 93.98 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ccaf0b59-20b5-465f-9446-bfdd5670ff2f")
-		(property "Reference" "J28"
-			(at 54.61 93.9799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" ".1H"
-			(at 54.61 96.5199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal Fat Pad"
-			(at 52.07 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 52.07 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 52.07 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "adcbb914-98bc-49bb-be57-a9bd75516966")
-		)
-		(pin "2"
-			(uuid "011bae30-da2c-4e3e-b1b8-35099fd626c3")
-		)
-		(instances
-			(project "pultec-three-band-eq"
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "J28")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 123.19 93.98 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d925a98b-05b9-4293-9341-b7adafa0ca0a")
-		(property "Reference" "J26"
-			(at 125.73 93.9799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" ".45H"
-			(at 125.73 96.5199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal Fat Pad"
-			(at 123.19 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 123.19 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 123.19 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "4bafab51-6de1-45ff-a7ec-d14f4cdfc3b2")
-		)
-		(pin "2"
-			(uuid "95d5f2a5-9c63-408f-b39c-56040258aad1")
-		)
-		(instances
-			(project "pultec-three-band-eq"
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "J26")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
-		(at 50.8 128.27 90)
+		(at 152.4 133.35 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "eb2ec351-2b77-47ce-80d8-d28fef3d1f36")
-		(property "Reference" "C40"
-			(at 50.8 120.65 90)
+		(uuid "ce2ba89d-d1f6-49b8-b098-d44c77f3ba9c")
+		(property "Reference" "C36"
+			(at 156.21 132.0799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "1n"
-			(at 50.8 123.19 90)
+		(property "Value" "Mid C4A"
+			(at 156.21 134.6199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 54.61 127.3048 0)
+			(at 153.3652 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4319,7 +3775,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 50.8 128.27 0)
+			(at 152.4 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4328,7 +3784,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 50.8 128.27 0)
+			(at 152.4 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4336,16 +3792,16 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "e5924cb2-2e31-4c58-96c1-397e5dc45a48")
-		)
 		(pin "1"
-			(uuid "325052d0-c571-48b0-8426-e733a797629e")
+			(uuid "f8853aa0-1399-4359-a3f8-fb425f1f5290")
+		)
+		(pin "2"
+			(uuid "31689b4c-c89b-422b-9586-1ee30f118cf3")
 		)
 		(instances
 			(project "pultec-three-band-eq"
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C40")
+					(reference "C36")
 					(unit 1)
 				)
 			)
@@ -4353,32 +3809,33 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 118.11 118.11 90)
+		(at 172.72 138.43 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f5263d38-a439-4020-af01-7d9578a6ea71")
-		(property "Reference" "C37"
-			(at 118.11 110.49 90)
+		(uuid "d5212db4-f086-44a6-ae41-c8994e855e6c")
+		(property "Reference" "C39"
+			(at 176.53 137.1599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "2n2"
-			(at 118.11 113.03 90)
+		(property "Value" "Mid C5B"
+			(at 176.53 139.6999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 121.92 117.1448 0)
+			(at 173.6852 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4387,7 +3844,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 118.11 118.11 0)
+			(at 172.72 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4396,7 +3853,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 118.11 118.11 0)
+			(at 172.72 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4404,84 +3861,16 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "113453c0-3b53-4938-8708-1abad6f829a7")
-		)
 		(pin "1"
-			(uuid "e806284d-9d66-4489-a0b8-0c5fe3668daf")
+			(uuid "a8f2dc5f-43ef-42b6-8e68-a3712a82ff55")
+		)
+		(pin "2"
+			(uuid "77ca3af9-276b-4cdb-88a1-d6e30fc21d32")
 		)
 		(instances
 			(project "pultec-three-band-eq"
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C37")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 80.01 162.56 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f7824354-ea72-4387-be4f-328d1f29b0b3")
-		(property "Reference" "R6"
-			(at 80.01 156.21 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1K"
-			(at 80.01 158.75 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OL Library:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
-			(at 80.01 164.338 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 80.01 162.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 80.01 162.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "76fa46ba-011b-4860-80e2-a034c74cec9a")
-		)
-		(pin "1"
-			(uuid "15d621a8-b11f-4ed4-a772-6186a0f0b6fb")
-		)
-		(instances
-			(project ""
-				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "R6")
+					(reference "C39")
 					(unit 1)
 				)
 			)
@@ -4489,32 +3878,34 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 195.58 107.95 90)
+		(at 116.84 130.81 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "f7d134a5-66ec-4cdf-b56f-21fea553831f")
-		(property "Reference" "C9"
-			(at 195.58 100.33 90)
+		(uuid "d686a580-1f76-460a-aabb-f582460698b5")
+		(property "Reference" "C10"
+			(at 120.65 129.5399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "150n"
-			(at 195.58 102.87 90)
+		(property "Value" "Mid C2A"
+			(at 120.65 132.0799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 199.39 106.9848 0)
+			(at 117.8052 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4523,7 +3914,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 195.58 107.95 0)
+			(at 116.84 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4532,7 +3923,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 195.58 107.95 0)
+			(at 116.84 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4540,16 +3931,16 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "884f1237-de65-4399-9796-ea2951a8ed3f")
-		)
 		(pin "1"
-			(uuid "f14c6f29-924d-4e9a-9d16-83bfbcf2b2ed")
+			(uuid "a1720ee8-ec95-4866-a554-8ae7e9419ddc")
+		)
+		(pin "2"
+			(uuid "dc021d98-9faf-4251-995b-8f1248e387dc")
 		)
 		(instances
 			(project "pultec-three-band-eq"
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "C9")
+					(reference "C10")
 					(unit 1)
 				)
 			)
@@ -4557,32 +3948,33 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 107.95 123.19 90)
+		(at 190.5 135.89 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fce7a605-3ffa-4265-b42c-0995d6b65c69")
+		(uuid "dd6a35ae-3413-4181-a60f-bb7eaf368782")
 		(property "Reference" "C41"
-			(at 107.95 115.57 90)
+			(at 194.31 134.6199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "4n7"
-			(at 107.95 118.11 90)
+		(property "Value" "Mid C6B"
+			(at 194.31 137.1599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
-			(at 111.76 122.2248 0)
+			(at 191.4652 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4591,7 +3983,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 107.95 123.19 0)
+			(at 190.5 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4600,7 +3992,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 107.95 123.19 0)
+			(at 190.5 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4608,11 +4000,11 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "c7f82e00-2d3c-4dac-8dbe-cf6db0a6fb57")
-		)
 		(pin "1"
-			(uuid "d29c8f4b-6c74-4630-b8ac-3521367237e9")
+			(uuid "f4960842-8571-4c3b-ae82-fa17407d0b42")
+		)
+		(pin "2"
+			(uuid "53ea869d-8af9-48c3-a5dc-41332a141c31")
 		)
 		(instances
 			(project "pultec-three-band-eq"
@@ -4624,17 +4016,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 224.79 93.98 0)
+		(lib_id "Device:C")
+		(at 134.62 133.35 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "fd3bfeef-4057-49ba-935b-158b50dd363d")
-		(property "Reference" "J17"
-			(at 227.33 93.9799 0)
+		(uuid "e154082d-5976-4cf1-85bf-269511a0b068")
+		(property "Reference" "C12"
+			(at 138.43 132.0799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4642,8 +4034,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2H"
-			(at 227.33 96.5199 0)
+		(property "Value" "Mid C3A"
+			(at 138.43 134.6199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4651,8 +4043,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal Fat Pad"
-			(at 224.79 93.98 0)
+		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
+			(at 135.5852 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4661,7 +4053,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 224.79 93.98 0)
+			(at 134.62 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4669,8 +4061,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 224.79 93.98 0)
+		(property "Description" "Unpolarized capacitor"
+			(at 134.62 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4679,15 +4071,85 @@
 			)
 		)
 		(pin "1"
-			(uuid "3422b00e-f639-4717-babf-50d55522d772")
+			(uuid "262934f4-906f-4c46-924f-ca8d6c20599b")
 		)
 		(pin "2"
-			(uuid "695aafb2-6232-42ca-b625-2980a52b5b32")
+			(uuid "0537c600-20a7-4d57-bf5f-9cf4ce54611d")
+		)
+		(instances
+			(project "pultec-three-band-eq"
+				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
+					(reference "C12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 99.06 128.27 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e465a1ed-fcd9-4df1-a38e-73d037bd5d88")
+		(property "Reference" "C8"
+			(at 102.87 126.9999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Mid C1A"
+			(at 102.87 129.5399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OL Library:C_Rect_L7.0mm_W2.0mm_P5.00mm_Fat_Pad"
+			(at 100.0252 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 99.06 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 99.06 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "120fa434-dc62-4756-8bd2-ff5ce4e27270")
+		)
+		(pin "2"
+			(uuid "ef77e2af-4bdd-4970-824e-8aa287bb7326")
 		)
 		(instances
 			(project ""
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "J17")
+					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -4695,15 +4157,15 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 99.06 55.88 270)
+		(at 129.54 33.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ff157e5f-99d4-4e16-b63e-ce93230a5d45")
-		(property "Reference" "J30"
-			(at 101.6 54.6099 90)
+		(uuid "eb440c35-5d38-4aa6-a7f4-2a32e3e39840")
+		(property "Reference" "J31"
+			(at 128.2699 30.48 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4711,8 +4173,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Mid Sel Snd"
-			(at 95.758 59.69 90)
+		(property "Value" "Mid In"
+			(at 133.35 36.322 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4721,7 +4183,7 @@
 			)
 		)
 		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal Fat Pad"
-			(at 99.06 55.88 0)
+			(at 129.54 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4730,7 +4192,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 99.06 55.88 0)
+			(at 129.54 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4739,7 +4201,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 99.06 55.88 0)
+			(at 129.54 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4748,15 +4210,179 @@
 			)
 		)
 		(pin "1"
-			(uuid "620644a9-c420-4510-8a0d-483fb23e6376")
+			(uuid "4fb338ce-8b97-424e-9543-43eb9ac8310d")
 		)
 		(pin "2"
-			(uuid "e04cd759-ef07-430a-a429-053b06ae6c4f")
+			(uuid "9cd1cb1c-3fee-4a21-ba3f-0cc85c03d401")
 		)
 		(instances
 			(project "pultec-three-band-eq"
 				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
-					(reference "J30")
+					(reference "J31")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 175.26 77.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ec271645-ecea-442b-b1e1-2e7069b2ed42")
+		(property "Reference" "#PWR04"
+			(at 175.26 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 175.26 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 175.26 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.26 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 175.26 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "84e6b2ef-b02a-48ac-bbb8-4d5f6ea75373")
+		)
+		(instances
+			(project ""
+				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
+					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Screw_Terminal_01x12")
+		(at 148.59 78.74 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f407a7d5-5688-4ff4-9423-41f28b08adac")
+		(property "Reference" "J14"
+			(at 149.86 85.09 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Mid L Sel send"
+			(at 149.86 82.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OL Library:TerminalBlock_Phoenix_MKDS-1,5-12_1x12_P5.00mm_Horizontal_Fat_Pad"
+			(at 148.59 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 148.59 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic screw terminal, single row, 01x12, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 148.59 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8cc60f31-b566-4b5f-8bd4-a21efb7dd11d")
+		)
+		(pin "10"
+			(uuid "8cb403e1-05ef-4e68-ac21-190f19ccaece")
+		)
+		(pin "8"
+			(uuid "4c9d4423-429a-40be-886b-c82dbae2de30")
+		)
+		(pin "9"
+			(uuid "f9a695a6-598d-4268-b0f3-e080ffc04954")
+		)
+		(pin "5"
+			(uuid "3fc7e846-9c43-44f9-9ee8-2af8850508b7")
+		)
+		(pin "4"
+			(uuid "016de4d9-794a-4803-805a-b59aa0817527")
+		)
+		(pin "3"
+			(uuid "fc2c2180-be0e-4391-bf23-476d395c833b")
+		)
+		(pin "7"
+			(uuid "4796d770-a9e3-42bf-b422-06db1c8e74e0")
+		)
+		(pin "6"
+			(uuid "4b4d762d-44eb-4d20-80de-50bef846837f")
+		)
+		(pin "2"
+			(uuid "e9587e8a-f0a5-4b56-83eb-39afeaba50be")
+		)
+		(pin "12"
+			(uuid "ba55a649-4526-475a-b64d-75d079f222d3")
+		)
+		(pin "11"
+			(uuid "a9768380-de3d-43b6-a795-d2555f1746ca")
+		)
+		(instances
+			(project ""
+				(path "/70789860-d793-449c-9aa5-cfb021a8ba37/54f39523-689b-4197-aaca-853b2261678b"
+					(reference "J14")
 					(unit 1)
 				)
 			)
