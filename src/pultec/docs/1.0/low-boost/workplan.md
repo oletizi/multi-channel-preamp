@@ -1,1071 +1,2528 @@
-# LOW BOOST MODULE - COMPREHENSIVE IMPLEMENTATION WORKPLAN
+# LOW-BOOST MODULE - Complete Workplan
+## From Schematic to PCBWay Manufacturing
 
-**Project:** Pultec Three-Band EQ - Modular Design
-**Module:** Low Boost (Passive LC Network)
-**Revision:** 1.0
-**Date:** 2025-10-26
-**Status:** Ready for Implementation
-
----
-
-## EXECUTIVE SUMMARY
-
-This workplan provides step-by-step implementation guidance for the Low Boost module, synthesizing input from specialized design agents across circuit design, inductor engineering, PCB layout, KiCAD workflow, and procurement.
-
-**Total Project Duration:** 6-8 weeks
-**Estimated Cost:** $80-102 (single prototype), $56-69 per unit (3-unit build)
-**Complexity:** Moderate-High (requires hand-wound inductors)
-**Critical Path:** Inductor design and fabrication
+**Project**: Pultec Three-Band EQ - Low Boost Module
+**Date Created**: 2025-10-26
+**Revision**: 1.0
+**Status**: Ready for Execution
 
 ---
 
-## TABLE OF CONTENTS
+## Table of Contents
 
-1. [Circuit Overview](#1-circuit-overview)
-2. [Component Specifications](#2-component-specifications)
-3. [Inductor Design and Fabrication](#3-inductor-design-and-fabrication)
-4. [PCB Design Requirements](#4-pcb-design-requirements)
-5. [KiCAD Implementation Workflow](#5-kicad-implementation-workflow)
-6. [Procurement Plan](#6-procurement-plan)
-7. [Assembly Instructions](#7-assembly-instructions)
-8. [Testing and Validation](#8-testing-and-validation)
+1. [Project Overview](#1-project-overview)
+2. [Current Status Assessment](#2-current-status-assessment)
+3. [Phase 1: Schematic Completion](#3-phase-1-schematic-completion)
+4. [Phase 2: PCB Layout Creation](#4-phase-2-pcb-layout-creation)
+5. [Phase 3: Manufacturing File Generation](#5-phase-3-manufacturing-file-generation)
+6. [Phase 4: PCBWay Submission](#6-phase-4-pcbway-submission)
+7. [Agent Responsibilities](#7-agent-responsibilities)
+8. [Quality Checklist](#8-quality-checklist)
 9. [Timeline and Milestones](#9-timeline-and-milestones)
-10. [Risk Management](#10-risk-management)
+10. [Risk Assessment](#10-risk-assessment)
+11. [Success Criteria](#11-success-criteria)
+12. [References](#12-references)
 
 ---
 
-## 1. CIRCUIT OVERVIEW
+## 1. Project Overview
 
-### 1.1 Circuit Topology
+### Module Description
 
-The low-boost section implements a **passive LC resonant shunt circuit** based on the classic Pultec EQP-1A design:
+The **Low-Boost Module** is a passive LC resonant network that provides frequency-selective boost in the low-frequency range (20Hz, 30Hz, 60Hz, 100Hz). This is one of four modular PCBs in the Pultec Three-Band EQ system.
 
-- **Primary voltage divider:** 47kΩ (high-frequency side) + 4.7kΩ (low-frequency side)
-- **Nominal insertion loss:** 20.8dB (0.091 ratio)
-- **Boost mechanism:** Variable resistor (0-22kΩ) sits in parallel with 4.7kΩ section, reducing attenuation at low frequencies
-- **Frequency selection:** LC resonant circuit creates low-impedance shunt at selected frequency
+**Circuit Topology**: Passive LC network with hand-wound external inductors
+**Frequency Range**: 20Hz - 100Hz (4 selectable positions)
+**Complexity**: High (11 capacitors, 1 resistor, 9 screw terminals, 4 inductor connections)
 
-### 1.2 Signal Flow
+### Current Status
+
+- ✅ **Component values extracted** from monolithic schematic
+- ✅ **Documentation created**: README, BOM, PCB_LAYOUT spec, INDUCTOR_SPECS
+- ✅ **Template schematic** exists at `src/pultec/modules/low-boost/low-boost.kicad_sch`
+- ⚠️ **KiCAD MCP server** now connected and operational
+- ❌ **Schematic not finalized** (needs component population and ERC)
+- ❌ **PCB layout not created**
+- ❌ **Manufacturing files not generated**
+
+### Goals and Deliverables
+
+**Primary Goal**: Complete Low-Boost module and submit to PCBWay for fabrication
+
+**Key Deliverables**:
+1. Finalized KiCAD schematic (with ERC clean)
+2. Complete PCB layout (100mm × 120mm, 2-layer)
+3. Manufacturing file package (Gerbers, drill files, assembly drawings)
+4. PCBWay order placed with correct specifications
+5. Documentation package ready for assembly
+
+**Success Metric**: Manufacturable PCB design submitted to PCBWay, ready for fabrication
+
+---
+
+## 2. Current Status Assessment
+
+### Existing Assets
+
+| Asset | Location | Status | Notes |
+|-------|----------|--------|-------|
+| Module README | `src/pultec/modules/low-boost/README.md` | ✅ Complete | Comprehensive specs |
+| PCB Layout Spec | `src/pultec/modules/low-boost/PCB_LAYOUT.md` | ✅ Complete | Detailed layout guide |
+| Bill of Materials | `src/pultec/modules/low-boost/BOM.csv` | ✅ Complete | All parts sourced |
+| Inductor Specs | `src/pultec/modules/low-boost/INDUCTOR_SPECS.md` | ✅ Complete | Winding instructions |
+| Template Schematic | `src/pultec/modules/low-boost/low-boost.kicad_sch` | ⚠️ Partial | Needs population |
+| Schematic Guide | `src/pultec/SCHEMATIC_CREATION_GUIDE.md` | ✅ Complete | Step-by-step guide |
+| Component Values | `src/pultec/docs/1.0/COMPONENT_VALUES.md` | ✅ Complete | Reference values |
+
+### Known Challenges
+
+1. **Capacitor Value Ambiguity**: INDUCTOR_SPECS.md notes potential error in capacitor values (nF vs µF)
+   - **Action Required**: Verify in original schematic before finalizing
+   - **Impact**: Critical for inductor design
+
+2. **Complex Connectivity**: 11 capacitors + 4 inductor connections + multiple selectors
+   - **Mitigation**: Use clear net labels and functional grouping
+
+3. **Star Grounding Critical**: Audio quality depends on proper ground implementation
+   - **Mitigation**: Follow PCB_LAYOUT.md star ground specifications exactly
+
+4. **External Inductor Integration**: 4 hand-wound inductors not on PCB
+   - **Mitigation**: Clear terminal labeling and connection diagrams
+
+### Prerequisites Checklist
+
+- [x] KiCAD 7.x or 8.x installed
+- [x] KiCAD MCP server connected
+- [x] Phoenix Contact footprint library available
+- [x] Component specifications finalized
+- [x] PCB layout specifications documented
+- [x] Inductor design specifications complete
+- [ ] Capacitor values verified (nF vs µF) - **CRITICAL**
+
+---
+
+## 3. Phase 1: Schematic Completion
+
+**Objective**: Create production-ready KiCAD schematic with all components, wiring, and ERC clean
+
+**Estimated Time**: 4-6 hours
+**Dependencies**: None
+**Deliverable**: `low-boost.kicad_sch` with exported PDF
+
+### 3.1 Critical Pre-Work: Verify Capacitor Values
+
+**Priority**: CRITICAL - Must complete before proceeding
+
+- [ ] Open original monolithic schematic: `src/schematics/pultec-three-band-eq/pultec-three-band-eq.kicad_sch`
+- [ ] Locate low-boost section (components C1-C7, C34, C35, C4a2, C5a2)
+- [ ] Verify capacitor values and units (nF or µF)
+- [ ] Cross-reference with Ian Thompson-Bell documentation in `reference/` directory
+- [ ] Document findings in this workplan
+- [ ] Update COMPONENT_VALUES.md if corrections needed
+- [ ] Update INDUCTOR_SPECS.md if corrections needed
+
+**Decision Point**: If capacitors are µF (not nF), inductor values in INDUCTOR_SPECS.md are correct. If nF, frequencies or design may need revision.
+
+### 3.2 Component Addition (All 23 Components)
+
+**Using KiCAD GUI or MCP Commands**
+
+#### Capacitors (11 total)
+
+**Film capacitors, all 5.08mm pitch, Vishay MKT1813 series**
+
+- [ ] **C1**: 18nF (or 18µF - verify first!)
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813183104` (or electrolytic if µF)
+
+- [ ] **C2**: 10nF (or 10µF)
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813103104`
+
+- [ ] **C3**: 4.7nF (or 4.7µF)
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813472104`
+
+- [ ] **C4**: 3.3nF (or 3.3µF)
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813332104`
+
+- [ ] **C5**: 2.2nF (or 2.2µF)
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813222104`
+
+- [ ] **C4a2**: 1nF (or 1µF)
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813102104`
+
+- [ ] **C5a2**: 1.5nF (or 1.5µF)
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813152104`
+
+- [ ] **C6**: 1.8nF
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813182104`
+
+- [ ] **C7**: 1nF
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813102104`
+
+- [ ] **C34**: 1nF (input coupling)
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813102104`
+
+- [ ] **C35**: 1nF (output coupling)
+  - Symbol: `Device:C`
+  - Footprint: `Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm`
+  - MPN: `MKT1813102104`
+
+#### Resistor (1 total)
+
+- [ ] **R2**: 56kΩ, 1/4W, 1%
+  - Symbol: `Device:R`
+  - Footprint: `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm`
+  - MPN: `MRS25000C5602FCT00` (Vishay MRS25)
+
+#### Screw Terminals (9 total - Phoenix Contact 1757 series)
+
+**2-position terminals (5 total)**
+
+- [ ] **J_IN**: Signal input from Low-Cut module
+  - Symbol: `Connector:Screw_Terminal_01x02`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.08mm_Horizontal`
+  - MPN: `1757019`
+  - Labels: "IN+", "IN-"
+
+- [ ] **J_OUT**: Signal output to High-Boost module
+  - Symbol: `Connector:Screw_Terminal_01x02`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.08mm_Horizontal`
+  - MPN: `1757019`
+  - Labels: "OUT+", "OUT-"
+
+- [ ] **J_GND**: Ground connection
+  - Symbol: `Connector:Screw_Terminal_01x02`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.08mm_Horizontal`
+  - MPN: `1757019`
+  - Labels: "GND", "GND"
+
+**Inductor connection terminals (4 × 2-position)**
+
+- [ ] **J_IND_20HZ**: 20Hz inductor connection
+  - Symbol: `Connector:Screw_Terminal_01x02`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.08mm_Horizontal`
+  - MPN: `1757019`
+  - Labels: "20Hz_L1", "20Hz_L2"
+
+- [ ] **J_IND_30HZ**: 30Hz inductor connection
+  - Symbol: `Connector:Screw_Terminal_01x02`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.08mm_Horizontal`
+  - MPN: `1757019`
+  - Labels: "30Hz_L1", "30Hz_L2"
+
+- [ ] **J_IND_60HZ**: 60Hz inductor connection
+  - Symbol: `Connector:Screw_Terminal_01x02`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.08mm_Horizontal`
+  - MPN: `1757019`
+  - Labels: "60Hz_L1", "60Hz_L2"
+
+- [ ] **J_IND_100HZ**: 100Hz inductor connection
+  - Symbol: `Connector:Screw_Terminal_01x02`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.08mm_Horizontal`
+  - MPN: `1757019`
+  - Labels: "100Hz_L1", "100Hz_L2"
+
+**3-position terminals (2 total)**
+
+- [ ] **J_CUT_SEL_SND**: Low-cut selector send (interface to other module)
+  - Symbol: `Connector:Screw_Terminal_01x03`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.08mm_Horizontal`
+  - MPN: `1757022`
+  - Labels: "CUT_SND1", "CUT_SND2", "CUT_SND3"
+
+- [ ] **J_BOOST_LVL**: Boost level control (to external potentiometer)
+  - Symbol: `Connector:Screw_Terminal_01x03`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.08mm_Horizontal`
+  - MPN: `1757022`
+  - Labels: "LVL1", "LVL2", "LVL3"
+
+**6-position terminals (2 total)**
+
+- [ ] **J_BOOST_SEL_SND**: Frequency selector send (to rotary switch)
+  - Symbol: `Connector:Screw_Terminal_01x06`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-6_1x06_P5.08mm_Horizontal`
+  - MPN: `1757025`
+  - Labels: "SEL_SND1" through "SEL_SND6"
+
+- [ ] **J_BOOST_SEL_RET**: Frequency selector return (from rotary switch)
+  - Symbol: `Connector:Screw_Terminal_01x06`
+  - Footprint: `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-6_1x06_P5.08mm_Horizontal`
+  - MPN: `1757025`
+  - Labels: "SEL_RET1" through "SEL_RET6"
+
+#### Power Symbols (2 total)
+
+- [ ] **#PWR01**: GND at input
+- [ ] **#PWR02**: GND at output
+
+### 3.3 LC Resonant Circuit Wiring Strategy
+
+**Circuit Topology** (from original Pultec design):
 
 ```
-INPUT → Voltage Divider → Frequency Selector → LC Network → Inductor Connections → Boost Level Control → OUTPUT
+            ┌─────────────────────────────────────────┐
+            │                                         │
+J_IN+ ──►─ C34 ─┬─ C1,C2,C3,C4,C5... ─┬─► J_BOOST_SEL_SND ─► Rotary Switch
+               │   (selector network)  │
+               │                       │
+               └────────► R2 ──────────┘
+                          │
+                          │
+           Rotary Switch ◄─ J_BOOST_SEL_RET
+                          │
+                          ├─► J_IND_20HZ ─► L1 (20Hz) ──┐
+                          ├─► J_IND_30HZ ─► L2 (30Hz) ──┤
+                          ├─► J_IND_60HZ ─► L3 (60Hz) ──┼─► Back to network
+                          └─► J_IND_100HZ ► L4 (100Hz) ─┘
+                                  │
+                          J_BOOST_LVL ──► Level Pot ──► C35 ──► J_OUT+
+                                  │
+                                 GND
 ```
 
-**Key Circuit Elements:**
-- 11 film capacitors (1nF to 18nF)
-- 1 resistor (56kΩ)
-- 4 hand-wound inductors (7.68H to 35.16H)
-- 13 screw terminal connections
-- External frequency selector (6-position rotary switch)
-- External boost level control (variable resistor ladder)
+**Wiring Steps**:
 
-### 1.3 Frequency Response
+1. [ ] **Input Stage**
+   - Wire J_IN+ to C34 (input coupling capacitor)
+   - Wire C34 to capacitor selector network junction
+   - Wire J_IN- to GND (#PWR01)
 
-**Target Frequencies:**
-- 20Hz: C1 (18nF) + L20 (35.16H)
-- 30Hz: C2 (10nF) + L30 (28.15H)
-- 60Hz: C3 (4.7nF) + L60 (14.98H)
-- 100Hz: C4 (3.3nF) + L100 (7.68H)
+2. [ ] **Capacitor Selector Network**
+   - Connect C1-C7, C4a2, C5a2 to J_BOOST_SEL_SND positions
+   - Each capacitor gets one position on 6-position terminal
+   - Common node connects to R2 and inductor return path
 
-**Boost Range:** 0-11dB at selected frequency
-**Bandwidth:** Depends on inductor Q (higher Q = narrower boost)
-**Insertion Loss:** ~20.8dB (compensated by makeup gain in output stage)
+3. [ ] **Frequency Selector Interface**
+   - Wire capacitor nodes to J_BOOST_SEL_SND (send to external rotary switch)
+   - Wire J_BOOST_SEL_RET (return from rotary switch) to inductor terminal selector
 
-### 1.4 Critical Design Parameters
+4. [ ] **Inductor Connections**
+   - Each inductor terminal (J_IND_20HZ through J_IND_100HZ) connects:
+     - Pin 1: To frequency selector return circuit
+     - Pin 2: Return to resonant network common node
 
-- **Inductor Q Factor:** Must exceed 20 for good performance
-  - Q = 88+ for 20Hz with DCR <50Ω (excellent)
-  - Q = 44+ for 20Hz with DCR <100Ω (acceptable)
-  - Q = 22+ for 20Hz with DCR <200Ω (marginal)
+5. [ ] **Level Control**
+   - Wire resonant network output to J_BOOST_LVL (external potentiometer)
+   - Wire potentiometer wiper (via J_BOOST_LVL) through R2 to network
 
-- **Impedances:**
-  - Input: ~51.7kΩ (47kΩ + 4.7kΩ)
-  - Output: 4-10kΩ (varies with settings)
-  - Requires low-impedance source (<600Ω) and high-impedance load (>100kΩ)
+6. [ ] **Output Stage**
+   - Wire level control output to C35 (output coupling capacitor)
+   - Wire C35 to J_OUT+
+   - Wire J_OUT- to GND (#PWR02)
 
----
+7. [ ] **Ground Connections**
+   - Connect all ground points (J_IN-, J_OUT-, capacitor grounds) to GND symbols
+   - Add J_GND terminal connected to GND for star ground connection
 
-## 2. COMPONENT SPECIFICATIONS
+**Net Labels to Add**:
+- [ ] `SIG_IN` at J_IN+ connection
+- [ ] `SIG_OUT` at J_OUT+ connection
+- [ ] `BOOST_SEL_SND_1` through `BOOST_SEL_SND_6` at selector send
+- [ ] `BOOST_SEL_RET_1` through `BOOST_SEL_RET_6` at selector return
+- [ ] `IND_20HZ_L1`, `IND_20HZ_L2` at 20Hz inductor terminal
+- [ ] `IND_30HZ_L1`, `IND_30HZ_L2` at 30Hz inductor terminal
+- [ ] `IND_60HZ_L1`, `IND_60HZ_L2` at 60Hz inductor terminal
+- [ ] `IND_100HZ_L1`, `IND_100HZ_L2` at 100Hz inductor terminal
+- [ ] `BOOST_LVL_1`, `BOOST_LVL_2`, `BOOST_LVL_3` at level control
+- [ ] `GND` at all ground points
 
-### 2.1 Passive Components
+### 3.4 Title Block Configuration
 
-#### Capacitors (11 total - Film, Non-Polarized)
+- [ ] **Title**: "PULTEC THREE-BAND EQ - LOW BOOST MODULE"
+- [ ] **Revision**: "1.0"
+- [ ] **Date**: Current date (YYYY-MM-DD format)
+- [ ] **Company**: Your company or "Open Hardware"
+- [ ] **Sheet**: "1 of 1"
+- [ ] **Comment 1**: "Low Frequency Boost Circuit (20Hz, 30Hz, 60Hz, 100Hz)"
+- [ ] **Comment 2**: "Requires 4 external hand-wound inductors"
+- [ ] **Comment 3**: "All capacitors: Vishay MKT1813 film, 5%, 100V"
+- [ ] **Comment 4**: "Terminals: Phoenix Contact 1757 series, 5.08mm pitch"
 
-| Ref | Value | Description | Manufacturer | Part Number | Mouser P/N |
-|-----|-------|-------------|--------------|-------------|------------|
-| C1 | 18nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813183104 | 594-MKT1813183104 |
-| C2 | 10nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813103104 | 594-MKT1813103104 |
-| C3 | 4.7nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813472104 | 594-MKT1813472104 |
-| C4 | 3.3nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813332104 | 594-MKT1813332104 |
-| C5 | 2.2nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813222104 | 594-MKT1813222104 |
-| C4a2 | 1nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813102104 | 594-MKT1813102104 |
-| C5a2 | 1.5nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813152104 | 594-MKT1813152104 |
-| C6 | 1.8nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813182104 | 594-MKT1813182104 |
-| C7 | 1nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813102104 | 594-MKT1813102104 |
-| C34 | 1nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813102104 | 594-MKT1813102104 |
-| C35 | 1nF | Film cap, 5%, 100V, 5.08mm | Vishay | MKT1813102104 | 594-MKT1813102104 |
+### 3.5 Annotation and Cross-References
 
-**Subtotal:** $5.50
+- [ ] Use KiCAD annotation tool: Tools → Annotate Schematic
+- [ ] Verify all references are unique and sequential
+- [ ] Add text annotations:
+  - [ ] "External Inductor: See INDUCTOR_SPECS.md" near each inductor terminal
+  - [ ] "20Hz: 3.5H" annotation near J_IND_20HZ
+  - [ ] "30Hz: 2.8H" annotation near J_IND_30HZ
+  - [ ] "60Hz: 1.5H" annotation near J_IND_60HZ
+  - [ ] "100Hz: 0.77H" annotation near J_IND_100HZ
+  - [ ] "Star Ground Required" annotation near J_GND
 
-**Alternatives:**
-- WIMA MKS2 series (premium, ~$1-2 each)
-- EPCOS B32529 series (good quality)
-- ±10% tolerance acceptable if ±5% unavailable
+### 3.6 Electrical Rules Check (ERC)
 
-#### Resistor
+**Run ERC**: Tools → Electrical Rules Checker
 
-| Ref | Value | Description | Manufacturer | Part Number | Mouser P/N |
-|-----|-------|-------------|--------------|-------------|------------|
-| R2 | 56kΩ | Metal film, 1/4W, 1% | Vishay | MRS25000C5602FCT00 | 594-MRS25C5602FCT00 |
+**Expected Warnings** (acceptable):
+- Pin-to-pin warnings on screw terminals (normal for multi-position connectors)
+- "Power pin not driven" if GND symbols used (can be ignored if properly connected)
 
-**Cost:** $0.20
+**Errors to Resolve** (must fix):
+- Unconnected pins (all pins must connect or be marked "No Connect")
+- Power input not driven (verify GND connections)
+- Conflicting net names
+- Duplicate references
 
-### 2.2 Screw Terminals (Phoenix Contact 1757 Series)
+**ERC Clean Criteria**:
+- [ ] Zero errors
+- [ ] All warnings reviewed and justified
+- [ ] All nets properly labeled
+- [ ] All power pins connected
 
-| Ref | Positions | Qty | Manufacturer P/N | Mouser P/N | Unit Price |
-|-----|-----------|-----|------------------|------------|------------|
-| J_IN | 2 | 1 | 1757019 | 651-1757019 | $0.75 |
-| J_OUT | 2 | 1 | 1757019 | 651-1757019 | $0.75 |
-| J_BOOST_SEL_SND | 6 | 1 | 1757025 | 651-1757025 | $1.50 |
-| J_BOOST_SEL_RET | 6 | 1 | 1757025 | 651-1757025 | $1.50 |
-| J_CUT_SEL_SND | 3 | 1 | 1757022 | 651-1757022 | $1.00 |
-| J_BOOST_LVL | 3 | 1 | 1757022 | 651-1757022 | $1.00 |
-| J_IND_20HZ | 2 | 1 | 1757019 | 651-1757019 | $0.75 |
-| J_IND_30HZ | 2 | 1 | 1757019 | 651-1757019 | $0.75 |
-| J_IND_60HZ | 2 | 1 | 1757019 | 651-1757019 | $0.75 |
-| J_IND_100HZ | 2 | 1 | 1757019 | 651-1757019 | $0.75 |
-| J_GND | 2 | 1 | 1757019 | 651-1757019 | $0.75 |
+### 3.7 Schematic Export
 
-**Subtotal:** $10.75
+- [ ] Export PDF: File → Plot → Select PDF
+  - Filename: `low-boost-schematic.pdf`
+  - Location: `src/pultec/modules/low-boost/`
+  - Options: Color, include title block, one page per sheet
 
-**Specifications:**
-- Pitch: 5.08mm (0.2")
-- Wire range: 26-16 AWG
-- Current rating: 17.5A max
-- Mounting: Through-hole (THT)
+- [ ] Export PNG (optional, for documentation):
+  - Filename: `low-boost-schematic.png`
+  - Resolution: 300 DPI minimum
 
-**Alternatives:**
-- On Shore OSTTE series (-40% cost)
-- Wurth 691137 series (comparable quality)
+- [ ] Generate Netlist: Tools → Generate Netlist
+  - Format: KiCAD (for PCB import)
+  - Filename: `low-boost.net`
+  - Location: `src/pultec/modules/low-boost/`
 
-### 2.3 PCB Specifications
+### 3.8 Phase 1 Deliverables Checklist
 
-**Board Dimensions:** 60mm × 100mm (2.36" × 3.94")
-**Layers:** 2 (Top copper + Bottom copper with ground plane)
-**Thickness:** 1.6mm (standard FR-4)
-**Copper Weight:** 1oz (35μm) both sides
-**Surface Finish:** ENIG preferred (HASL acceptable)
-**Mounting Holes:** 4× M3 (3.2mm diameter)
+- [ ] All 23 components added and annotated
+- [ ] All components have correct values and footprints
+- [ ] All components have MPN custom field populated
+- [ ] Circuit wiring complete per topology
+- [ ] Net labels applied to all critical signals
+- [ ] Title block complete
+- [ ] ERC clean (zero errors, warnings justified)
+- [ ] PDF schematic exported
+- [ ] Netlist generated
+- [ ] Capacitor value ambiguity resolved (nF vs µF)
 
-**Estimated Cost:** $4-8 per board (minimum order 5 boards)
-
----
-
-## 3. INDUCTOR DESIGN AND FABRICATION
-
-### 3.1 Calculated Inductance Values
-
-Using series LC resonance formula: **f₀ = 1 / (2π√LC)**
-
-| Frequency | Capacitor | Capacitance | Required Inductance |
-|-----------|-----------|-------------|---------------------|
-| 20Hz      | C1        | 18nF        | **35.16H**          |
-| 30Hz      | C2        | 10nF        | **28.15H**          |
-| 60Hz      | C3        | 4.7nF       | **14.98H**          |
-| 100Hz     | C4        | 3.3nF       | **7.68H**           |
-
-**Note:** These are very large inductance values (tens of Henries), requiring thousands of turns and large ferromagnetic cores.
-
-### 3.2 Recommended Core Specifications
-
-#### 20Hz Inductor
-- **Inductance:** 35.16H ±5%
-- **Core:** Laminated E-I steel, EI-100, 25mm stack (Hammond 166J00)
-- **Wire:** 20 AWG magnet wire, 1675 turns
-- **DCR:** ~2.8Ω
-- **Q Factor:** 157 @ 20Hz
-- **Air Gap:** 0.4mm
-
-#### 30Hz Inductor
-- **Inductance:** 28.15H ±5%
-- **Core:** Laminated E-I steel, EI-100, 25mm stack
-- **Wire:** 20 AWG magnet wire, 1500 turns
-- **DCR:** ~2.5Ω
-- **Q Factor:** 211 @ 30Hz
-- **Air Gap:** 0.4mm
-
-#### 60Hz Inductor
-- **Inductance:** 14.98H ±5%
-- **Core:** Laminated E-I steel, EI-87, 25mm stack (Hammond 166K00)
-- **Wire:** 20 AWG magnet wire, 1400 turns
-- **DCR:** ~2.2Ω
-- **Q Factor:** 257 @ 60Hz
-- **Air Gap:** 0.5mm
-
-#### 100Hz Inductor
-- **Inductance:** 7.68H ±5%
-- **Core:** Laminated E-I steel, EI-87, 25mm stack
-- **Wire:** 20 AWG magnet wire, 990 turns
-- **DCR:** ~1.5Ω
-- **Q Factor:** 314 @ 100Hz
-- **Air Gap:** 0.5mm
-
-### 3.3 Winding Instructions
-
-**General Procedure:**
-
-1. **Core Preparation**
-   - Clean laminations, remove burrs
-   - Stack to specified height
-   - Insert air gap material (non-magnetic shim)
-   - Secure with clamps or tape
-
-2. **Bobbin Setup**
-   - Install bobbin on core (if removable)
-   - Or wind directly on core with insulation tape base layer
-
-3. **Winding Technique**
-   - Use hand drill or winding machine
-   - Maintain consistent tension (not too tight)
-   - Layer winding with insulation between layers
-   - Count turns accurately (use counter or tally marks)
-   - Leave 6" leads at start and end
-
-4. **Termination**
-   - Strip and tin wire ends
-   - Attach to solder lugs or terminal strip
-   - Secure with strain relief
-   - Label inductor with frequency marking
-
-5. **Testing**
-   - Measure inductance with LCR meter @ 120Hz
-   - Measure DCR with multimeter
-   - Calculate Q = 2πfL/DCR
-   - Verify within ±10% of target
-
-**Estimated Winding Time:**
-- 20Hz (1675 turns): 2-3 hours
-- 30Hz (1500 turns): 1.5-2 hours
-- 60Hz (1400 turns): 1-1.5 hours
-- 100Hz (990 turns): 1 hour
-- **Total:** 6-8 hours for complete set
-
-### 3.4 Inductor Material Sourcing
-
-#### Cores
-- **Supplier:** Hammond Manufacturing, Amidon, or equivalent
-- **Part Numbers:**
-  - EI-100, 25mm stack: Hammond 166J00 or equivalent
-  - EI-87, 25mm stack: Hammond 166K00 or equivalent
-- **Quantity:** 4 cores (plus 1 spare recommended)
-- **Cost:** $10-15 each (total $40-60)
-- **Lead Time:** 2-3 weeks
-
-#### Wire
-- **Type:** Magnet wire, enameled copper
-- **Gauge:** 20 AWG (0.812mm diameter)
-- **Quantity:** 1 lb spool (~405 feet) - sufficient for all 4 inductors
-- **Supplier:** BNTECHGO, Remee Wire, or DigiKey
-- **Cost:** $15-20
-- **Lead Time:** 1 week
+**Phase 1 Sign-Off**: Ready to proceed to PCB layout when all items checked
 
 ---
 
-## 4. PCB DESIGN REQUIREMENTS
+## 4. Phase 2: PCB Layout Creation
 
-### 4.1 Board Layout Strategy
+**Objective**: Create production-ready 2-layer PCB layout with proper component placement, routing, and grounding
 
-**Signal Flow:** Left to Right
+**Estimated Time**: 8-12 hours
+**Dependencies**: Phase 1 complete (schematic finalized, netlist generated)
+**Deliverable**: `low-boost.kicad_pcb` ready for DRC and manufacturing file generation
+
+### 4.1 Board Setup
+
+**Open PCB Editor**: KiCAD → PCB Editor (pcbnew)
+
+#### 4.1.1 Import Netlist
+
+- [ ] File → Import → Netlist
+- [ ] Select `low-boost.net` (generated in Phase 1)
+- [ ] Review component list
+- [ ] Import all components
+- [ ] Verify footprint assignments
+
+#### 4.1.2 Board Dimensions and Edge Cuts
+
+**Board Size**: 100mm × 120mm (per PCB_LAYOUT.md specification)
+
+- [ ] Select Edge.Cuts layer
+- [ ] Draw rectangle: 100mm wide × 120mm tall
+  - Use "Draw Rectangle" tool
+  - Start point: (0, 0)
+  - End point: (100, 120)
+- [ ] Add corner radius: 2mm radius on all corners (optional, recommended for professional look)
+- [ ] Verify board outline is closed polygon
+
+#### 4.1.3 Mounting Holes (4× M3)
+
+**Position**: 3mm from edges (per PCB_LAYOUT.md)
+
+- [ ] **Hole 1** (top-left): X=3mm, Y=3mm
+  - Hole diameter: 3.2mm
+  - Pad diameter: 6mm
+  - Layer: Through-hole, all layers
+
+- [ ] **Hole 2** (top-right): X=97mm, Y=3mm
+
+- [ ] **Hole 3** (bottom-right): X=97mm, Y=117mm
+
+- [ ] **Hole 4** (bottom-left): X=3mm, Y=117mm
+
+- [ ] Add keep-out zones around mounting holes:
+  - Diameter: 8mm
+  - No copper, no silkscreen within keep-out
+
+#### 4.1.4 Design Rules Setup
+
+**Navigate to**: File → Board Setup → Design Rules → Constraints
+
+**Minimum Values** (per PCB_LAYOUT.md):
+
+- [ ] **Minimum Trace Width**: 0.25mm (default minimum, use 0.6mm in practice)
+- [ ] **Minimum Clearance**: 0.25mm (use 0.5mm for safety margin)
+- [ ] **Minimum Via Diameter**: 0.8mm (drill), 1.3mm (pad)
+- [ ] **Minimum Annular Ring**: 0.15mm
+
+**Working Values** (actually use these):
+
+- [ ] **Signal Traces**: 0.8mm width
+- [ ] **Control Traces**: 0.6mm width
+- [ ] **Ground Traces** (top layer): 2.0mm width
+- [ ] **Via Drill**: 0.8mm
+- [ ] **Via Pad**: 1.3mm
+- [ ] **Trace-to-trace Clearance**: 0.5mm (0.8mm preferred)
+- [ ] **Trace-to-edge Clearance**: 8mm minimum
+
+#### 4.1.5 Layer Stackup Configuration
+
+**2-layer board, FR-4, 1.6mm thickness**
+
+- [ ] **Top Layer (F.Cu)**:
+  - Signal routing
+  - Component pads
+  - Screw terminal pads
+  - Ground traces (heavy, 2mm width)
+
+- [ ] **Bottom Layer (B.Cu)**:
+  - Solid ground plane (copper pour)
+  - Strategic cutouts for signal vias (if needed)
+  - Via stitching (every 20mm around perimeter)
+
+- [ ] **Copper Weight**: 1 oz (35µm) both layers
+
+- [ ] **Surface Finish** (configure in manufacturing notes):
+  - Preferred: ENIG (Electroless Nickel Immersion Gold)
+  - Acceptable: HASL (Hot Air Solder Leveling)
+
+### 4.2 Component Placement Strategy
+
+**Reference**: Follow PCB_LAYOUT.md specifications exactly
+
+#### 4.2.1 Terminal Placement (All on Board Edges)
+
+**Left Edge - Signal I/O**
+
+- [ ] **J_IN** (2-pos): X=0mm (flush with edge), Y=15mm from top
+  - Orientation: Wire entry facing outward (left)
+  - Silkscreen: "INPUT" above, "IN+" and "IN-" at positions
+
+**Right Edge - Signal I/O**
+
+- [ ] **J_OUT** (2-pos): X=100mm (flush with edge), Y=15mm from top
+  - Orientation: Wire entry facing outward (right)
+  - Silkscreen: "OUTPUT" above, "OUT+" and "OUT-" at positions
+
+**Top Edge - Control Selectors**
+
+- [ ] **J_BOOST_SEL_SND** (6-pos): X=20mm from left, Y=0mm (flush with top)
+  - Orientation: Wire entry facing outward (up)
+  - Width: 30.48mm (6 × 5.08mm)
+  - Silkscreen: "BOOST SEL SEND", positions "1" through "6"
+
+- [ ] **J_BOOST_SEL_RET** (6-pos): X=55mm from left, Y=0mm (flush with top)
+  - Orientation: Wire entry facing outward (up)
+  - Silkscreen: "BOOST SEL RETURN", positions "1" through "6"
+
+**Bottom Edge - Controls & Ground**
+
+- [ ] **J_CUT_SEL_SND** (3-pos): X=10mm from left, Y=120mm (flush with bottom)
+  - Orientation: Wire entry facing outward (down)
+  - Silkscreen: "CUT SEL SEND", positions "1", "2", "3"
+
+- [ ] **J_BOOST_LVL** (3-pos): X=30mm from left, Y=120mm (flush with bottom)
+  - Orientation: Wire entry facing outward (down)
+  - Silkscreen: "BOOST LEVEL", positions "1", "2", "3"
+
+- [ ] **J_GND** (2-pos): X=50mm from left, Y=120mm (flush with bottom)
+  - Orientation: Wire entry facing outward (down)
+  - Silkscreen: "GROUND"
+
+**Right Edge - Inductor Connections** (stacked vertically)
+
+- [ ] **J_IND_20HZ** (2-pos): X=100mm (flush), Y=30mm from top
+  - Orientation: Wire entry facing outward (right)
+  - Silkscreen: "20Hz INDUCTOR", "L1", "L2"
+
+- [ ] **J_IND_30HZ** (2-pos): X=100mm (flush), Y=50mm from top
+  - Silkscreen: "30Hz INDUCTOR", "L1", "L2"
+
+- [ ] **J_IND_60HZ** (2-pos): X=100mm (flush), Y=70mm from top
+  - Silkscreen: "60Hz INDUCTOR", "L1", "L2"
+
+- [ ] **J_IND_100HZ** (2-pos): X=100mm (flush), Y=90mm from top
+  - Silkscreen: "100Hz INDUCTOR", "L1", "L2"
+
+#### 4.2.2 Capacitor Placement (Center Area)
+
+**Selector Network Capacitors** (upper center region, grouped by function)
+
+- [ ] **C1** (18nF): X=30mm, Y=30mm
+- [ ] **C2** (10nF): X=40mm, Y=30mm
+- [ ] **C3** (4.7nF): X=50mm, Y=30mm
+- [ ] **C4** (3.3nF): X=60mm, Y=30mm
+- [ ] **C5** (2.2nF): X=70mm, Y=30mm
+
+**Alternate Position Capacitors** (middle center)
+
+- [ ] **C4a2** (1nF): X=60mm, Y=50mm
+- [ ] **C5a2** (1.5nF): X=70mm, Y=50mm
+
+**Additional Selector Capacitors** (lower center)
+
+- [ ] **C6** (1.8nF): X=30mm, Y=70mm
+- [ ] **C7** (1nF): X=40mm, Y=70mm
+
+**Coupling Capacitors** (near I/O terminals)
+
+- [ ] **C34** (1nF): X=20mm, Y=90mm (near J_IN)
+- [ ] **C35** (1nF): X=80mm, Y=90mm (near J_OUT)
+
+**Orientation**: All capacitors oriented horizontally (parallel to top/bottom edge), with value markings facing up
+
+#### 4.2.3 Resistor Placement
+
+- [ ] **R2** (56kΩ): X=50mm, Y=90mm (center bottom, near coupling capacitors)
+  - Orientation: Horizontal (parallel to bottom edge)
+  - Footprint: Through-hole, 0.4" (10.16mm) spacing
+  - Value marking: Readable from top
+
+### 4.3 Grounding Strategy (CRITICAL FOR AUDIO QUALITY)
+
+**Star Ground Implementation** (per PCB_LAYOUT.md)
+
+#### 4.3.1 Star Ground Point Definition
+
+- [ ] **Star Point Location**: X=50mm, Y=60mm (center of board)
+  - Mark with via array (4× vias minimum)
+  - Via size: 0.8mm drill, 1.3mm pad
+  - Pattern: Square, 2mm spacing
+  - Connect to both top and bottom layers
+
+#### 4.3.2 Ground Routing (Top Layer)
+
+**Heavy traces (2.0mm width) from all ground points to star:**
+
+- [ ] J_IN- → Star Point (2.0mm trace)
+- [ ] J_OUT- → Star Point (2.0mm trace)
+- [ ] J_GND → Star Point (direct connection, multiple vias)
+- [ ] All capacitor ground pads → Local vias → Bottom ground plane
+- [ ] All inductor terminal ground pins → Via stitching (4× vias per terminal) → Bottom plane
+
+#### 4.3.3 Bottom Ground Plane (Copper Pour)
+
+- [ ] Add copper pour to entire bottom layer (B.Cu)
+  - Net: GND
+  - Clearance: 0.3mm from all non-GND pads
+  - Thermal relief: 4 spokes, 0.5mm spoke width
+  - Minimum width: 0.5mm
+  - Priority: 1 (highest)
+  - Keep-out zones: Around mounting holes (8mm diameter)
+  - Smoothing: None (sharp corners acceptable on ground plane)
+
+- [ ] Verify ground plane is continuous (no unintended splits)
+
+#### 4.3.4 Via Stitching (Ground Plane Integrity)
+
+**Perimeter Stitching** (every 20mm around board edge):
+
+- [ ] Add vias around perimeter at 20mm intervals
+  - Total: Approximately 30 vias
+  - Via size: 0.8mm drill, 1.3mm pad
+  - Distance from edge: 5mm minimum
+  - Net: GND
+  - Purpose: Low-impedance ground, EMI shielding
+
+**Component Ground Connections**:
+
+- [ ] Via arrays at each screw terminal ground pin (4× vias minimum)
+- [ ] Single via at each capacitor ground pad (connects to bottom plane)
+
+### 4.4 Trace Routing
+
+**Reference**: PCB_LAYOUT.md Section "Trace Routing"
+
+#### 4.4.1 Routing Guidelines
+
+**General Rules**:
+- [ ] Use 45° angles or smooth curves (no 90° corners)
+- [ ] Minimize vias in signal path (stay on top layer)
+- [ ] Avoid routing under capacitors if possible
+- [ ] Route critical signals first (input → output path)
+
+**Trace Width Standards**:
+- Audio signals: 0.8mm
+- Control lines: 0.6mm
+- Ground traces (top layer): 2.0mm
+
+#### 4.4.2 Critical Signal Paths (Route in Order)
+
+**Path 1: Input Stage**
+
+- [ ] J_IN+ → C34 (input coupling)
+  - Trace width: 0.8mm
+  - Keep short, direct path
+
+- [ ] C34 → Capacitor selector network junction
+  - Trace width: 0.8mm
+  - This is the "hot" input node
+
+**Path 2: Frequency Selector Network**
+
+- [ ] Capacitors (C1-C7, C4a2, C5a2) → J_BOOST_SEL_SND positions
+  - Trace width: 0.6mm (control signals)
+  - Each capacitor connects to one terminal position
+  - Common node of capacitor network connects to R2
+
+- [ ] J_BOOST_SEL_RET positions → Inductor terminal selector circuit
+  - Trace width: 0.6mm
+  - This routes the selected frequency back from external rotary switch
+
+**Path 3: Inductor Connections**
+
+- [ ] Inductor selector circuit → J_IND_20HZ, J_IND_30HZ, J_IND_60HZ, J_IND_100HZ
+  - Trace width: 1.0mm (wide to minimize series resistance)
+  - Each inductor terminal connects in parallel to selector return
+  - Terminal L1: To selector circuit
+  - Terminal L2: Return to resonant network
+
+- [ ] Inductor returns → Common resonant network node
+  - Trace width: 1.0mm
+
+**Path 4: Level Control**
+
+- [ ] Resonant network output → J_BOOST_LVL
+  - Trace width: 0.8mm
+  - Connects to external level potentiometer
+
+- [ ] J_BOOST_LVL (wiper) → R2 → Network
+  - Trace width: 0.8mm
+  - R2 provides network loading
+
+**Path 5: Output Stage**
+
+- [ ] Level control output → C35 (output coupling)
+  - Trace width: 0.8mm
+
+- [ ] C35 → J_OUT+
+  - Trace width: 0.8mm
+  - Keep short, direct path
+
+#### 4.4.3 Ground Routing
+
+- [ ] J_IN- → Star point (2.0mm trace)
+- [ ] J_OUT- → Star point (2.0mm trace)
+- [ ] J_GND → Star point (direct via array)
+- [ ] All component ground pads → Via → Bottom ground plane
+
+#### 4.4.4 Via Usage Strategy
+
+**Minimize signal vias**:
+- [ ] Route all signal traces on top layer (F.Cu) when possible
+- [ ] Use vias only for ground connections to bottom plane
+- [ ] Via size: 0.8mm drill, 1.3mm pad (consistent throughout)
+
+**Via arrays for low-impedance ground**:
+- [ ] 4× via array at each terminal ground connection
+- [ ] 1× via at each capacitor ground pad
+- [ ] Via stitching around perimeter (every 20mm)
+
+### 4.5 Silkscreen Labeling
+
+**Reference**: PCB_LAYOUT.md Section "Silkscreen Labels"
+
+#### 4.5.1 Component Labels (Top Silkscreen, White on Green)
+
+**Capacitors**:
+- [ ] Designators above components (C1, C2, C3, etc.)
+- [ ] Values below designators (18nF, 10nF, 4.7nF, etc.)
+- [ ] Font size: 1.0mm height minimum
+
+**Resistor**:
+- [ ] "R2" above component
+- [ ] "56K" below component
+
+**Non-polarized components**: No polarity marking needed
+
+#### 4.5.2 Terminal Labels (Large, Bold, 1.2mm Height)
+
+**Input/Output**:
+- [ ] J_IN: "INPUT" (large), "+" and "-" at each position
+- [ ] J_OUT: "OUTPUT" (large), "+" and "-" at each position
+
+**Frequency Selectors**:
+- [ ] J_BOOST_SEL_SND: "BOOST SEL SEND", positions "1" through "6"
+- [ ] J_BOOST_SEL_RET: "BOOST SEL RETURN", positions "1" through "6"
+
+**Controls**:
+- [ ] J_CUT_SEL_SND: "CUT SEL SEND", positions "1", "2", "3"
+- [ ] J_BOOST_LVL: "BOOST LEVEL", positions "1", "2", "3"
+
+**Ground**:
+- [ ] J_GND: "GROUND"
+
+**Inductors** (CRITICAL - clear frequency labels):
+- [ ] J_IND_20HZ: "20Hz INDUCTOR", "L1", "L2"
+- [ ] J_IND_30HZ: "30Hz INDUCTOR", "L1", "L2"
+- [ ] J_IND_60HZ: "60Hz INDUCTOR", "L1", "L2"
+- [ ] J_IND_100HZ: "100Hz INDUCTOR", "L1", "L2"
+
+#### 4.5.3 Board Information (Bottom Silkscreen)
+
+- [ ] **Board Name**: "PULTEC LOW BOOST MODULE" (large, centered)
+- [ ] **Revision**: "Rev 1.0"
+- [ ] **Date**: "2025" (or current year)
+- [ ] **Warning**: "Requires 4× hand-wound inductors"
+- [ ] **Inductor Assignment Diagram**:
+  ```
+  20Hz → 3.5H
+  30Hz → 2.8H
+  60Hz → 1.5H
+  100Hz → 0.77H
+  ```
+
+#### 4.5.4 Functional Diagram (Bottom Silkscreen)
+
+Simple block diagram showing signal flow:
+
 ```
-INPUT (Left) → FREQUENCY SELECTION (Center) → INDUCTORS (Right) → OUTPUT (Right)
+IN → Selector → Inductors → Level → OUT
+      ↕           ↕           ↕
+   Freq Sw    External   Pot
 ```
 
-**Component Placement:**
-- **Input Section (Left edge):** J_IN terminal
-- **Capacitor Array (Center):** 11 capacitors in organized grid, 2-3 rows
-- **Inductor Connections (Right edge):** 4× 2-position terminals vertically stacked
-- **Output Section (Right edge):** J_OUT terminal, R2 resistor
-- **Control Terminals (Top/Bottom edges):** Selector and level control connections
-- **Ground Terminal (Bottom edge):** J_GND
+### 4.6 Test Points
 
-### 4.2 Grounding Strategy
+**Add test points at critical nodes** (1.2mm diameter pads, via-in-pad)
 
-**Modified Star Grounding with Ground Plane:**
+- [ ] **TP1**: J_IN+ (input signal) - X=15mm, Y=20mm - Label: "TP1_IN"
+- [ ] **TP2**: After C34 (post-coupling) - X=25mm, Y=90mm - Label: "TP2_COUP"
+- [ ] **TP3**: Selector network node - X=50mm, Y=40mm - Label: "TP3_SEL"
+- [ ] **TP4**: After R2 (pre-output coupling) - X=60mm, Y=90mm - Label: "TP4_R2"
+- [ ] **TP5**: J_OUT+ (output signal) - X=85mm, Y=20mm - Label: "TP5_OUT"
+- [ ] **TP_GND**: Ground reference (star point) - X=50mm, Y=60mm - Label: "TP_GND"
 
-- **Bottom layer:** Solid copper pour (90%+ coverage)
-- **Star point:** Located near input terminal
-- **Signal grounds:** All converge at star point before connecting to plane
-- **Ground vias:** Minimum 4 vias at star point, 2 vias at each component ground
-- **J_GND connection:** 4-6 vias to plane for low impedance
+**Test point specifications**:
+- Pad diameter: 1.2mm
+- Via drill: 0.8mm (via-in-pad construction)
+- Net: Connected to appropriate signal
+- Silkscreen label: Clear, readable from top
 
-### 4.3 Routing Guidelines
+### 4.7 Design Rule Check (DRC)
 
-**Trace Widths:**
-- Primary audio paths: 0.5-0.8mm (20-30mil)
-- Secondary audio paths: 0.4-0.5mm (16-20mil)
-- Control signals: 0.3-0.4mm (12-16mil)
-- Ground connections: 1.0-1.5mm (40-60mil)
+**Run DRC**: Tools → Design Rules Checker
 
-**Design Rules:**
-- Avoid 90° corners (use 45° or arcs)
-- Keep signal traces short and direct
-- Minimize via usage in audio signal paths
-- Use bottom layer for crossovers only when necessary
-- Maintain 0.3mm minimum trace spacing
+#### 4.7.1 Pre-DRC Checklist
 
-### 4.4 Mechanical Considerations
+- [ ] All components placed (no components at origin)
+- [ ] All footprints on correct layers (top components on F.Cu)
+- [ ] Board outline closed (Edge.Cuts layer)
+- [ ] Mounting holes placed with keep-outs
+- [ ] Copper pour (ground plane) filled on bottom layer
+- [ ] All ratsnest connections routed (no airwires remaining)
 
-**Mounting Holes:**
-- 4× M3 holes at corners
-- 3.5-5mm from board edges
-- 6mm keepout zone (no copper)
+#### 4.7.2 DRC Error Categories to Resolve
 
-**Terminal Clearances:**
-- 10mm screwdriver access radius around each screw
-- 2mm minimum between adjacent terminal blocks
-- 5mm clearance from terminals to nearest component
+**Clearance Violations**:
+- [ ] No trace-to-trace clearance violations (<0.25mm)
+- [ ] No trace-to-pad clearance violations
+- [ ] No pad-to-pad clearance violations
 
-**Silkscreen Requirements:**
-- Clear terminal labels (2.0mm height text)
-- Frequency markings for inductor connections (3.0mm height)
-- Component designators (1.0-1.2mm height)
-- Pin 1 indicators on all connectors
-- Board title, revision, date
+**Track Width Violations**:
+- [ ] No traces narrower than minimum (0.25mm)
+- [ ] Verify all signal traces are 0.6-0.8mm
+- [ ] Verify all ground traces are 2.0mm
 
-### 4.5 Test Points
+**Via Violations**:
+- [ ] Via drill size adequate (0.8mm minimum)
+- [ ] Via annular ring adequate (0.15mm minimum)
+- [ ] Vias not too close to board edge
 
-**Recommended Test Points:**
-- TP_IN: Input signal
-- TP_OUT: Output signal
-- TP_GND: Ground reference
-- TP_20Hz, TP_30Hz, TP_60Hz, TP_100Hz: Frequency branch signals
-- TP_LVL: Boost level control
+**Copper Pour Issues**:
+- [ ] Ground plane continuous (no unintended islands)
+- [ ] Thermal relief pads correct (4 spokes, 0.5mm width)
+- [ ] Clearances around non-GND pads adequate (0.3mm)
 
----
+**Other Issues**:
+- [ ] Silkscreen not on pads (automatic check)
+- [ ] Mounting holes not violating clearances
+- [ ] Board outline valid
 
-## 5. KICAD IMPLEMENTATION WORKFLOW
+#### 4.7.3 DRC Clean Criteria
 
-### 5.1 Project Setup
+- [ ] **Zero errors** (all errors must be resolved)
+- [ ] Warnings reviewed and justified (some warnings are acceptable)
+- [ ] Manual visual inspection complete
 
-**Step 1: Create New Project**
-1. KiCAD → File → New Project
-2. Location: `/Users/orion/work/multi-channel-preamp/src/schematics/pultec-boost-low/`
-3. Name: `pultec-boost-low`
+### 4.8 Final Layout Review
 
-**Step 2: Configure Page Settings**
-- Title: "Pultec Low Boost Module"
-- Revision: "1.0"
-- Date: Current date
-- Comments: "Three-Band EQ - Low Boost Section", "Passive LC Network", "External Inductors Required"
+**Visual Inspection Checklist**:
 
-### 5.2 Schematic Creation
+- [ ] Component placement logical (signal flow left-to-right)
+- [ ] All terminals accessible from board edges
+- [ ] Adequate spacing for wiring and screwdriver access (20mm around terminals)
+- [ ] Silkscreen labels clear and readable
+- [ ] Inductor frequency labels prominent and correct
+- [ ] Test points accessible for probing
+- [ ] Ground plane solid and continuous
+- [ ] Via stitching present around perimeter
+- [ ] Star ground point clearly visible
+- [ ] Mounting holes positioned correctly (3mm from edges)
+- [ ] Board dimensions correct (100mm × 120mm)
 
-**Step 3: Place Components**
+**Functional Review**:
 
-**Connectors (11 total):**
-- Symbol: `Connector:Screw_Terminal_01x02` (for 2-pos)
-- Symbol: `Connector:Screw_Terminal_01x03` (for 3-pos)
-- Symbol: `Connector:Screw_Terminal_01x06` (for 6-pos)
-- Arrange logically: Input (left), Output (right), Controls (top), Inductors (right)
+- [ ] Input and output on opposite sides (left/right)
+- [ ] Control terminals grouped logically
+- [ ] Inductor terminals clearly labeled with frequencies
+- [ ] Signal path short and direct
+- [ ] Ground routing follows star topology
+- [ ] No ground loops created
+- [ ] Capacitors grouped by function
 
-**Capacitors (11 total):**
-- Symbol: `Device:C`
-- Values: 18nF, 10nF, 4.7nF, 3.3nF, 2.2nF, 1.5nF, 1.8nF, 1nF (×5)
-- Footprint: `Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm` or similar
+### 4.9 Phase 2 Deliverables Checklist
 
-**Resistor (1 total):**
-- Symbol: `Device:R`
-- Value: 56kΩ
-- Footprint: `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal`
+- [ ] All components placed per specifications
+- [ ] All traces routed (no airwires)
+- [ ] Ground plane filled and verified
+- [ ] Silkscreen labels complete and clear
+- [ ] Test points added
+- [ ] DRC clean (zero errors)
+- [ ] Visual inspection complete
+- [ ] Board dimensions verified (100mm × 120mm)
+- [ ] Mounting holes placed correctly
+- [ ] `low-boost.kicad_pcb` file saved
 
-**Step 4: Wire Circuit**
-- Connect according to circuit topology
-- Add net labels for all major nodes
-- Use consistent naming: `SIG_IN`, `SIG_OUT`, `SEL_SND_20HZ`, etc.
-
-**Step 5: Annotate**
-- Tools → Annotate Schematic
-- Use automatic annotation
-
-**Step 6: Assign Footprints**
-- Tools → Assign Footprints
-- Verify all components have footprints
-- Check Phoenix Contact terminals against OL Library or create custom
-
-**Step 7: Run ERC**
-- Inspect → Electrical Rules Checker
-- Resolve all errors
-- Target: Zero errors
-
-### 5.3 PCB Layout
-
-**Step 8: Update PCB from Schematic**
-- Tools → Update PCB from Schematic (F8)
-- Import all components
-
-**Step 9: Board Setup**
-- Define board outline: 60mm × 100mm
-- Add 4× M3 mounting holes (3.2mm diameter)
-- Set design rules:
-  - Min track: 0.25mm
-  - Min clearance: 0.20mm
-  - Min via: 0.6mm / 0.3mm drill
-
-**Step 10: Component Placement**
-- Follow layout strategy from section 4.1
-- Use 3D viewer to verify clearances
-- Check screwdriver access around terminals
-
-**Step 11: Routing**
-- Add ground plane on bottom layer
-- Route signal traces on top layer
-- Follow routing guidelines from section 4.3
-- Add ground vias at star point and component grounds
-
-**Step 12: Run DRC**
-- Inspect → Design Rules Checker
-- Resolve all errors
-- Target: Zero errors
-
-**Step 13: Final Touches**
-- Add silkscreen labels
-- Verify pin 1 indicators
-- Add frequency markings near inductor terminals
-- Update title block
-
-### 5.4 Manufacturing Output
-
-**Step 14: Generate Gerber Files**
-- File → Fabrication Outputs → Gerbers
-- Select all required layers:
-  - F.Cu, B.Cu (copper)
-  - F.Mask, B.Mask (soldermask)
-  - F.Silkscreen, B.Silkscreen (silkscreen)
-  - Edge.Cuts (board outline)
-- Output directory: `gerbers/`
-
-**Step 15: Generate Drill Files**
-- File → Fabrication Outputs → Drill Files
-- Format: Excellon
-- Generate separate PTH and NPTH files
-
-**Step 16: Export BOM**
-- Tools → Generate BOM
-- Export as CSV
-- Include: Ref, Qty, Value, Description, Footprint, MPN, Supplier P/N
-
-**Step 17: Create Assembly Drawing**
-- File → Print → Export to PDF
-- Show top view with component outlines and designators
-
-**Step 18: Verify Gerbers**
-- Open in GerbView
-- Inspect each layer for correctness
-- Upload to manufacturer's preview tool (JLCPCB, OSH Park, etc.)
+**Phase 2 Sign-Off**: Ready to generate manufacturing files when all items checked
 
 ---
 
-## 6. PROCUREMENT PLAN
+## 5. Phase 3: Manufacturing File Generation
 
-### 6.1 Component Order
+**Objective**: Generate complete manufacturing file package for PCB fabrication and assembly
 
-**Mouser Electronics Order (Standard Components):**
+**Estimated Time**: 2-3 hours
+**Dependencies**: Phase 2 complete (PCB layout finalized, DRC clean)
+**Deliverable**: Manufacturing file package in `src/pultec/modules/low-boost/gerbers/`
 
-| Item | Quantity | Cost |
-|------|----------|------|
-| Capacitors (11 types) | 1 each (or 3× for spares) | $5.50 ($16.50) |
-| Resistor R2 (56kΩ) | 1 (or 3×) | $0.20 ($0.60) |
-| Screw Terminals (11 assorted) | 1 set (or 3×) | $10.75 ($32.25) |
-| **Subtotal** | | **$16.45** (**$49.35**) |
-| Shipping (Standard Ground) | | **$7.99** |
-| **Total** | | **$24.44** (**$57.34**) |
+### 5.1 Gerber File Generation
 
-**Recommendation:** Order components for 3 boards (provides spares, better unit cost)
+**Navigate to**: File → Plot
 
-### 6.2 PCB Fabrication
+#### 5.1.1 Gerber Plot Settings
 
-**Option A: JLCPCB (Cost-Optimized)**
-- Quantity: 5 boards minimum
-- Specifications: 2-layer, 60×100mm, 1.6mm, 1oz copper, ENIG finish
-- Cost: $15-20 + $12-18 shipping
-- Lead Time: 3-4 days production + 3-5 days shipping
-- **Total: $30-38, 1-2 weeks**
+**Output Directory**: Create `gerbers/` subdirectory
+- [ ] Create directory: `src/pultec/modules/low-boost/gerbers/`
 
-**Option B: OSH Park (Quality-Optimized)**
-- Quantity: 3 boards
-- Specifications: 2-layer, 60×100mm, 1.6mm, 1oz copper
-- Cost: $30-50 (includes shipping)
-- Lead Time: 12 days
-- **Total: $30-50, 2 weeks**
+**Plot Format**: Gerber (RS-274X)
 
-**Recommendation:** OSH Park for first build (better quality, US-based), JLCPCB for production runs
+**Layers to Generate**:
 
-### 6.3 Inductor Materials
+- [ ] **F.Cu** (Front Copper) → Output: `low-boost-F_Cu.gbr` or `GTL`
+  - Top copper layer with all signal traces
 
-**Cores:**
-- **Type:** Hammond 166J00 (EI-100), 166K00 (EI-87) or equivalent
-- **Quantity:** 4 cores (2× EI-100, 2× EI-87) + 1 spare
-- **Supplier:** Hammond direct, Allied Electronics, or eBay
-- **Cost:** $10-15 each = $40-60 total
-- **Lead Time:** 2-3 weeks
+- [ ] **B.Cu** (Back Copper) → Output: `low-boost-B_Cu.gbr` or `GBL`
+  - Bottom ground plane
 
-**Magnet Wire:**
-- **Type:** 20 AWG enameled copper magnet wire
-- **Quantity:** 1 lb spool (~405 feet)
-- **Supplier:** BNTECHGO (Amazon), Remee Wire, or DigiKey
-- **Cost:** $15-20
-- **Lead Time:** 1 week
+- [ ] **F.Silkscreen** → Output: `low-boost-F_SilkS.gbr` or `GTO`
+  - Top silkscreen with component labels
 
-### 6.4 Total Cost Summary
+- [ ] **B.Silkscreen** → Output: `low-boost-B_SilkS.gbr` or `GBO`
+  - Bottom silkscreen with board info and diagram
 
-**Single Prototype Unit:**
-- Electronic Components: $16.45
-- PCB (from min. order): $4-8
-- Inductor Materials: $32-44
-- Shipping: $28-38
-- **Total: $80-102**
+- [ ] **F.Mask** (Front Solder Mask) → Output: `low-boost-F_Mask.gbr` or `GTS`
+  - Top solder mask (solder resist openings)
 
-**Three-Unit Build (Recommended):**
-- Electronic Components: $49.35 (×3 + spares)
-- PCBs: $20-25 (5 boards)
-- Inductor Materials: $72-96 (12 cores, wire)
-- Shipping: $28-38
-- **Total: $169-208 ($56-69 per unit)**
+- [ ] **B.Mask** (Back Solder Mask) → Output: `low-boost-B_Mask.gbr` or `GBS`
+  - Bottom solder mask
 
-### 6.5 Procurement Timeline
+- [ ] **Edge.Cuts** → Output: `low-boost-Edge_Cuts.gbr` or `GM1`/`GKO`
+  - Board outline and mounting holes
 
-| Week | Action | Item | Lead Time |
-|------|--------|------|-----------|
-| **0** | Design | Finalize inductor specs | - |
-| **1** | Order | Inductor cores | 2-3 weeks |
-| **1** | Order | Magnet wire | 1 week |
-| **1-2** | Order | PCB fabrication | 1-2 weeks |
-| **2** | Order | Standard components | 1 week |
-| **2** | Receive | Magnet wire | - |
-| **2-3** | Receive | PCBs | - |
-| **3** | Receive | Standard components | - |
-| **3-4** | Receive | Inductor cores | - |
+**Gerber Options**:
+- [ ] Format: 4.6 unit mm (standard)
+- [ ] Include Gerber job file: Yes
+- [ ] Subtract soldermask from silkscreen: Yes (prevents silkscreen on pads)
+- [ ] Use Protel filename extensions: Optional (some fabs prefer, others don't)
+  - Standard: `.gbr` extension
+  - Protel: `.GTL`, `.GBL`, `.GTO`, `.GBO`, `.GTS`, `.GBS`, `.GM1`
 
-**Critical Path:** Inductor cores (2-3 week lead time)
+#### 5.1.2 Generate Gerber Files
 
-**Recommendation:** Order cores immediately once inductor design finalized
+- [ ] Click "Plot" button
+- [ ] Verify all 7 files generated in `gerbers/` directory
+- [ ] Check file sizes (all >0 bytes)
+
+#### 5.1.3 Gerber File Verification
+
+**Use Gerber Viewer** (built into KiCAD or external like gerbv):
+
+- [ ] Open all Gerber files in viewer
+- [ ] Verify layers align correctly
+- [ ] Check for:
+  - [ ] Complete board outline
+  - [ ] All copper traces present
+  - [ ] Ground plane continuous
+  - [ ] Silkscreen readable and not on pads
+  - [ ] Solder mask openings at all pads
+  - [ ] Mounting holes visible
+
+### 5.2 Drill File Generation
+
+**Navigate to**: File → Plot → "Generate Drill Files" button
+
+#### 5.2.1 Drill File Settings
+
+**Output Directory**: Same as Gerbers (`gerbers/`)
+
+**Drill File Format**: Excellon
+
+**Drill Units**: Millimeters
+
+**Zeros Format**: Decimal format (recommended)
+
+**Drill Options**:
+- [ ] Merge PTH and NPTH into one file: No (separate is better)
+  - PTH (Plated Through-Hole): Component leads, vias
+  - NPTH (Non-Plated Through-Hole): Mounting holes
+
+- [ ] Minimal header: No (full header for compatibility)
+
+**Drill Map**:
+- [ ] Generate drill map: Yes
+- [ ] Format: PDF (for reference)
+- [ ] Type: Using drill symbols
+
+#### 5.2.2 Generate Drill Files
+
+- [ ] Click "Generate Drill File"
+- [ ] Verify files created:
+  - [ ] `low-boost-PTH.drl` (plated holes: vias, component pads)
+  - [ ] `low-boost-NPTH.drl` (non-plated holes: mounting holes)
+  - [ ] `low-boost-drl_map.pdf` (drill map reference drawing)
+
+#### 5.2.3 Drill File Verification
+
+**Check drill file contents**:
+
+- [ ] Open PTH drill file in text editor
+- [ ] Verify tool list (different drill sizes)
+- [ ] Verify hole count matches expected:
+  - Vias: ~35-40 (depends on design)
+  - Component pads: ~90 (11 capacitors × 2 + 1 resistor × 2 + terminals)
+
+- [ ] Open NPTH drill file
+- [ ] Verify 4 mounting holes (3.2mm diameter)
+
+- [ ] Open drill map PDF
+- [ ] Verify hole positions match PCB layout
+- [ ] Verify mounting holes at corners (3mm from edges)
+
+### 5.3 Assembly Drawing (PDF)
+
+**Objective**: Create clear assembly drawing showing component placement and values
+
+#### 5.3.1 Generate Assembly Drawing
+
+**Navigate to**: File → Plot
+
+**Settings for Assembly Drawing**:
+
+- [ ] Output format: PDF
+- [ ] Layers to include:
+  - [ ] F.Cu (front copper, for pad reference)
+  - [ ] F.Silkscreen (component labels)
+  - [ ] Dwgs.User (optional, for additional notes)
+  - [ ] Edge.Cuts (board outline)
+
+- [ ] Options:
+  - [ ] Print in color: Yes
+  - [ ] Include title block: Yes
+  - [ ] Plot footprint values: Yes
+  - [ ] Plot reference designators: Yes
+
+- [ ] Output filename: `low-boost-assembly-top.pdf`
+
+#### 5.3.2 Assembly Drawing Content Checklist
+
+**Verify PDF includes**:
+
+- [ ] All component positions visible
+- [ ] All reference designators readable (C1, C2, R2, J1, etc.)
+- [ ] All component values shown (18nF, 10nF, 56K, etc.)
+- [ ] Board outline and mounting holes
+- [ ] Silkscreen labels (terminal functions)
+- [ ] Title block with board name and revision
+
+**Optional but recommended**: Add assembly notes to Dwgs.User layer:
+- [ ] "Install screw terminals first"
+- [ ] "Install resistor R2"
+- [ ] "Install capacitors C1-C7, C34, C35, C4a2, C5a2"
+- [ ] "Verify all solder joints for cold joints and bridges"
+
+### 5.4 Pick-and-Place File (CSV)
+
+**For automated assembly** (optional for hand assembly, but useful for documentation)
+
+**Navigate to**: File → Fabrication Outputs → Component Placement (.pos)
+
+#### 5.4.1 Pick-and-Place Settings
+
+- [ ] Output format: CSV (ASCII)
+- [ ] Units: Millimeters
+- [ ] Files: Separate files for front and back (only front needed for this board)
+- [ ] Include only SMT parts: No (include all components)
+
+#### 5.4.2 Generate Pick-and-Place
+
+- [ ] Click "Generate Position File"
+- [ ] Output: `low-boost-top-pos.csv`
+- [ ] Verify CSV contains:
+  - Ref (reference designator)
+  - Val (component value)
+  - Package (footprint)
+  - PosX, PosY (position coordinates)
+  - Rot (rotation angle)
+  - Side (top or bottom)
+
+### 5.5 Bill of Materials Export
+
+**Generate BOM from schematic** (if not already created in Phase 1)
+
+#### 5.5.1 BOM Generation (from Schematic Editor)
+
+**Navigate to**: Schematic Editor → Tools → Generate BOM
+
+**BOM Plugin**: Use built-in BOM plugin or third-party (KiCost, etc.)
+
+**Format**: CSV
+
+**Columns to include**:
+- [ ] Reference Designator
+- [ ] Quantity
+- [ ] Value
+- [ ] Description
+- [ ] Footprint
+- [ ] Manufacturer
+- [ ] Part Number (MPN)
+- [ ] Supplier
+- [ ] Supplier P/N
+
+**Output filename**: `low-boost-BOM.csv`
+
+#### 5.5.2 BOM Cross-Reference
+
+- [ ] Verify BOM matches PCB (all components in BOM are on PCB)
+- [ ] Verify no missing components
+- [ ] Verify quantities correct (e.g., 11 capacitors, 1 resistor, 9 terminals)
+- [ ] Cross-reference with existing BOM.csv in module directory
+
+### 5.6 Fabrication Drawing (PDF)
+
+**Create fabrication drawing with board specifications**
+
+#### 5.6.1 Fabrication Drawing Content
+
+Create PDF document (can use text editor + export, or draw on Dwgs.User layer) with:
+
+- [ ] **Board Dimensions**: 100mm × 120mm ±0.2mm
+- [ ] **Layer Count**: 2-layer
+- [ ] **Board Thickness**: 1.6mm ±0.15mm
+- [ ] **Copper Weight**: 1 oz (35µm) both layers
+- [ ] **Surface Finish**: ENIG preferred, HASL acceptable
+- [ ] **Solder Mask**: Green LPI, both sides
+- [ ] **Silkscreen**: White epoxy ink, both sides
+- [ ] **Minimum Trace Width**: 0.25mm
+- [ ] **Minimum Clearance**: 0.25mm
+- [ ] **Minimum Hole Size**: 0.8mm
+- [ ] **Board Outline**: Routed, 2mm radius corners
+- [ ] **E-Test**: 100% continuity and isolation required
+- [ ] **Mounting Holes**: 4× 3.2mm diameter, non-plated, 3mm from edges
+- [ ] **Material**: FR-4, Tg 140°C minimum
+- [ ] **IPC Class**: Class 2 (standard)
+
+**Stackup Diagram**:
+```
+┌─────────────────────┐
+│ Silkscreen (white)  │
+├─────────────────────┤
+│ Solder Mask (green) │
+├─────────────────────┤
+│ Copper (1 oz) F.Cu  │ ← Top layer: signals
+├═════════════════════┤
+│   FR-4 Core (1.6mm) │
+├═════════════════════┤
+│ Copper (1 oz) B.Cu  │ ← Bottom layer: ground plane
+├─────────────────────┤
+│ Solder Mask (green) │
+├─────────────────────┤
+│ Silkscreen (white)  │
+└─────────────────────┘
+```
+
+**Save as**: `low-boost-fabrication-drawing.pdf`
+
+### 5.7 Compressed Manufacturing Package
+
+**Create ZIP archive for PCBWay submission**
+
+#### 5.7.1 Package Contents Checklist
+
+- [ ] All Gerber files (7 files):
+  - [ ] `low-boost-F_Cu.gbr` (or `.GTL`)
+  - [ ] `low-boost-B_Cu.gbr` (or `.GBL`)
+  - [ ] `low-boost-F_SilkS.gbr` (or `.GTO`)
+  - [ ] `low-boost-B_SilkS.gbr` (or `.GBO`)
+  - [ ] `low-boost-F_Mask.gbr` (or `.GTS`)
+  - [ ] `low-boost-B_Mask.gbr` (or `.GBS`)
+  - [ ] `low-boost-Edge_Cuts.gbr` (or `.GM1`)
+
+- [ ] Drill files (2-3 files):
+  - [ ] `low-boost-PTH.drl`
+  - [ ] `low-boost-NPTH.drl`
+  - [ ] `low-boost-drl_map.pdf` (optional but helpful)
+
+- [ ] Documentation (recommended):
+  - [ ] `low-boost-assembly-top.pdf`
+  - [ ] `low-boost-BOM.csv`
+  - [ ] `low-boost-fabrication-drawing.pdf`
+  - [ ] `README.txt` (brief description of board and specifications)
+
+#### 5.7.2 Create ZIP Archive
+
+**Command line** (macOS/Linux):
+```bash
+cd src/pultec/modules/low-boost/gerbers/
+zip -r low-boost-gerbers-v1.0.zip *.gbr *.drl *.pdf
+```
+
+**Or use GUI** (Finder/Explorer):
+- [ ] Select all files in `gerbers/` directory
+- [ ] Right-click → Compress
+- [ ] Rename to `low-boost-gerbers-v1.0.zip`
+
+#### 5.7.3 Verify ZIP Archive
+
+- [ ] Extract ZIP to temporary location
+- [ ] Verify all files present and readable
+- [ ] Check file sizes match originals
+- [ ] Re-open Gerbers in viewer from extracted files
+
+### 5.8 Phase 3 Deliverables Checklist
+
+- [ ] Gerber files generated (7 layers)
+- [ ] Drill files generated (PTH, NPTH)
+- [ ] Drill map PDF created
+- [ ] Assembly drawing PDF created
+- [ ] Pick-and-place CSV generated (optional)
+- [ ] BOM CSV verified/updated
+- [ ] Fabrication drawing PDF created
+- [ ] All files verified in Gerber viewer
+- [ ] ZIP archive created and verified
+- [ ] Manufacturing package complete
+
+**Phase 3 Sign-Off**: Ready to submit to PCBWay when all items checked
 
 ---
 
-## 7. ASSEMBLY INSTRUCTIONS
+## 6. Phase 4: PCBWay Submission
 
-### 7.1 Pre-Assembly Preparation
+**Objective**: Submit manufacturing files to PCBWay and place order for PCB fabrication
 
-**Tools Required:**
-- Soldering iron (adjustable temperature, 315-370°C)
-- Solder (60/40 Sn/Pb or SAC305 lead-free)
-- Wire cutters (flush cut)
-- Long-nose pliers
-- Multimeter
-- Magnifier or microscope
-- ESD wrist strap (recommended)
+**Estimated Time**: 1-2 hours
+**Dependencies**: Phase 3 complete (manufacturing files generated and verified)
+**Deliverable**: PCBWay order placed, confirmation received
 
-**Workspace Setup:**
-- ESD-safe mat
-- Good lighting
-- Component organizer
-- Solder fume extraction
+### 6.1 PCBWay Account Setup
 
-### 7.2 Assembly Sequence
+**If you don't have a PCBWay account**:
 
-**Step 1: Screw Terminal Installation (30 minutes)**
-1. Install J_IN, J_OUT, J_GND first (establish orientation)
-2. Install control terminals (J_BOOST_SEL_SND, J_BOOST_SEL_RET, J_CUT_SEL_SND, J_BOOST_LVL)
-3. Install inductor terminals (J_IND_20HZ, J_IND_30HZ, J_IND_60HZ, J_IND_100HZ)
-4. Ensure terminals are flush against PCB
-5. Solder from bottom side
-6. Inspect: All pins soldered, no cold joints, no bridges
+- [ ] Go to: https://www.pcbway.com/
+- [ ] Click "Sign Up" (top right)
+- [ ] Create account with email and password
+- [ ] Verify email address
+- [ ] Log in
 
-**Step 2: Resistor Installation (5 minutes)**
-1. Bend R2 (56kΩ) leads to 10.16mm spacing
-2. Insert through PCB
-3. Bend leads on bottom to secure
-4. Solder and trim excess leads
-5. Verify with multimeter: 56kΩ ±1%
+### 6.2 PCBWay Specifications Checklist
 
-**Step 3: Capacitor Installation (30 minutes)**
-1. Install in order of value (largest first for organization):
-   - C1 (18nF), C2 (10nF), C3 (4.7nF), C4 (3.3nF), C5 (2.2nF)
-   - C4a2 (1nF), C5a2 (1.5nF), C6 (1.8nF), C7 (1nF)
-   - C34 (1nF), C35 (1nF)
-2. Film capacitors are non-polarized (no polarity concern)
-3. Insert, bend leads, solder, trim
-4. Double-check values before soldering (difficult to desolder)
+**Before uploading, prepare specifications**:
 
-**Step 4: Post-Assembly Inspection (15 minutes)**
-1. Visual inspection with magnifier:
-   - All solder joints shiny and smooth (no cold joints)
-   - No solder bridges between pads
-   - All components properly seated
-   - No lifted pads or damaged traces
-2. Clean flux residue if necessary
-3. Label inductor terminals with frequency markings (if not already on silkscreen)
+#### 6.2.1 Basic Specifications
 
-### 7.3 Inductor Connection
+- [ ] **Board Type**: PCB
+- [ ] **Layer Count**: 2 layers
+- [ ] **Material**: FR-4 TG 140-150
+- [ ] **Board Thickness**: 1.6mm
+- [ ] **Board Dimensions**: 100mm × 120mm (will be auto-detected from Gerbers)
+- [ ] **PCB Qty**: 5 or 10 (minimum order, select based on need)
+- [ ] **Product Type**: Industrial/Professional control
 
-**External Inductor Wiring:**
-1. Hand-wound inductors mount separately (not on PCB)
-2. Connect each inductor to corresponding terminal:
-   - L_20Hz → J_IND_20HZ
-   - L_30Hz → J_IND_30HZ
-   - L_60Hz → J_IND_60HZ
-   - L_100Hz → J_IND_100HZ
-3. Use 18-22 AWG stranded wire, keep length <30cm
-4. Twist pair for noise reduction (optional but recommended)
-5. Label each inductor wire clearly
+#### 6.2.2 Copper Specifications
 
----
+- [ ] **Outer Copper Weight**: 1 oz (35µm)
+- [ ] **Copper Type**: Standard copper
+- [ ] **Trace Width / Spacing**: 6/6 mil (0.15mm/0.15mm) - our design is 10/10 mil minimum
 
-## 8. TESTING AND VALIDATION
+#### 6.2.3 Solder Mask and Silkscreen
 
-### 8.1 Initial Electrical Testing
+- [ ] **Solder Mask**: Green (standard, or choose color)
+- [ ] **Solder Mask Sides**: Both sides
+- [ ] **Silkscreen**: White
+- [ ] **Silkscreen Sides**: Both sides
 
-**Visual Inspection:**
-- [ ] All components installed per BOM
-- [ ] No solder bridges
-- [ ] No cold solder joints
-- [ ] All terminal screws accessible
-- [ ] No physical damage
+#### 6.2.4 Surface Finish
 
-**Continuity Testing:**
-- [ ] Input to output path (depends on selector position)
-- [ ] Ground continuity (all grounds to J_GND)
-- [ ] No shorts between adjacent traces
+**Preferred**: ENIG (Electroless Nickel Immersion Gold)
+- [ ] **Advantages**: Best for long-term reliability, shelf life, solderability
+- [ ] **Cost**: Higher (~$30-50 additional for this board size)
+- [ ] **Recommended for**: Professional audio equipment
 
-**Component Value Verification:**
-- [ ] R2 = 56kΩ ±1% (multimeter)
-- [ ] Spot-check capacitor values with LCR meter (if available)
+**Acceptable Alternative**: HASL (Hot Air Solder Leveling)
+- [ ] **Advantages**: Lower cost, standard process
+- [ ] **Acceptable for**: Prototypes, budget builds
+- [ ] **Note**: Slightly rougher surface, shorter shelf life
 
-**Inductor Testing (Critical):**
-- [ ] Measure each inductor with LCR meter @ 120Hz:
-  - L_20Hz: 35.16H ±10%
-  - L_30Hz: 28.15H ±10%
-  - L_60Hz: 14.98H ±10%
-  - L_100Hz: 7.68H ±10%
-- [ ] Measure DCR of each inductor:
-  - Target: <5Ω for all inductors
-  - Acceptable: <10Ω
-  - Marginal: <20Ω
-- [ ] Calculate Q = 2πfL/DCR:
-  - Target: Q >20 at resonant frequency
-  - Good: Q >50
-  - Excellent: Q >100
+**Selection**:
+- [ ] Choose: ENIG (if budget allows) or HASL (for prototypes)
 
-### 8.2 Bench Testing (No System Integration)
+#### 6.2.5 Via Options
 
-**Test Equipment:**
-- Audio signal generator (20Hz-20kHz sine wave)
-- Oscilloscope or audio analyzer
-- Multimeter
-- Function generator (optional)
+- [ ] **Via Process**: Tenting vias (standard)
+- [ ] **Min Hole Size**: 0.3mm (our design uses 0.8mm, well within spec)
 
-**Procedure:**
-1. **Inject 1kHz sine wave at J_IN**
-   - Expected: Signal passes through with ~20dB insertion loss
-   - Verify at J_OUT with oscilloscope
-   - Should be flat response at 1kHz (not a boost frequency)
+#### 6.2.6 Finished Copper
 
-2. **Test Each Frequency Position:**
-   - Connect to external frequency selector switch
-   - Set selector to 20Hz position
-   - Inject 20Hz sine wave
-   - Measure boost at J_OUT
-   - Expected: +X dB boost (depends on J_BOOST_LVL setting)
-   - Repeat for 30Hz, 60Hz, 100Hz
+- [ ] **Finished Copper**: 1 oz (matches outer copper weight)
 
-3. **Frequency Sweep:**
-   - Sweep 10Hz-200Hz with signal generator
-   - Plot frequency response
-   - Verify peak at selected frequency
-   - Measure Q (bandwidth at -3dB points)
+#### 6.2.7 Additional Options
 
-### 8.3 Integration Testing
+- [ ] **Remove Order Number**: Yes (recommended for clean appearance)
+  - Small additional cost (~$5)
+  - Prevents PCBWay from adding serial number to silkscreen
 
-**System Integration:**
-1. Connect module in signal chain:
-   - Input Stage → Low Cut → **Low Boost** → High Boost → High Cut → Output Stage
-2. Test with actual audio material (music, pink noise)
-3. Verify selector switching (no pops or clicks)
-4. Test boost level control (smooth adjustment, no noise)
-5. Check for hum or noise (50/60Hz power line interference)
+- [ ] **Gold Fingers**: No
+- [ ] **Castellated Holes**: No
+- [ ] **Impedance Control**: No (not needed for audio frequencies)
+- [ ] **Edge Connector**: No
 
-**Pass/Fail Criteria:**
-- [ ] All four frequencies boost correctly
-- [ ] Boost range 0-11dB (approximately)
-- [ ] Selector switches cleanly
-- [ ] No audible noise or distortion
-- [ ] Inductor Q >20 for all frequencies
-- [ ] No ground loops or hum
+#### 6.2.8 Testing
 
-### 8.4 Performance Characterization
+- [ ] **E-test** (Electrical Test): Yes (100% continuity and isolation)
+  - **IMPORTANT**: Select "Fully Test" or "100% E-test"
+  - Ensures all traces are connected and no shorts exist
+  - Critical for multi-terminal boards like this one
 
-**Measurements to Document:**
-- Frequency response plot (20Hz-20kHz, all selector positions)
-- Insertion loss at 1kHz: ~20.8dB (expected)
-- Peak boost frequency and amplitude (each position)
-- Q factor (bandwidth) at each frequency
-- THD+N at 1kHz, +4dBu input level
-- Noise floor with no signal
+### 6.3 File Upload and Review
 
----
+#### 6.3.1 Upload Gerber Package
 
-## 9. TIMELINE AND MILESTONES
+- [ ] Click "Quick Order PCB" or "Instant Quote"
+- [ ] Click "Add Gerber File"
+- [ ] Upload: `low-boost-gerbers-v1.0.zip`
+- [ ] Wait for automatic file analysis
+- [ ] Review auto-detected parameters:
+  - [ ] Board dimensions: 100mm × 120mm
+  - [ ] Layers: 2
+  - [ ] Different nets: ~20-30 (varies by design)
+  - [ ] Pads: ~90-100
+  - [ ] Holes: ~40-50 (vias + component holes + mounting holes)
 
-### 9.1 Overall Project Schedule
+#### 6.3.2 PCBWay Online Gerber Viewer
 
-**Total Duration:** 6-8 weeks (optimistic), 10-13 weeks (conservative)
+**Review board in PCBWay's viewer**:
 
-| Phase | Duration | Dependencies |
-|-------|----------|--------------|
-| Design Finalization | 1-2 weeks | None |
-| Procurement | 2-4 weeks | Design complete |
-| Inductor Winding | 1-2 weeks | Cores received |
-| PCB Assembly | 1 week | PCBs and components received |
-| Testing & Integration | 1-2 weeks | Assembly complete |
+- [ ] Click "Gerber Viewer" button
+- [ ] Check all layers:
+  - [ ] Top copper: All traces visible, no missing connections
+  - [ ] Bottom copper: Ground plane continuous
+  - [ ] Top silkscreen: Labels readable, not on pads
+  - [ ] Bottom silkscreen: Board info visible
+  - [ ] Solder mask: Openings at all pads
+  - [ ] Drill holes: All holes present, correct positions
+  - [ ] Board outline: Correct dimensions, mounting holes visible
 
-### 9.2 Detailed Milestone Timeline
+**Common Issues to Check**:
+- [ ] No missing copper (isolated islands unintentionally)
+- [ ] No silkscreen on pads (auto-check usually prevents this)
+- [ ] No drill hits on board edge
+- [ ] Mounting holes correct size (3.2mm)
 
-#### Week 0-1: Design Finalization
-- [ ] Review circuit topology and calculations
-- [ ] Finalize inductor specifications
-- [ ] Complete KiCAD schematic
-- [ ] Complete PCB layout
-- [ ] Run ERC and DRC (zero errors)
-- [ ] Generate Gerber files
-- [ ] Generate BOM
-- **Deliverable:** Manufacturing-ready design files
+#### 6.3.3 Specification Confirmation
 
-#### Week 1-2: Procurement
-- [ ] Order inductor cores (Amidon/Hammond)
-- [ ] Order magnet wire (BNTECHGO/DigiKey)
-- [ ] Submit PCBs to fabrication
-- [ ] Order standard components (Mouser)
-- [ ] Track all shipments
-- **Deliverable:** All materials ordered
+**On PCBWay quote page, enter specifications**:
 
-#### Week 2-3: Receiving
-- [ ] Receive magnet wire (Week 2)
-- [ ] Receive PCBs (Week 2-3)
-- [ ] Receive standard components (Week 3)
-- [ ] Inspect all received materials
-- **Deliverable:** All materials on hand (except cores)
+- [ ] Select all options from Section 6.2 checklist
+- [ ] Review price quote
+- [ ] Verify lead time (standard: 5-7 business days production + shipping)
+- [ ] Select quantity (5 or 10 boards)
 
-#### Week 3-4: Core Arrival
-- [ ] Receive inductor cores
-- [ ] Inspect cores (no damage, correct specifications)
-- **Deliverable:** Ready to begin winding
+**Price Estimate** (as of 2025, subject to change):
+- 5 boards, HASL, standard options: ~$25-40
+- 5 boards, ENIG, remove serial#: ~$60-80
+- 10 boards, HASL: ~$30-50
+- Shipping (varies by location): $15-40
 
-#### Week 4-6: Inductor Winding
-- [ ] Wind 20Hz inductor (2-3 hours)
-- [ ] Test 20Hz inductor (measure L, DCR, Q)
-- [ ] Wind 30Hz inductor (1.5-2 hours)
-- [ ] Test 30Hz inductor
-- [ ] Wind 60Hz inductor (1-1.5 hours)
-- [ ] Test 60Hz inductor
-- [ ] Wind 100Hz inductor (1 hour)
-- [ ] Test 100Hz inductor
-- [ ] Verify all inductors meet specifications
-- [ ] Rework if needed (add/remove turns)
-- **Deliverable:** 4 tested, working inductors
+### 6.4 Design Rule Check (DRC) by PCBWay
 
-#### Week 6: PCB Assembly
-- [ ] Install screw terminals
-- [ ] Install resistor
-- [ ] Install capacitors
-- [ ] Visual inspection
-- [ ] Continuity testing
-- [ ] Component value verification
-- **Deliverable:** Assembled PCB, ready for integration
+**After upload, PCBWay runs automatic DRC**:
 
-#### Week 7-8: Integration and Testing
-- [ ] Connect inductors to PCB
-- [ ] Bench testing (frequency sweep, boost verification)
-- [ ] Connect to input/output stages
-- [ ] System integration testing
-- [ ] Performance characterization
-- [ ] Final adjustments
-- **Deliverable:** Working, tested Low Boost module
+- [ ] Wait for DRC completion (usually 5-15 minutes)
+- [ ] Review any DRC warnings or errors
+- [ ] Address any critical issues:
+  - Trace spacing violations (unlikely if our DRC passed)
+  - Minimum hole size violations
+  - Silkscreen on pads
+  - Board outline issues
 
-### 9.3 Critical Path Items
+**If DRC errors occur**:
+- [ ] Download PCBWay's detailed DRC report
+- [ ] Fix issues in KiCAD PCB layout
+- [ ] Regenerate Gerbers (repeat Phase 3)
+- [ ] Re-upload corrected files
 
-**Critical Path** (longest sequence, determines overall timeline):
-1. Inductor design (Week 0-1)
-2. Core ordering and delivery (Week 1-4) ← **LONGEST LEAD TIME**
-3. Inductor winding (Week 4-6)
-4. Final assembly and testing (Week 6-8)
+**Expected result**: DRC clean (no errors) if Phase 2 DRC was thorough
 
-**Parallel Paths** (can happen simultaneously):
-- PCB design and fabrication (Week 1-3)
-- Component ordering and delivery (Week 2-3)
-- Wire ordering and delivery (Week 1-2)
+### 6.5 Submit Order
 
-### 9.4 Buffer Time Allocation
+#### 6.5.1 Review Order Summary
 
-**Built-In Buffers:**
-- Component delays: +1 week
-- PCB fabrication delays: +1 week
-- Core sourcing delays: +2 weeks (already in 2-3 week estimate)
-- Inductor winding learning curve: +1 week
-- Testing iterations: +1 week
-- **Total Buffer: 6 weeks**
+- [ ] Board specifications correct
+- [ ] Quantity correct
+- [ ] Price acceptable
+- [ ] Lead time acceptable
+- [ ] Shipping method selected (standard or expedited)
+- [ ] Shipping address correct
 
-**Risk-Adjusted Schedule:**
-- Optimistic (everything perfect): 6-8 weeks
-- Realistic (typical delays): 10-11 weeks
-- Conservative (significant delays): 12-13 weeks
+#### 6.5.2 Additional Services (Optional)
 
-**Recommendation:** Plan for realistic timeline (10-11 weeks) to manage expectations.
+**PCB Assembly**:
+- [ ] Not needed for this project (through-hole assembly is manual)
+- [ ] Skip assembly services
+
+**Stencil**:
+- [ ] Not needed (no SMT components on this board)
+
+**Additional Notes Field**:
+- [ ] Add any special instructions:
+  - "This is an audio circuit board. Please ensure clean fabrication with no flux residue."
+  - "100% E-test critical. Verify all terminals and pads."
+  - "Gold fingers: None. Edge connector: None."
+
+#### 6.5.3 Place Order
+
+- [ ] Review total cost (PCB + shipping + any options)
+- [ ] Add to cart
+- [ ] Proceed to checkout
+- [ ] Select payment method (credit card, PayPal, etc.)
+- [ ] Complete payment
+- [ ] **Save order confirmation number**
+
+#### 6.5.4 Post-Order Communication
+
+**Expected timeline**:
+
+- [ ] **Day 0**: Order placed, payment confirmed
+- [ ] **Day 1-2**: PCBWay reviews order, may request clarification
+- [ ] **Day 2-3**: Production begins
+- [ ] **Day 5-7**: Production complete, PCBs shipped
+- [ ] **Day 10-20**: Delivery (varies by shipping method and location)
+
+**Monitor order status**:
+- [ ] Check PCBWay account for status updates
+- [ ] Respond promptly to any questions from PCBWay
+- [ ] Review production photos (PCBWay often provides before shipping)
+
+### 6.6 Receive and Inspect Boards
+
+**Upon delivery**:
+
+- [ ] Inspect packaging (no damage during shipping)
+- [ ] Count boards (verify quantity ordered)
+- [ ] Visual inspection:
+  - [ ] Board dimensions correct (measure with caliper)
+  - [ ] Silkscreen readable and correct
+  - [ ] Solder mask uniform, no defects
+  - [ ] Copper traces clean, no shorts visible
+  - [ ] Mounting holes correct size and position
+  - [ ] Surface finish uniform (ENIG gold color, or HASL silver)
+
+- [ ] Electrical inspection (if possible):
+  - [ ] Continuity test key traces
+  - [ ] Verify no shorts between ground and signal pads
+  - [ ] Mounting holes are non-plated (if specified)
+
+**If issues found**:
+- [ ] Document with photos
+- [ ] Contact PCBWay support within 7 days
+- [ ] Request replacement or refund per PCBWay quality guarantee
+
+### 6.7 Phase 4 Deliverables Checklist
+
+- [ ] PCBWay account created/verified
+- [ ] Gerber package uploaded
+- [ ] Board specifications confirmed
+- [ ] PCBWay DRC passed
+- [ ] Order placed and payment confirmed
+- [ ] Order confirmation number saved
+- [ ] Production completed
+- [ ] Boards received and inspected
+- [ ] Boards meet quality standards
+
+**Phase 4 Sign-Off**: Manufacturing complete, boards ready for assembly
 
 ---
 
-## 10. RISK MANAGEMENT
+## 7. Agent Responsibilities
 
-### 10.1 High-Risk Items
+**This section defines which specialized agents handle which tasks and dependencies**
 
-#### Risk 1: Inductor Values Uncertain
-- **Description:** Circuit topology requires analysis; calculated values may need adjustment
-- **Impact:** Cannot order cores or begin winding
-- **Probability:** Medium
-- **Mitigation:**
-  - Thorough schematic review before ordering
-  - Consult reference documentation (Ian Thompson-Bell)
-  - Order spare cores for experimentation
-  - Design for adjustability (add/remove turns)
-- **Contingency:** Order cores with adjustable AL value; use variable turns count
+### 7.1 Agent Overview
 
-#### Risk 2: Inductor Core Availability
-- **Description:** Specialty items, limited suppliers, long lead times
-- **Impact:** 2-3 week delay if out of stock
-- **Probability:** Medium
-- **Mitigation:**
-  - Check stock before finalizing design
-  - Order immediately once values confirmed
-  - Identify alternate core sizes/types
-  - Consider eBay or surplus suppliers
-- **Contingency:** Use different core size, recalculate turns; use multiple smaller cores in series
+**Available Specialized Agents**:
 
-#### Risk 3: First-Time Inductor Winding
-- **Description:** Learning curve, potential for errors, time-consuming
-- **Impact:** Wasted time, potentially damaged cores
-- **Probability:** High (first-time builders)
-- **Mitigation:**
-  - Order extra cores (1-2 spares)
-  - Practice winding technique on scrap core
-  - Follow winding instructions meticulously
-  - Test frequently during winding process
-  - Document actual turns count for repeatability
-- **Contingency:** Unwind and re-wind if inductance incorrect; purchase pre-wound inductors if available
+1. **kicad-expert** (this agent)
+2. **circuit-design-specialist**
+3. **pcb-layout-engineer**
+4. **inductor-design-specialist**
+5. **bom-and-sourcing**
 
-### 10.2 Medium-Risk Items
+### 7.2 Task Assignment Matrix
 
-#### Risk 4: PCB Design Errors
-- **Description:** First PCB layout for this module, potential mistakes
-- **Impact:** Board unusable, requires re-spin (2-3 weeks)
-- **Probability:** Medium
-- **Mitigation:**
-  - Thorough review before submission
-  - Run ERC and DRC multiple times
-  - 3D viewer check for mechanical fit
-  - Order extra boards (5-10 vs. minimum)
-  - Peer review if possible
-- **Contingency:** Build prototype on perfboard; order PCB rev 2.0
+| Phase | Task | Primary Agent | Support Agent | Dependencies |
+|-------|------|---------------|---------------|--------------|
+| Phase 1 | Verify capacitor values | circuit-design-specialist | kicad-expert | Original schematic |
+| Phase 1 | Add schematic components | kicad-expert | - | Capacitor verification |
+| Phase 1 | Wire LC circuits | kicad-expert | circuit-design-specialist | Component values |
+| Phase 1 | Run ERC | kicad-expert | - | Wiring complete |
+| Phase 1 | Export schematic PDF | kicad-expert | - | ERC clean |
+| Phase 2 | Import netlist to PCB | kicad-expert | - | Phase 1 complete |
+| Phase 2 | Component placement | pcb-layout-engineer | kicad-expert | PCB_LAYOUT.md |
+| Phase 2 | Grounding strategy | pcb-layout-engineer | circuit-design-specialist | Star ground spec |
+| Phase 2 | Trace routing | pcb-layout-engineer | kicad-expert | Placement complete |
+| Phase 2 | Run DRC | kicad-expert | pcb-layout-engineer | Routing complete |
+| Phase 3 | Generate Gerbers | kicad-expert | - | Phase 2 complete |
+| Phase 3 | Generate drill files | kicad-expert | - | Phase 2 complete |
+| Phase 3 | Create assembly drawing | kicad-expert | - | Phase 2 complete |
+| Phase 3 | Verify manufacturing files | kicad-expert | pcb-layout-engineer | Files generated |
+| Phase 4 | Upload to PCBWay | kicad-expert | - | Phase 3 complete |
+| Phase 4 | Specify board parameters | kicad-expert | - | PCB specs known |
+| Phase 4 | Review and order | kicad-expert | - | DRC clean |
+| Parallel | Update inductor specs | inductor-design-specialist | - | Capacitor values verified |
+| Parallel | Verify BOM pricing | bom-and-sourcing | - | Component list final |
 
-#### Risk 5: Component Availability
-- **Description:** Vishay capacitors or Phoenix terminals out of stock
-- **Impact:** Minor delay, easy substitution
-- **Probability:** Low-Medium
-- **Mitigation:**
-  - Check stock before ordering
-  - Have alternative part numbers ready
-  - Use multiple suppliers (Mouser, DigiKey)
-  - Accept wider tolerances if needed (±10% vs ±5%)
-- **Contingency:** Substitute WIMA, EPCOS, or Kemet capacitors; use On Shore or Wurth terminals
+### 7.3 Parallel vs Sequential Execution
 
-### 10.3 Low-Risk Items
+#### Can Run in Parallel (Independent Tasks)
 
-#### Risk 6: Shipping Delays
-- **Description:** Weather, holidays, customs issues
-- **Impact:** 1-2 week delay
-- **Probability:** Medium (but low impact)
-- **Mitigation:**
-  - Order early in project
-  - Use expedited shipping for critical items
-  - Track all packages
-  - Have buffer time in schedule
-- **Contingency:** Wait; no alternative
+**During Phase 1-2**:
+- [ ] **inductor-design-specialist**: Update inductor calculations if capacitor values change
+- [ ] **bom-and-sourcing**: Verify component availability and update pricing
+- [ ] **circuit-design-specialist**: Calculate expected frequency response
 
-#### Risk 7: Testing Equipment Availability
-- **Description:** Need LCR meter for inductor testing, signal generator for frequency response
-- **Impact:** Cannot verify proper operation
-- **Probability:** Low (can borrow or buy cheaply)
-- **Mitigation:**
-  - Arrange access to test equipment early
-  - Purchase basic LCR meter (~$30-50)
-  - Use PC sound card as signal generator (free)
-  - Use multimeter for basic DC tests
-- **Contingency:** Send to friend/lab for testing; use in-circuit testing
+**These tasks do not block PCB design progress**
 
-### 10.4 Risk Mitigation Summary
+#### Must Run Sequentially (Dependencies)
 
-**Proactive Measures:**
-1. Order spare cores and wire (add 20% to quantities)
-2. Order extra PCBs (5 or 10 vs. minimum)
-3. Have alternative component part numbers ready
-4. Build in 6 weeks of buffer time
-5. Document everything (turns count, measurements, issues)
-6. Test frequently throughout build
-7. Arrange test equipment access early
+**Critical Path**:
+1. Verify capacitor values → Update docs if needed
+2. Create schematic → Run ERC → Export netlist
+3. Import netlist → Place components → Route traces → Run DRC
+4. Generate Gerbers → Verify → Submit to PCBWay
 
-**Reactive Measures:**
-1. If inductor wrong: Adjust turns, re-wind if needed
-2. If PCB wrong: Build on perfboard, order rev 2.0
-3. If component unavailable: Substitute from alternatives list
-4. If cores unavailable: Use different size, recalculate
-5. If behind schedule: Focus on critical path items, parallelize where possible
+**Each step must complete before next begins**
+
+### 7.4 Agent Coordination Points
+
+**Decision Point 1: Capacitor Value Verification** (Phase 1 start)
+- **Lead Agent**: circuit-design-specialist
+- **Action**: Examine original schematic, verify nF vs µF
+- **Outcome**: Update COMPONENT_VALUES.md and INDUCTOR_SPECS.md if needed
+- **Blocking**: Phase 1 cannot proceed until resolved
+
+**Decision Point 2: Grounding Strategy** (Phase 2)
+- **Lead Agent**: pcb-layout-engineer
+- **Action**: Implement star ground per PCB_LAYOUT.md
+- **Outcome**: Ground plane and trace routing correct
+- **Blocking**: DRC will fail if grounding incorrect
+
+**Decision Point 3: Inductor Integration** (After PCB complete)
+- **Lead Agent**: inductor-design-specialist
+- **Action**: Design and wind 4 inductors based on final capacitor values
+- **Outcome**: Hand-wound inductors ready for PCB connection
+- **Blocking**: Module cannot be tested without inductors
+
+### 7.5 Communication Protocol
+
+**Status Updates**:
+- [ ] kicad-expert reports progress at end of each phase
+- [ ] circuit-design-specialist confirms capacitor values
+- [ ] pcb-layout-engineer confirms grounding strategy implemented
+- [ ] inductor-design-specialist confirms inductor specs updated (if needed)
+- [ ] bom-and-sourcing confirms components available
+
+**Issue Escalation**:
+- Any blocking issue (e.g., capacitor value ambiguity) reported immediately
+- User consulted for major decisions (e.g., ENIG vs HASL)
+- All agents have access to shared documentation
 
 ---
 
-## 11. DOCUMENTATION AND DELIVERABLES
+## 8. Quality Checklist
 
-### 11.1 Design Documentation
+**Final verification before submission**
 
-**Schematic Files:**
-- [ ] KiCAD schematic (.kicad_sch)
-- [ ] Schematic PDF export
-- [ ] Netlist for PCB
+### 8.1 Schematic Quality (Phase 1)
 
-**PCB Files:**
-- [ ] KiCAD PCB layout (.kicad_pcb)
-- [ ] 3D render (PNG or STEP)
-- [ ] Assembly drawing PDF
+- [ ] All 23 components present and annotated
+- [ ] All component values correct (verified against COMPONENT_VALUES.md)
+- [ ] All footprints assigned and correct
+- [ ] All MPN custom fields populated
+- [ ] Circuit topology matches original Pultec design
+- [ ] Net labels clear and descriptive
+- [ ] Title block complete and accurate
+- [ ] ERC zero errors
+- [ ] ERC warnings justified
+- [ ] PDF schematic exported and readable
+- [ ] Netlist generated successfully
 
-**Manufacturing Files:**
-- [ ] Gerber files (all layers)
-- [ ] Drill files (PTH, NPTH)
-- [ ] BOM (CSV format)
-- [ ] Pick-and-place file (optional)
+### 8.2 PCB Layout Quality (Phase 2)
 
-### 11.2 Inductor Documentation
+#### Component Placement
 
-**Inductor Specifications:**
-- [ ] Complete design calculations (L, DCR, Q for each frequency)
-- [ ] Core specifications (manufacturer, part number, dimensions)
-- [ ] Wire specifications (gauge, length, type)
-- [ ] Winding instructions (turns count, layer arrangement)
-- [ ] Test procedures (how to verify inductance and Q)
+- [ ] All components placed (none at origin)
+- [ ] Terminals on board edges for accessibility
+- [ ] Capacitors grouped logically by function
+- [ ] Signal flow left-to-right (IN → OUT)
+- [ ] Adequate spacing for wiring (20mm around terminals)
+- [ ] Inductor terminals clearly labeled with frequencies
+- [ ] Test points accessible
+- [ ] Mounting holes correctly positioned (3mm from edges)
 
-**As-Built Documentation:**
-- [ ] Actual turns count for each inductor (may differ from calculated)
-- [ ] Measured inductance (LCR meter readings)
-- [ ] Measured DCR
-- [ ] Calculated Q factor
-- [ ] Photos of completed inductors
+#### Routing
 
-### 11.3 Test Results
+- [ ] All traces routed (no airwires)
+- [ ] Signal traces 0.8mm width
+- [ ] Control traces 0.6mm width
+- [ ] Ground traces 2.0mm width
+- [ ] No 90° angles (all 45° or curves)
+- [ ] Via usage minimized in signal path
+- [ ] Via size consistent (0.8mm drill, 1.3mm pad)
 
-**Bench Test Data:**
-- [ ] Frequency response plots (all selector positions)
-- [ ] Boost amplitude vs. frequency (each position)
-- [ ] Insertion loss at 1kHz
-- [ ] Q factor measurements
-- [ ] THD+N measurements
+#### Grounding
 
-**Integration Test Data:**
-- [ ] Full signal chain frequency response
-- [ ] Interaction with other modules
-- [ ] Noise floor measurements
-- [ ] Selector switching verification
+- [ ] Star ground point at board center
+- [ ] All grounds route to star point
+- [ ] Bottom ground plane continuous
+- [ ] Via stitching around perimeter (every 20mm)
+- [ ] Via arrays at terminal grounds (4× vias)
+- [ ] Thermal relief pads on ground plane (4 spokes, 0.5mm)
+- [ ] No ground loops
 
-### 11.4 Assembly Instructions
+#### Silkscreen
 
-- [ ] Step-by-step assembly procedure (this document, section 7)
-- [ ] Photos of each assembly stage
-- [ ] Troubleshooting guide
-- [ ] Common mistakes and solutions
+- [ ] Component designators readable (C1, R2, J3, etc.)
+- [ ] Component values shown
+- [ ] Terminal labels large and clear (1.2mm height)
+- [ ] Inductor frequency labels prominent
+- [ ] Board name and revision on bottom
+- [ ] No silkscreen on pads (auto-checked)
+- [ ] Polarity markings where needed
 
-### 11.5 Project Summary
+#### Dimensions
 
-**Final Report Contents:**
-- Project overview and objectives
-- Circuit design and analysis
-- Inductor design and fabrication
-- PCB layout and manufacturing
-- Component sourcing and costs
-- Assembly and testing procedures
-- Test results and performance characterization
-- Lessons learned and recommendations for rev 2.0
+- [ ] Board size 100mm × 120mm (±0.2mm)
+- [ ] Mounting holes 3mm from edges
+- [ ] Components >8mm from board edge
+- [ ] Terminals 2mm from board edge (aligned flush)
+
+### 8.3 Design Rules (Phase 2)
+
+- [ ] DRC zero errors
+- [ ] All clearances >0.25mm (0.5mm preferred)
+- [ ] All trace widths >0.25mm (actual: 0.6-2.0mm)
+- [ ] Via drill >0.8mm minimum
+- [ ] Via annular ring >0.15mm minimum
+- [ ] No copper-to-edge violations
+- [ ] Ground plane filled and continuous
+
+### 8.4 Manufacturing Files (Phase 3)
+
+#### Gerber Files
+
+- [ ] All 7 Gerber layers generated
+- [ ] File sizes >0 bytes (not empty)
+- [ ] Gerber viewer shows all layers correctly
+- [ ] Layers align properly
+- [ ] Board outline closed
+- [ ] Silkscreen readable
+- [ ] Solder mask openings at all pads
+- [ ] Ground plane visible and continuous
+
+#### Drill Files
+
+- [ ] PTH drill file generated
+- [ ] NPTH drill file generated
+- [ ] Drill map PDF generated
+- [ ] Drill sizes match design (0.8mm, 3.2mm)
+- [ ] Hole count matches expected (~90-100 holes)
+- [ ] Mounting holes present (4× 3.2mm)
+
+#### Documentation
+
+- [ ] Assembly drawing PDF clear and readable
+- [ ] BOM CSV accurate and complete
+- [ ] Fabrication drawing includes all specs
+- [ ] Pick-and-place CSV generated (optional)
+- [ ] All files named consistently
+
+#### ZIP Package
+
+- [ ] All files included in ZIP
+- [ ] ZIP extracts without errors
+- [ ] Extracted files readable
+- [ ] README.txt included (optional but helpful)
+
+### 8.5 PCBWay Submission (Phase 4)
+
+#### Pre-Submission
+
+- [ ] Account created and verified
+- [ ] All specifications documented
+- [ ] Surface finish selected (ENIG or HASL)
+- [ ] Quantity determined (5 or 10 boards)
+- [ ] Budget approved
+
+#### Upload and Review
+
+- [ ] Gerber ZIP uploaded successfully
+- [ ] Auto-detection correct (dimensions, layers)
+- [ ] PCBWay Gerber viewer shows board correctly
+- [ ] All specifications entered correctly
+- [ ] E-test selected (100% testing)
+- [ ] Remove order number option selected (optional)
+- [ ] Price quote acceptable
+
+#### Post-Upload
+
+- [ ] PCBWay DRC passed (no errors)
+- [ ] Any warnings addressed
+- [ ] Order confirmation received
+- [ ] Confirmation number saved
+- [ ] Expected delivery date noted
+
+### 8.6 Critical Measurements Verification
+
+**Before finalizing design, verify these critical dimensions**:
+
+- [ ] Board width: 100mm (±0.2mm acceptable)
+- [ ] Board height: 120mm (±0.2mm acceptable)
+- [ ] Mounting hole spacing: 94mm × 114mm (center-to-center)
+- [ ] Mounting hole diameter: 3.2mm
+- [ ] Mounting hole position from edges: 3mm
+- [ ] Terminal positions match PCB_LAYOUT.md specifications
+- [ ] Inductor terminal vertical spacing: 20mm (J_IND_20HZ to J_IND_30HZ, etc.)
+- [ ] Star ground point: X=50mm, Y=60mm (center of board)
+
+### 8.7 Documentation Completeness
+
+**Ensure all documentation is updated and accessible**:
+
+- [ ] README.md current and accurate
+- [ ] BOM.csv matches actual components used
+- [ ] PCB_LAYOUT.md reflects actual layout
+- [ ] INDUCTOR_SPECS.md updated if capacitor values changed
+- [ ] Schematic PDF in module directory
+- [ ] Assembly drawing in module directory
+- [ ] Manufacturing files in gerbers/ subdirectory
+- [ ] This WORKPLAN.md updated with actual outcomes
 
 ---
 
-## 12. REFERENCES
+## 9. Timeline and Milestones
 
-### 12.1 Project Files
+**Estimated total time: 15-23 hours of work + manufacturing time**
 
-- **Module Documentation:** `/Users/orion/work/multi-channel-preamp/src/pultec/modules/low-boost/README.md`
-- **Component Values:** `/Users/orion/work/multi-channel-preamp/src/pultec/docs/1.0/COMPONENT_VALUES.md`
-- **System Overview:** `/Users/orion/work/multi-channel-preamp/src/pultec/docs/1.0/SYSTEM_OVERVIEW.md`
-- **Original Schematic:** `/Users/orion/work/multi-channel-preamp/src/schematics/pultec-three-band-eq/pultec-three-band-eq.kicad_sch`
-- **BOM:** `/Users/orion/work/multi-channel-preamp/src/pultec/modules/low-boost/BOM.csv`
+### 9.1 Detailed Timeline
 
-### 12.2 Reference Documentation
+#### Week 1: Schematic and Layout
 
-**Ian Thompson-Bell Pultec Documentation:**
-- Location: `/Users/orion/work/multi-channel-preamp/reference/pultec-style-eq/`
-- Contains inductor design guidance, component calculations, and circuit analysis
+**Day 1-2: Phase 1 - Schematic Completion** (4-6 hours)
+- [ ] Hour 1-2: Verify capacitor values (CRITICAL)
+- [ ] Hour 2-4: Add all components to schematic
+- [ ] Hour 4-5: Wire LC circuits and add net labels
+- [ ] Hour 5-6: Run ERC, export PDF and netlist
+- **Milestone 1**: Schematic complete, ERC clean, netlist ready
 
-**Similar Modules:**
-- Low Cut: `/Users/orion/work/multi-channel-preamp/src/schematics/pultec-cut-low/`
-- High Boost: `/Users/orion/work/multi-channel-preamp/src/schematics/pultec-boost-high/`
-- High Cut: `/Users/orion/work/multi-channel-preamp/src/schematics/pultec-cut-high/`
+**Day 3-5: Phase 2 - PCB Layout** (8-12 hours)
+- [ ] Hour 1-2: Board setup, import netlist, place mounting holes
+- [ ] Hour 2-4: Place all screw terminals on edges
+- [ ] Hour 4-6: Place capacitors and resistor in center area
+- [ ] Hour 6-8: Route signal traces
+- [ ] Hour 8-9: Implement star ground and ground plane
+- [ ] Hour 9-10: Add silkscreen labels
+- [ ] Hour 10-11: Add test points
+- [ ] Hour 11-12: Run DRC, fix errors, final review
+- **Milestone 2**: PCB layout complete, DRC clean
 
-### 12.3 Technical Resources
+#### Week 2: Manufacturing Files and Submission
 
-**Inductor Design:**
-- Hammond Manufacturing core datasheets
-- Amidon core selection guides
-- Inductor winding calculators and formulas
-- Q factor optimization techniques
+**Day 6: Phase 3 - Manufacturing Files** (2-3 hours)
+- [ ] Hour 1: Generate Gerber files (7 layers)
+- [ ] Hour 1.5: Generate drill files and drill map
+- [ ] Hour 2: Create assembly drawing
+- [ ] Hour 2.5: Generate pick-and-place and verify BOM
+- [ ] Hour 3: Create fabrication drawing, ZIP package, verify all files
+- **Milestone 3**: Manufacturing files ready for submission
 
-**PCB Design:**
-- KiCAD documentation and tutorials
-- Audio PCB layout best practices
-- Star grounding techniques
-- Phoenix Contact terminal datasheets
+**Day 7: Phase 4 - PCBWay Submission** (1-2 hours)
+- [ ] Hour 1: Create PCBWay account, upload Gerbers
+- [ ] Hour 1.5: Specify all board parameters
+- [ ] Hour 2: Review DRC, place order
+- **Milestone 4**: Order submitted to PCBWay
 
-**Component Datasheets:**
-- Vishay MKT1813 film capacitors
-- Phoenix Contact 1757 screw terminals
-- Hammond E-I lamination cores
-- Magnet wire specifications
+**Day 7-14: PCBWay Production** (5-7 business days)
+- Day 7-8: PCBWay review and production start
+- Day 9-13: PCB fabrication
+- Day 14: Shipping begins
+- **Milestone 5**: Boards manufactured and shipped
+
+**Day 14-30: Shipping and Delivery** (varies by location)
+- Standard shipping: 7-14 days
+- Expedited shipping: 3-5 days
+- **Milestone 6**: Boards delivered
+
+### 9.2 Key Milestones Summary
+
+| Milestone | Deliverable | Target Date | Status |
+|-----------|-------------|-------------|--------|
+| M1 | Schematic complete, ERC clean | Day 2 | ⬜ Not started |
+| M2 | PCB layout complete, DRC clean | Day 5 | ⬜ Not started |
+| M3 | Manufacturing files ready | Day 6 | ⬜ Not started |
+| M4 | PCBWay order submitted | Day 7 | ⬜ Not started |
+| M5 | Boards manufactured | Day 14 | ⬜ Not started |
+| M6 | Boards delivered | Day 21-30 | ⬜ Not started |
+| M7 | Boards inspected and verified | Day 30 | ⬜ Not started |
+
+### 9.3 Parallel Task Timeline
+
+**While waiting for PCBWay (Days 7-30)**:
+
+- [ ] **inductor-design-specialist**: Design and wind 4 inductors
+  - 20Hz: 3.5H (or adjusted value)
+  - 30Hz: 2.8H
+  - 60Hz: 1.5H
+  - 100Hz: 0.77H
+  - Estimated time: 20-30 hours total (5-8 hours per inductor)
+
+- [ ] **bom-and-sourcing**: Order all components for assembly
+  - 11 capacitors
+  - 1 resistor
+  - 9 screw terminals
+  - Estimated time: 1-2 hours sourcing, 3-7 days delivery
+
+- [ ] Prepare assembly workspace and tools
+- [ ] Create assembly checklist and test procedures
+- [ ] Design front panel and control layout (future module)
+
+### 9.4 Critical Path Analysis
+
+**Critical path** (cannot be parallelized):
+
+1. Verify capacitor values → 2 hours
+2. Create schematic → 6 hours
+3. Create PCB layout → 12 hours
+4. Generate manufacturing files → 3 hours
+5. Submit to PCBWay → 2 hours
+6. **Total critical path**: 25 hours + manufacturing time
+
+**Parallel tasks** (can overlap with critical path):
+
+- Inductor design (can start after capacitor verification)
+- Component ordering (can start after BOM finalized)
+- Documentation updates (ongoing throughout)
+
+### 9.5 Contingency Time
+
+**Add 20% buffer for unexpected issues**:
+
+- Capacitor value ambiguity resolution: +2 hours
+- DRC errors and fixes: +2 hours
+- Gerber regeneration if PCBWay DRC fails: +3 hours
+- Learning curve with KiCAD MCP: +2 hours
+- **Total contingency**: +9 hours
+
+**Realistic total time**: 34 hours work + 14-30 days manufacturing/shipping
 
 ---
 
-## 13. CONCLUSION
+## 10. Risk Assessment
 
-This workplan provides comprehensive, step-by-step guidance for implementing the Low Boost module from design through testing. Success depends on:
+**Identify potential issues and mitigation strategies**
 
-1. **Careful inductor design** - The critical path item requiring the most attention
-2. **Thorough PCB layout** - Audio-optimized grounding and routing
-3. **Precise procurement** - Ordering long-lead items early
-4. **Patient assembly** - Taking time to wind and test inductors properly
-5. **Systematic testing** - Verifying each stage before proceeding
+### 10.1 Technical Risks
 
-**Expected Outcome:** A working Low Boost module providing 0-11dB boost at 20Hz, 30Hz, 60Hz, and 100Hz with excellent audio quality (Q >20, low THD+N).
+#### Risk 1: Capacitor Value Ambiguity (HIGH PRIORITY)
 
-**Timeline:** 6-8 weeks (optimistic) to 10-13 weeks (realistic)
+**Issue**: INDUCTOR_SPECS.md notes capacitor values may be nF instead of µF
+**Impact**: CRITICAL - affects inductor design and frequency response
+**Probability**: Medium (50%)
+**Mitigation**:
+- [ ] Verify original schematic FIRST (before any other work)
+- [ ] Cross-reference Ian Thompson-Bell documentation
+- [ ] If µF, proceed as planned
+- [ ] If nF, recalculate inductors or revise frequencies
+- [ ] Document decision in all relevant files
 
-**Cost:** $80-102 per unit (single prototype) or $56-69 per unit (3-unit build)
+**Contingency Plan**:
+- If capacitors are nF, options:
+  1. Use different target frequencies (200Hz, 300Hz, 600Hz, 1kHz)
+  2. Use µF capacitors instead (requires BOM update)
+  3. Redesign inductor values for nF capacitors
+- **Decision point**: Consult with circuit-design-specialist
 
-**Next Action:** Begin inductor design work using the specifications in Section 3 of this document.
+#### Risk 2: Complex Connectivity Errors
+
+**Issue**: 11 capacitors + 4 inductors + 2 selectors = complex wiring
+**Impact**: HIGH - ERC or DRC errors, incorrect operation
+**Probability**: Medium (40%)
+**Mitigation**:
+- [ ] Use clear, descriptive net labels
+- [ ] Reference original schematic frequently
+- [ ] Double-check all selector connections
+- [ ] Run ERC multiple times during schematic creation
+- [ ] Visual inspection before finalizing
+
+**Contingency Plan**:
+- If ERC fails: Methodically trace each net
+- If circuit doesn't work after assembly: Test points allow troubleshooting
+
+#### Risk 3: Star Ground Implementation Errors
+
+**Issue**: Star ground critical for audio quality but easy to implement incorrectly
+**Impact**: MEDIUM - noise, hum, degraded audio quality
+**Probability**: Low (20%)
+**Mitigation**:
+- [ ] Follow PCB_LAYOUT.md star ground specification exactly
+- [ ] Verify all grounds route to star point
+- [ ] Check for ground loops (multiple paths to ground)
+- [ ] Visual inspection of ground plane continuity
+- [ ] DRC should catch most grounding errors
+
+**Contingency Plan**:
+- If grounding incorrect: Regenerate PCB layout (Phase 2)
+- If discovered after fabrication: Wire modifications or rework
+
+#### Risk 4: Inductor Terminal Labeling Confusion
+
+**Issue**: 4 inductors with similar connectors, easy to mix up
+**Impact**: MEDIUM - wrong frequency selected, requires rework
+**Probability**: Low (15%)
+**Mitigation**:
+- [ ] Large, clear frequency labels on silkscreen (1.2mm height)
+- [ ] Color-code wires to inductors (optional but helpful)
+- [ ] Label both PCB and inductors with same frequency markings
+- [ ] Include connection diagram on bottom silkscreen
+
+**Contingency Plan**:
+- If confusion occurs: Test each inductor position with LCR meter before final wiring
+
+### 10.2 Manufacturing Risks
+
+#### Risk 5: PCBWay DRC Failure
+
+**Issue**: PCBWay's DRC may find errors our DRC missed
+**Impact**: MEDIUM - delays, requires Gerber regeneration
+**Probability**: Low (10%)
+**Mitigation**:
+- [ ] Run thorough DRC in KiCAD before submission
+- [ ] Review PCBWay Gerber viewer carefully
+- [ ] Use conservative design rules (0.5mm clearance, not 0.25mm minimum)
+- [ ] E-test option ensures electrical integrity
+
+**Contingency Plan**:
+- If DRC fails: Download PCBWay report, fix in KiCAD, regenerate Gerbers, re-upload
+- Typical turnaround: 2-4 hours
+
+#### Risk 6: Board Dimensions Incorrect
+
+**Issue**: Board too large or too small for intended enclosure
+**Impact**: MEDIUM - may not fit, requires redesign
+**Probability**: Very Low (5%)
+**Mitigation**:
+- [ ] Verify dimensions in multiple places (Edge.Cuts, PCBWay auto-detect)
+- [ ] Measure with ruler tool in KiCAD
+- [ ] Check mounting hole spacing matches enclosure
+- [ ] Prototype first before ordering multiple boards
+
+**Contingency Plan**:
+- If too large: File or trim edges (not ideal)
+- If too small: Add spacers or redesign enclosure
+- If critical: Reorder with correct dimensions
+
+#### Risk 7: Component Availability Issues
+
+**Issue**: Components out of stock or discontinued
+**Impact**: MEDIUM - delays assembly, may need design changes
+**Probability**: Low (15%)
+**Mitigation**:
+- [ ] Verify component availability before finalizing design
+- [ ] Use common component values (Vishay MKT1813 series is standard)
+- [ ] Have alternate suppliers (Mouser, Digi-Key)
+- [ ] Order components early (while PCBs are manufacturing)
+
+**Contingency Plan**:
+- If out of stock: Find alternate with same footprint and specs
+- If discontinued: Redesign with available parts (may require new PCB)
+
+### 10.3 Schedule Risks
+
+#### Risk 8: PCBWay Production Delays
+
+**Issue**: Manufacturing delays due to backlog, holidays, quality issues
+**Impact**: LOW - inconvenience, schedule slip
+**Probability**: Low (20%)
+**Mitigation**:
+- [ ] Order during non-peak times (avoid Chinese New Year, major holidays)
+- [ ] Select "Expedited" if time-critical
+- [ ] Monitor order status daily
+- [ ] Communicate with PCBWay if delays occur
+
+**Contingency Plan**:
+- If delayed: Request status update, consider expedited shipping
+- If critical: Use alternate vendor (OSH Park, JLCPCB) for future orders
+
+#### Risk 9: Shipping Delays or Damage
+
+**Issue**: Boards damaged in shipping or delayed by customs
+**Impact**: LOW - schedule slip, possible replacement needed
+**Probability**: Low (10%)
+**Mitigation**:
+- [ ] Select reliable shipping method (DHL, FedEx for international)
+- [ ] Purchase shipping insurance if available
+- [ ] Track shipment closely
+- [ ] Inspect immediately upon delivery
+
+**Contingency Plan**:
+- If damaged: Document with photos, file claim with PCBWay
+- If delayed: Contact shipping carrier, expedite if possible
+
+### 10.4 Design Risks
+
+#### Risk 10: Noise or Hum in Completed Circuit
+
+**Issue**: Audio circuit picks up noise despite proper grounding
+**Impact**: MEDIUM - requires troubleshooting, may need redesign
+**Probability**: Low (20%)
+**Mitigation**:
+- [ ] Star grounding implemented correctly
+- [ ] Ground plane continuous
+- [ ] Adequate spacing from power transformers (system-level)
+- [ ] Test points allow troubleshooting
+- [ ] Follow classic Pultec grounding strategy
+
+**Contingency Plan**:
+- If noise present:
+  1. Verify all ground connections
+  2. Check for ground loops
+  3. Add shielding if EMI issue
+  4. Relocate inductors away from noise sources
+
+#### Risk 11: Incorrect Frequency Response
+
+**Issue**: Resonant peaks at wrong frequencies
+**Impact**: MEDIUM - requires inductor adjustment or capacitor replacement
+**Probability**: Medium (30%)
+**Mitigation**:
+- [ ] Verify capacitor values (nF vs µF) before building inductors
+- [ ] Use precision capacitors (5% tolerance)
+- [ ] Measure actual capacitor values with LCR meter
+- [ ] Design inductors with adjustment capability (air gap tuning)
+- [ ] Test each LC pair before final assembly
+
+**Contingency Plan**:
+- If frequency wrong:
+  1. Measure actual capacitor value
+  2. Measure actual inductor value
+  3. Adjust inductor air gap or turns
+  4. Replace capacitor if value drifted
+  5. Document actual vs. designed values
+
+### 10.5 Risk Mitigation Summary
+
+**High Priority Risks** (address immediately):
+1. Capacitor value ambiguity - **Verify first**
+2. Complex connectivity - **Methodical schematic creation**
+
+**Medium Priority Risks** (monitor closely):
+3. Star ground implementation - **Follow spec exactly**
+4. Component availability - **Check stock early**
+5. Incorrect frequency response - **Test before final assembly**
+
+**Low Priority Risks** (accept or monitor):
+6. PCBWay DRC - **Thorough pre-check**
+7. Manufacturing delays - **Plan buffer time**
+8. Noise/hum - **Proper grounding + testing**
 
 ---
 
-**Document prepared by:** Multi-agent team (circuit-design-specialist, inductor-design-specialist, kicad-expert, pcb-layout-engineer, bom-and-sourcing)
-**Date:** 2025-10-26
-**Revision:** 1.0
-**Status:** Ready for Implementation
+## 11. Success Criteria
+
+**How to verify the workplan is complete and successful**
+
+### 11.1 Phase-by-Phase Success Criteria
+
+#### Phase 1 Success: Schematic Complete
+
+- ✅ All 23 components added to schematic
+- ✅ All component values verified against documentation
+- ✅ Capacitor value ambiguity (nF vs µF) resolved
+- ✅ Circuit wiring matches original Pultec topology
+- ✅ Net labels applied to all critical signals
+- ✅ Title block complete and accurate
+- ✅ ERC zero errors (warnings justified)
+- ✅ PDF schematic exported and readable
+- ✅ Netlist generated successfully
+- ✅ Documentation updated (if capacitor values changed)
+
+**Verification Method**: Open schematic PDF, review ERC report, import netlist to PCB editor without errors
+
+#### Phase 2 Success: PCB Layout Complete
+
+- ✅ Board dimensions correct (100mm × 120mm)
+- ✅ All components placed per PCB_LAYOUT.md
+- ✅ Terminals on board edges for accessibility
+- ✅ Star ground implemented at board center
+- ✅ Ground plane continuous on bottom layer
+- ✅ All traces routed (no airwires)
+- ✅ Trace widths meet specifications (0.6-2.0mm)
+- ✅ Silkscreen labels clear and correct
+- ✅ Test points accessible
+- ✅ DRC zero errors
+- ✅ Visual inspection passed
+
+**Verification Method**: Run DRC report (zero errors), visual inspection of 3D view, measure critical dimensions
+
+#### Phase 3 Success: Manufacturing Files Ready
+
+- ✅ All 7 Gerber files generated
+- ✅ Drill files (PTH, NPTH) generated
+- ✅ Drill map PDF created
+- ✅ Assembly drawing PDF clear
+- ✅ BOM CSV accurate
+- ✅ Fabrication drawing complete
+- ✅ All files verified in Gerber viewer
+- ✅ ZIP package created and tested
+- ✅ No errors in Gerber viewer
+- ✅ All layers align correctly
+
+**Verification Method**: Open all Gerbers in viewer, verify layer alignment, extract ZIP and re-check files
+
+#### Phase 4 Success: PCBWay Order Complete
+
+- ✅ Gerbers uploaded successfully
+- ✅ Auto-detection correct (dimensions, layers)
+- ✅ All specifications entered correctly
+- ✅ PCBWay DRC passed (zero errors)
+- ✅ Order placed and payment confirmed
+- ✅ Order confirmation number saved
+- ✅ Production completed
+- ✅ Boards shipped
+- ✅ Boards delivered
+- ✅ Boards inspected and meet quality standards
+
+**Verification Method**: PCBWay order status shows "Shipped" or "Delivered", physical inspection of boards
+
+### 11.2 Final Deliverables Checklist
+
+**Design Files**:
+- [ ] `low-boost.kicad_pro` (project file)
+- [ ] `low-boost.kicad_sch` (schematic, ERC clean)
+- [ ] `low-boost.kicad_pcb` (PCB layout, DRC clean)
+- [ ] `low-boost.net` (netlist)
+
+**Documentation**:
+- [ ] `low-boost-schematic.pdf` (readable, professional)
+- [ ] `low-boost-assembly-top.pdf` (clear component placement)
+- [ ] `low-boost-BOM.csv` (accurate, up-to-date)
+- [ ] `low-boost-fabrication-drawing.pdf` (complete specifications)
+- [ ] `README.md` (updated with actual outcomes)
+- [ ] This `WORKPLAN.md` (completed with checkmarks and notes)
+
+**Manufacturing Files** (in `gerbers/` subdirectory):
+- [ ] 7 Gerber files (.gbr or Protel extensions)
+- [ ] 2 Drill files (PTH, NPTH .drl)
+- [ ] 1 Drill map (.pdf)
+- [ ] `low-boost-gerbers-v1.0.zip` (complete package)
+
+**Physical Deliverables**:
+- [ ] 5 or 10 PCBs from PCBWay (as ordered)
+- [ ] PCBs meet quality inspection
+- [ ] No visible defects
+- [ ] Correct dimensions (100mm × 120mm)
+- [ ] Correct surface finish (ENIG or HASL)
+
+### 11.3 Ready-for-Manufacturing Criteria
+
+**Before submitting to PCBWay, all must be true**:
+
+- [ ] Schematic matches original Pultec design intent
+- [ ] All component values verified and correct
+- [ ] PCB layout follows audio best practices (star ground, low noise)
+- [ ] All terminals accessible from board edges
+- [ ] Silkscreen labels clear, readable, and accurate
+- [ ] DRC zero errors with conservative design rules
+- [ ] Gerber files verified in viewer (all layers correct)
+- [ ] Drill holes correct size and position
+- [ ] Board dimensions verified (100mm × 120mm)
+- [ ] Mounting holes correct (4× M3, 3mm from edges)
+- [ ] Component availability verified (BOM items in stock)
+- [ ] Budget approved for PCB order
+
+**Final Sign-Off**: If all criteria met, design is READY FOR MANUFACTURING
+
+### 11.4 Ready-for-Assembly Criteria
+
+**After boards received, ready to assemble when**:
+
+- [ ] PCBs inspected and meet quality standards
+- [ ] All components received (11 caps, 1 resistor, 9 terminals)
+- [ ] 4 inductors designed and wound (or in progress)
+- [ ] Assembly tools available (soldering iron, solder, flux)
+- [ ] Test equipment ready (multimeter, LCR meter, oscilloscope)
+- [ ] Assembly drawing printed for reference
+- [ ] Test procedure documented
+- [ ] Workspace prepared
+
+**Assembly Phase**: Not part of this workplan, but next step after board delivery
+
+### 11.5 Success Metrics
+
+**Quantitative Metrics**:
+
+- [ ] ERC errors: 0 (target: 0)
+- [ ] DRC errors: 0 (target: 0)
+- [ ] Gerber files: 7 (target: 7)
+- [ ] Board dimensions: 100mm × 120mm (±0.2mm)
+- [ ] Components: 23 total (target: 23)
+- [ ] Manufacturing time: 5-7 days (target: <10 days)
+- [ ] Total project time: <25 hours work (target: <30 hours)
+
+**Qualitative Metrics**:
+
+- [ ] Schematic is clear and readable
+- [ ] PCB layout is professional-looking
+- [ ] Silkscreen labels are helpful for assembly
+- [ ] Grounding strategy is correct for audio
+- [ ] Manufacturing files are complete and correct
+- [ ] Documentation is comprehensive
+- [ ] Design can be reproduced by others
+
+**Overall Success**: Low-Boost module PCB designed, verified, and manufactured with quality suitable for professional audio equipment
+
+---
+
+## 12. References
+
+**All documentation and resources**
+
+### 12.1 Project Documentation
+
+**Module-Specific**:
+- `/Users/orion/work/multi-channel-preamp/src/pultec/modules/low-boost/README.md`
+- `/Users/orion/work/multi-channel-preamp/src/pultec/modules/low-boost/PCB_LAYOUT.md`
+- `/Users/orion/work/multi-channel-preamp/src/pultec/modules/low-boost/BOM.csv`
+- `/Users/orion/work/multi-channel-preamp/src/pultec/modules/low-boost/INDUCTOR_SPECS.md`
+
+**System-Level**:
+- `/Users/orion/work/multi-channel-preamp/src/pultec/docs/1.0/COMPONENT_VALUES.md`
+- `/Users/orion/work/multi-channel-preamp/src/pultec/docs/1.0/SYSTEM_OVERVIEW.md`
+- `/Users/orion/work/multi-channel-preamp/src/pultec/SCHEMATIC_CREATION_GUIDE.md`
+
+**Original Design**:
+- `/Users/orion/work/multi-channel-preamp/src/schematics/pultec-three-band-eq/pultec-three-band-eq.kicad_sch`
+- `/Users/orion/work/multi-channel-preamp/reference/` (Ian Thompson-Bell documentation)
+
+### 12.2 KiCAD Resources
+
+**Official Documentation**:
+- KiCAD 7.x Documentation: https://docs.kicad.org/7.0/en/
+- KiCAD 8.x Documentation: https://docs.kicad.org/8.0/en/
+- KiCAD Schematic Editor: https://docs.kicad.org/7.0/en/eeschema/eeschema.html
+- KiCAD PCB Editor: https://docs.kicad.org/7.0/en/pcbnew/pcbnew.html
+
+**Tutorials**:
+- Getting Started with KiCAD: https://docs.kicad.org/7.0/en/getting_started_in_kicad/getting_started_in_kicad.html
+- PCB Design Tutorial: https://www.youtube.com/kicad (official channel)
+
+**Library Resources**:
+- KiCAD Standard Libraries: https://kicad.github.io/
+- Phoenix Contact Footprints: Included in standard KiCAD library
+- Vishay Capacitor Models: Available from SnapEDA or Ultra Librarian
+
+### 12.3 PCBWay Resources
+
+**Website**: https://www.pcbway.com/
+
+**Documentation**:
+- PCB Specifications: https://www.pcbway.com/capabilities.html
+- Gerber File Requirements: https://www.pcbway.com/helpcenter/technical_support/Gerber_File_Requirements.html
+- Design for Manufacturing (DFM): https://www.pcbway.com/blog/help_center/PCB_Design_Tutorial___DFM.html
+
+**Support**:
+- Live Chat: Available on PCBWay website
+- Email: support@pcbway.com
+- Phone: Listed on contact page
+
+### 12.4 Component Datasheets
+
+**Capacitors**:
+- Vishay MKT1813 Series: https://www.vishay.com/docs/28360/mkt1813.pdf
+
+**Resistors**:
+- Vishay MRS25 Series: https://www.vishay.com/docs/28705/mrs25.pdf
+
+**Screw Terminals**:
+- Phoenix Contact 1757 Series: https://www.phoenixcontact.com/
+  - 1757019 (2-pos): Search Phoenix website for datasheet
+  - 1757022 (3-pos): Search Phoenix website for datasheet
+  - 1757025 (6-pos): Search Phoenix website for datasheet
+
+### 12.5 Design Guidelines
+
+**Audio PCB Design**:
+- Audio Circuits: Design and Layout, Neil Muncy
+- Grounding and Shielding, Henry Ott
+- The Art of Electronics, Horowitz & Hill (Chapter on Audio)
+
+**KiCAD Best Practices**:
+- KiCAD Library Conventions: https://klc.kicad.org/
+- PCB Design Best Practices: https://www.fedevel.com/
+
+**Pultec EQ References**:
+- Original Pultec EQP-1A schematics (public domain)
+- Ian Thompson-Bell documentation (in `/reference/` directory)
+- Classic Pultec service manuals
+
+### 12.6 Tools and Software
+
+**Required**:
+- KiCAD 7.x or 8.x: https://www.kicad.org/download/
+
+**Recommended**:
+- Gerber Viewer: gerbv (open source) or KiCAD built-in
+- PDF Reader: Adobe Acrobat, Preview (macOS), or Evince (Linux)
+- Text Editor: VS Code, Sublime Text, or similar
+
+**Optional**:
+- LCR Meter: For verifying component values (BK Precision 889B, Keysight U1733C)
+- Oscilloscope: For testing frequency response
+- Function Generator: For signal injection
+
+### 12.7 Supplier Links
+
+**Component Suppliers**:
+- Mouser Electronics: https://www.mouser.com/
+- Digi-Key: https://www.digikey.com/
+- Newark: https://www.newark.com/
+
+**PCB Fabrication**:
+- PCBWay: https://www.pcbway.com/
+- JLCPCB: https://jlcpcb.com/ (alternate)
+- OSH Park: https://oshpark.com/ (alternate, US-based)
+
+**Inductor Components**:
+- Hammond Manufacturing: https://www.hammfg.com/ (cores, laminations)
+- MWS Wire: https://www.mwswire.com/ (magnet wire)
+- Mouser/Digi-Key: (nomex, insulation tape, varnish)
+
+### 12.8 Version Control
+
+**Git Repository**: `/Users/orion/work/multi-channel-preamp/`
+
+**Current Branch**: `feat/modular-pultec`
+
+**Recent Commits** (relevant to this module):
+- `db35355`: Initial modular design documentation
+- `558fa27`: Added BOM and system overview
+- `7e97ab9`: Added Ian Thompson-Bell reference docs
+
+**Recommended Workflow**:
+- Commit schematic after Phase 1 complete
+- Commit PCB layout after Phase 2 complete
+- Commit manufacturing files after Phase 3 complete
+- Create tag: `low-boost-v1.0-ready-for-manufacturing`
+
+---
+
+## Appendix A: Quick Reference Checklists
+
+### Schematic Quick Checklist (Phase 1)
+
+```
+☐ Capacitor values verified (nF vs µF)
+☐ All 11 capacitors added
+☐ R2 (56kΩ) added
+☐ All 9 screw terminals added
+☐ All components wired per topology
+☐ Net labels applied
+☐ Title block complete
+☐ ERC zero errors
+☐ PDF exported
+☐ Netlist generated
+```
+
+### PCB Layout Quick Checklist (Phase 2)
+
+```
+☐ Board 100mm × 120mm
+☐ 4 mounting holes at corners
+☐ All terminals on board edges
+☐ Capacitors in center area
+☐ Star ground at X=50mm, Y=60mm
+☐ Ground plane continuous
+☐ All traces routed
+☐ Silkscreen complete
+☐ Test points added
+☐ DRC zero errors
+```
+
+### Gerber Quick Checklist (Phase 3)
+
+```
+☐ F.Cu (top copper)
+☐ B.Cu (bottom ground plane)
+☐ F.SilkS (top silkscreen)
+☐ B.SilkS (bottom silkscreen)
+☐ F.Mask (top solder mask)
+☐ B.Mask (bottom solder mask)
+☐ Edge.Cuts (board outline)
+☐ PTH drill file
+☐ NPTH drill file
+☐ All verified in Gerber viewer
+☐ ZIP package created
+```
+
+### PCBWay Quick Checklist (Phase 4)
+
+```
+☐ Account created
+☐ Gerbers uploaded
+☐ Dimensions auto-detected correctly
+☐ 2-layer specified
+☐ FR-4 material
+☐ 1.6mm thickness
+☐ 1 oz copper
+☐ Surface finish selected (ENIG/HASL)
+☐ Green solder mask
+☐ White silkscreen
+☐ E-test selected
+☐ PCBWay DRC passed
+☐ Order placed
+```
+
+---
+
+## Appendix B: File Naming Conventions
+
+**KiCAD Project Files**:
+- Project: `low-boost.kicad_pro`
+- Schematic: `low-boost.kicad_sch`
+- PCB: `low-boost.kicad_pcb`
+- Netlist: `low-boost.net`
+
+**Exported Documentation**:
+- Schematic PDF: `low-boost-schematic.pdf`
+- Assembly Drawing: `low-boost-assembly-top.pdf`
+- BOM: `low-boost-BOM.csv`
+- Fabrication Drawing: `low-boost-fabrication-drawing.pdf`
+
+**Manufacturing Files** (Gerbers):
+- Top Copper: `low-boost-F_Cu.gbr` or `low-boost.GTL`
+- Bottom Copper: `low-boost-B_Cu.gbr` or `low-boost.GBL`
+- Top Silkscreen: `low-boost-F_SilkS.gbr` or `low-boost.GTO`
+- Bottom Silkscreen: `low-boost-B_SilkS.gbr` or `low-boost.GBO`
+- Top Solder Mask: `low-boost-F_Mask.gbr` or `low-boost.GTS`
+- Bottom Solder Mask: `low-boost-B_Mask.gbr` or `low-boost.GBS`
+- Board Outline: `low-boost-Edge_Cuts.gbr` or `low-boost.GM1`
+
+**Drill Files**:
+- Plated Holes: `low-boost-PTH.drl`
+- Non-Plated Holes: `low-boost-NPTH.drl`
+- Drill Map: `low-boost-drl_map.pdf`
+
+**Archive**:
+- Gerber Package: `low-boost-gerbers-v1.0.zip`
+
+---
+
+## Appendix C: Troubleshooting Guide
+
+### Common KiCAD Issues
+
+**Issue: Component footprint not found**
+- Solution: Install required library (Phoenix footprints) or use generic footprint
+
+**Issue: Netlist import fails**
+- Solution: Re-run ERC, verify all pins connected, regenerate netlist
+
+**Issue: DRC shows clearance errors**
+- Solution: Increase trace spacing, adjust component placement, verify design rules
+
+**Issue: Ground plane not filling**
+- Solution: Check net assignment (must be "GND"), verify clearances, rebuild copper pour
+
+**Issue: Via not connecting to plane**
+- Solution: Check thermal relief settings, verify via net matches plane net
+
+### Common PCBWay Issues
+
+**Issue: Auto-detection wrong dimensions**
+- Solution: Verify Edge.Cuts layer is closed polygon, regenerate Gerbers
+
+**Issue: DRC fails at PCBWay**
+- Solution: Download report, fix errors in KiCAD, regenerate Gerbers
+
+**Issue: Silkscreen on pads warning**
+- Solution: Usually auto-corrected by PCBWay, or enable "subtract mask from silk" in plot settings
+
+**Issue: Drill file format error**
+- Solution: Use Excellon format, decimal units, ensure PTH/NPTH separated
+
+---
+
+## End of Workplan
+
+**Document Status**: Complete and ready for execution
+**Last Updated**: 2025-10-26
+**Next Action**: Begin Phase 1 - Verify capacitor values
+
+**For questions or issues during execution, consult**:
+- This workplan (comprehensive step-by-step guide)
+- Module README.md (component and circuit details)
+- PCB_LAYOUT.md (layout specifications)
+- SCHEMATIC_CREATION_GUIDE.md (KiCAD workflow)
+- Specialized agents (circuit-design-specialist, pcb-layout-engineer, etc.)
+
+---
+
+**Ready to begin? Start with Section 3.1: Critical Pre-Work - Verify Capacitor Values**

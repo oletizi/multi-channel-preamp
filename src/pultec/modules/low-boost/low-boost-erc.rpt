@@ -1,0 +1,107 @@
+ERC report (2025-10-26T14:49:28-0700, Encoding UTF8)
+
+***** Sheet /
+[lib_symbol_mismatch]: Symbol 'Screw_Terminal_01x02' doesn't match copy in library 'Connector'
+    ; warning
+    @(38.10 mm, 58.42 mm): Symbol J1 [Screw_Terminal_01x02]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(43.18 mm, 55.88 mm): Symbol J1 Pin 2 [Pin_2, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(43.18 mm, 58.42 mm): Symbol J1 Pin 1 [Pin_1, Passive, Line]
+[lib_symbol_mismatch]: Symbol 'GND' doesn't match copy in library 'power'
+    ; warning
+    @(43.18 mm, 66.04 mm): Symbol #PWR01 [GND]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(43.18 mm, 66.04 mm): Symbol #PWR01 Pin 1 [Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(43.18 mm, 66.04 mm): Symbol #PWR01 Pin 1 [Power input, Line]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(50.80 mm, 60.96 mm): Label 'SIG_IN'
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.19 mm, 60.96 mm): Symbol R2 Pin 1 [Passive, Line]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(127.00 mm, 60.96 mm): Symbol R2 [R]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(130.81 mm, 60.96 mm): Symbol R2 Pin 2 [Passive, Line]
+[lib_symbol_mismatch]: Symbol 'Screw_Terminal_01x06' doesn't match copy in library 'Connector'
+    ; warning
+    @(83.82 mm, 129.54 mm): Symbol J3 [Screw_Terminal_01x06]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.74 mm, 134.62 mm): Symbol J3 Pin 1 [Pin_1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(81.28 mm, 134.62 mm): Symbol J3 Pin 2 [Pin_2, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(83.82 mm, 134.62 mm): Symbol J3 Pin 3 [Pin_3, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(86.36 mm, 134.62 mm): Symbol J3 Pin 4 [Pin_4, Passive, Line]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(88.90 mm, 134.62 mm): Label 'BOOST_SEL_SND'
+[pin_not_connected]: Pin not connected
+    ; error
+    @(91.44 mm, 134.62 mm): Symbol J3 Pin 6 [Pin_6, Passive, Line]
+[lib_symbol_mismatch]: Symbol 'Screw_Terminal_01x06' doesn't match copy in library 'Connector'
+    ; warning
+    @(83.82 mm, 144.78 mm): Symbol J4 [Screw_Terminal_01x06]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.74 mm, 149.86 mm): Symbol J4 Pin 1 [Pin_1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(81.28 mm, 149.86 mm): Symbol J4 Pin 2 [Pin_2, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(83.82 mm, 149.86 mm): Symbol J4 Pin 3 [Pin_3, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(86.36 mm, 149.86 mm): Symbol J4 Pin 4 [Pin_4, Passive, Line]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(88.90 mm, 149.86 mm): Label 'BOOST_SEL_RET'
+[pin_not_connected]: Pin not connected
+    ; error
+    @(91.44 mm, 149.86 mm): Symbol J4 Pin 6 [Pin_6, Passive, Line]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(200.66 mm, 60.96 mm): Label 'SIG_OUT'
+[lib_symbol_mismatch]: Symbol 'GND' doesn't match copy in library 'power'
+    ; warning
+    @(208.28 mm, 66.04 mm): Symbol #PWR02 [GND]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(208.28 mm, 66.04 mm): Symbol #PWR02 Pin 1 [Power input, Line]
+[lib_symbol_mismatch]: Symbol 'Screw_Terminal_01x02' doesn't match copy in library 'Connector'
+    ; warning
+    @(213.36 mm, 58.42 mm): Symbol J2 [Screw_Terminal_01x02]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(218.44 mm, 58.42 mm): Symbol J2 Pin 1 [Pin_1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(218.44 mm, 60.96 mm): Symbol J2 Pin 2 [Pin_2, Passive, Line]
+[lib_symbol_mismatch]: Symbol 'Screw_Terminal_01x03' doesn't match copy in library 'Connector'
+    ; warning
+    @(203.20 mm, 129.54 mm): Symbol J5 [Screw_Terminal_01x03]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(200.66 mm, 134.62 mm): Symbol J5 Pin 1 [Pin_1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(203.20 mm, 134.62 mm): Symbol J5 Pin 2 [Pin_2, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(205.74 mm, 134.62 mm): Symbol J5 Pin 3 [Pin_3, Passive, Line]
+
+ ** ERC messages: 34  Errors 26  Warnings 8
