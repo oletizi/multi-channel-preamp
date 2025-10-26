@@ -1,0 +1,58 @@
+Mouser Part Number,Quantity,Description,Unit Price,Extended Price,Notes
+594-MKT1813471104,1,"Film cap, 470pF, 5%, 100V, 5.08mm",$0.58,$0.58,High-Boost C2a2
+594-MKT1813102104,4,"Film cap, 1nF, 5%, 100V, 5.08mm",$0.58,$2.32,"Low-Boost C4a2/C7/C34/C35"
+594-MKT1813152104,1,"Film cap, 1.5nF, 5%, 100V, 5.08mm",$0.58,$0.58,Low-Boost C5a2
+594-MKT1813182104,1,"Film cap, 1.8nF, 5%, 100V, 5.08mm",$0.58,$0.58,Low-Boost C6
+594-MKT1813222104,2,"Film cap, 2.2nF, 5%, 100V, 5.08mm",$0.58,$1.16,"Low-Boost C5, High-Boost C33"
+594-MKT1813332104,2,"Film cap, 3.3nF, 5%, 100V, 5.08mm",$0.58,$1.16,"Low-Boost C4, High-Boost C16"
+594-MKT1813472104,3,"Film cap, 4.7nF, 5%, 100V, 5.08mm",$0.58,$1.74,"Low-Boost C3, High-Boost C14/C15"
+594-MKT1813103104,3,"Film cap, 10nF, 5%, 100V, 5.08mm",$0.58,$1.74,"Low-Boost C2, High-Boost C32, High-Cut C31"
+594-MKT1813153104,1,"Film cap, 15nF, 5%, 100V, 5.08mm",$0.58,$0.58,High-Boost C29
+594-MKT1813183104,1,"Film cap, 18nF, 5%, 100V, 5.08mm",$0.58,$0.58,Low-Boost C1
+594-MKT1813223104,2,"Film cap, 22nF, 5%, 100V, 5.08mm",$0.58,$1.16,High-Cut C27/C28
+594-MKT1813333104,2,"Film cap, 33nF, 5%, 100V, 5.08mm",$0.58,$1.16,"Low-Cut C23, High-Cut C30"
+594-MKT1813473104,4,"Film cap, 47nF, 5%, 100V, 5.08mm",$0.58,$2.32,"Low-Cut C24, High-Cut C22/C25/C26"
+594-MKT1813683104,1,"Film cap, 68nF, 5%, 100V, 5.08mm",$0.68,$0.68,High-Cut C21
+594-MKT1813124104,1,"Film cap, 120nF, 5%, 100V, 5.08mm",$0.68,$0.68,High-Cut C20
+594-MKT1813224104,1,"Film cap, 220nF, 5%, 100V, 5.08mm",$0.68,$0.68,High-Cut C19
+594-MKT1813334104,1,"Film cap, 330nF, 5%, 100V, 5.08mm",$0.68,$0.68,High-Cut C18
+594-MRS25C4300FCT00,1,"Resistor, 430Ω, 1/4W, 1%, Metal film",$0.24,$0.24,High-Cut R1
+594-MRS25C4701FCT00,1,"Resistor, 4.7kΩ, 1/4W, 1%, Metal film",$0.24,$0.24,High-Boost R3
+594-MRS25C5602FCT00,1,"Resistor, 56kΩ, 1/4W, 1%, Metal film",$0.24,$0.24,Low-Boost R2
+651-1757019,27,"Screw terminal, 2-pos, 5.08mm pitch, Phoenix Contact",$0.89,$24.03,"Signal I/O, inductor connections, grounds"
+651-1757022,8,"Screw terminal, 3-pos, 5.08mm pitch, Phoenix Contact",$1.15,$9.20,"Level controls, 3-pos selectors"
+651-1757025,6,"Screw terminal, 6-pos, 5.08mm pitch, Phoenix Contact",$1.89,$11.34,"Frequency selectors (Low/High Boost/Cut)"
+
+,,,Component Subtotal:,$63.67,
+,,,Estimated Shipping (USA):,$7.99,
+,,,Order Total (before tax):,$71.66,
+
+ORDER NOTES:
+This order contains exact quantities for ONE complete 4-module Pultec EQ system.
+
+RECOMMENDED ADDITIONS (not included above):
+- Add +5 each of common capacitor values (1nF: 594-MKT1813102104, 10nF: 594-MKT1813103104, 47nF: 594-MKT1813473104)
+- Add +2 each terminal type for spares (651-1757019, 651-1757022, 651-1757025)
+- Consider ordering 10× quantities to capture price breaks (see individual module BOMs)
+
+NOT INCLUDED IN THIS ORDER:
+- Hand-wound inductors (11 total - requires separate sourcing or DIY)
+- PCBs (order from JLCPCB, PCBWay, or other fab house)
+- External controls (potentiometers, rotary switches)
+- Wire, hardware, chassis components
+
+QUALITY VERIFICATION ON RECEIPT:
+- Verify capacitor lead spacing is 5.08mm (critical for PCB compatibility)
+- Spot-check capacitor values with capacitance meter
+- Verify resistor color codes match ordered values
+- Inspect terminal blocks for mechanical integrity
+
+MOUSER CART IMPORT:
+This CSV can be imported directly into Mouser's cart using their "Upload Order" feature.
+Format: Mouser Part Number, Quantity
+
+For bulk orders (10+ units), contact Mouser for volume pricing quote.
+
+Order Date: 2025-10-26
+Project: Pultec Three-Band Equalizer - Modular Design
+Revision: 1.0
