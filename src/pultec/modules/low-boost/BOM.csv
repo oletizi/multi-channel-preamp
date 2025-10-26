@@ -1,0 +1,26 @@
+Reference,Quantity,Value,Description,Manufacturer,Part Number,Supplier,Supplier P/N,Unit Price,Extended Price
+C1,1,18nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813183104,Mouser,594-MKT1813183104,$0.50,$0.50
+C2,1,10nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813103104,Mouser,594-MKT1813103104,$0.50,$0.50
+C3,1,4.7nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813472104,Mouser,594-MKT1813472104,$0.50,$0.50
+C4,1,3.3nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813332104,Mouser,594-MKT1813332104,$0.50,$0.50
+C5,1,2.2nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813222104,Mouser,594-MKT1813222104,$0.50,$0.50
+C4a2,1,1nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813102104,Mouser,594-MKT1813102104,$0.50,$0.50
+C5a2,1,1.5nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813152104,Mouser,594-MKT1813152104,$0.50,$0.50
+C6,1,1.8nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813182104,Mouser,594-MKT1813182104,$0.50,$0.50
+C7,1,1nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813102104,Mouser,594-MKT1813102104,$0.50,$0.50
+C34,1,1nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813102104,Mouser,594-MKT1813102104,$0.50,$0.50
+C35,1,1nF,"Film capacitor, 5%, 100V, 5.08mm pitch",Vishay,MKT1813102104,Mouser,594-MKT1813102104,$0.50,$0.50
+R2,1,56kΩ,"Metal film resistor, 1/4W, 1%",Vishay,MRS25000C5602FCT00,Mouser,594-MRS25C5602FCT00,$0.20,$0.20
+J_IN,1,2-pos,"Screw terminal, 2-position, 5.08mm pitch",Phoenix Contact,1757019,Mouser,651-1757019,$0.75,$0.75
+J_OUT,1,2-pos,"Screw terminal, 2-position, 5.08mm pitch",Phoenix Contact,1757019,Mouser,651-1757019,$0.75,$0.75
+J_BOOST_SEL_SND,1,6-pos,"Screw terminal, 6-position, 5.08mm pitch",Phoenix Contact,1757025,Mouser,651-1757025,$1.50,$1.50
+J_BOOST_SEL_RET,1,6-pos,"Screw terminal, 6-position, 5.08mm pitch",Phoenix Contact,1757025,Mouser,651-1757025,$1.50,$1.50
+J_CUT_SEL_SND,1,3-pos,"Screw terminal, 3-position, 5.08mm pitch",Phoenix Contact,1757022,Mouser,651-1757022,$1.00,$1.00
+J_BOOST_LVL,1,3-pos,"Screw terminal, 3-position, 5.08mm pitch",Phoenix Contact,1757022,Mouser,651-1757022,$1.00,$1.00
+J_IND_20HZ,1,2-pos,"Screw terminal, 2-position, 5.08mm pitch",Phoenix Contact,1757019,Mouser,651-1757019,$0.75,$0.75
+J_IND_30HZ,1,2-pos,"Screw terminal, 2-position, 5.08mm pitch",Phoenix Contact,1757019,Mouser,651-1757019,$0.75,$0.75
+J_IND_60HZ,1,2-pos,"Screw terminal, 2-position, 5.08mm pitch",Phoenix Contact,1757019,Mouser,651-1757019,$0.75,$0.75
+J_IND_100HZ,1,2-pos,"Screw terminal, 2-position, 5.08mm pitch",Phoenix Contact,1757019,Mouser,651-1757019,$0.75,$0.75
+J_GND,1,2-pos,"Screw terminal, 2-position, 5.08mm pitch",Phoenix Contact,1757019,Mouser,651-1757019,$0.75,$0.75
+PCB,1,N/A,"PCB, 2-layer, custom size",TBD,TBD,TBD,TBD,$8.00,$8.00
+,,,,,,,Total:,$24.20
