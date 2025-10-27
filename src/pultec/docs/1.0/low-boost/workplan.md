@@ -3,8 +3,25 @@
 
 **Project**: Pultec Three-Band EQ - Low Boost Module
 **Date Created**: 2025-10-26
-**Revision**: 1.0
-**Status**: Ready for Execution
+**Last Updated**: 2025-10-26 15:00 PST
+**Revision**: 1.1
+**Status**: 🛑 **BLOCKED - CRITICAL DECISION REQUIRED**
+
+---
+
+## 🚨 CRITICAL ISSUE - READ FIRST
+
+**A BLOCKING ISSUE HAS BEEN IDENTIFIED**: There is a 100× frequency discrepancy in the Low Boost module design.
+
+**Problem**: The schematic uses nanofarad capacitors (18nF, 10nF, 4.7nF, 3.3nF), but combined with the Henry-range inductors (3.5H, 2.8H, 1.5H, 0.77H), these produce resonant frequencies of **2-10 kHz**, NOT the documented 20-100 Hz bass frequencies.
+
+**See**: [CAPACITOR_VALUE_VERIFICATION_REPORT.md](../CAPACITOR_VALUE_VERIFICATION_REPORT.md)
+
+**DECISION REQUIRED**:
+- **Option A**: Change to µF capacitors for traditional bass EQ (20-100 Hz)
+- **Option B**: Keep nF capacitors, relabel as mid-range EQ (2-10 kHz)
+
+**NO WORK CAN PROCEED** until this decision is made by the project stakeholder.
 
 ---
 
@@ -76,9 +93,12 @@ The **Low-Boost Module** is a passive LC resonant network that provides frequenc
 
 ### Known Challenges
 
-1. **Capacitor Value Ambiguity**: INDUCTOR_SPECS.md notes potential error in capacitor values (nF vs µF)
-   - **Action Required**: Verify in original schematic before finalizing
-   - **Impact**: Critical for inductor design
+1. **🛑 BLOCKING: Capacitor Value 100× Discrepancy** ❌ **VERIFIED - DECISION REQUIRED**
+   - **Finding**: Schematic uses nF capacitors, documentation claims 20-100 Hz
+   - **Reality**: Current values produce 2-10 kHz resonance (100× higher)
+   - **Action Required**: Stakeholder must choose bass (µF caps) or mid-range (nF caps)
+   - **Impact**: BLOCKING - All work stopped until decision made
+   - **Details**: See `/Users/orion/work/multi-channel-preamp/src/pultec/docs/1.0/CAPACITOR_VALUE_VERIFICATION_REPORT.md`
 
 2. **Complex Connectivity**: 11 capacitors + 4 inductor connections + multiple selectors
    - **Mitigation**: Use clear net labels and functional grouping
@@ -94,10 +114,11 @@ The **Low-Boost Module** is a passive LC resonant network that provides frequenc
 - [x] KiCAD 7.x or 8.x installed
 - [x] KiCAD MCP server connected
 - [x] Phoenix Contact footprint library available
-- [x] Component specifications finalized
+- [x] Component specifications finalized (pending decision)
 - [x] PCB layout specifications documented
 - [x] Inductor design specifications complete
-- [ ] Capacitor values verified (nF vs µF) - **CRITICAL**
+- [x] Capacitor values verified (nF vs µF) - **VERIFIED - DISCREPANCY FOUND**
+- [ ] **🛑 BLOCKING: Design decision made (bass vs mid-range)** - **AWAITING STAKEHOLDER**
 
 ---
 
